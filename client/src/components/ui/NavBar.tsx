@@ -22,7 +22,7 @@ export default function NavBar(): JSX.Element {
           </Nav.Link>
 
           {auth.user.status === 'authenticated' ? (
-            <></>
+            <p />
           ) : (
             <>
               <Nav.Link as={Link} to="/login">

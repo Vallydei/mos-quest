@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react'; 
 
-export default function QuestPage() {
-  return (
-    <div>QuestPage</div>
-  )
+export default function QuestPage(): JSX.Element {
+  return <div>f</div>;
 }
