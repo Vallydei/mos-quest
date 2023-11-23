@@ -5,6 +5,7 @@ import NavBar from './components/ui/NavBar';
 import MainPage from './components/pages/MainPage';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
+import QuestPage from './components/pages/QuestPage';
 
 function App(): JSX.Element {
   return (
@@ -17,7 +18,7 @@ function App(): JSX.Element {
       <Row className="justify-content-center align-items-center">
         <Col xs={12}>
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/" element={<QuestPage />} />
 
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
