@@ -20,9 +20,13 @@ export default function NavBar(): JSX.Element {
           <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
-
+          <Nav.Link as={Link} to="/themepage">
+              ThemePage
+            </Nav.Link>
           {auth.user.status === 'authenticated' ? (
-            <></>
+            <Nav.Link as={Link} to="/achievements">
+              Achievements
+            </Nav.Link>
           ) : (
             <>
               <Nav.Link as={Link} to="/login">

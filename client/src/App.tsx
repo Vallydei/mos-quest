@@ -6,6 +6,8 @@ import MainPage from './components/pages/MainPage';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import QuestPage from './components/pages/QuestPage';
+import AchievePage from './components/pages/AchievePage';
+import ThemePage from './components/pages/ThemePage';
 
 function App(): JSX.Element {
   return (
@@ -19,7 +21,8 @@ function App(): JSX.Element {
         <Col xs={12}>
           <Routes>
             <Route path="/" element={<QuestPage />} />
-
+            <Route path="/achievements" element={<AchievePage />} />
+            <Route path="/themepage" element={<ThemePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
           </Routes>
