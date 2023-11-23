@@ -17,6 +17,9 @@ export default function NavBar(): JSX.Element {
           Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
         </Navbar.Brand>
         <Nav className="me-auto">
+        <Nav.Link as={Link} to="/locations">
+            Locations
+          </Nav.Link>
           <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
