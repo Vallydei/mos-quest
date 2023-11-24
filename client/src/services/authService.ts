@@ -21,6 +21,8 @@ class AuthService {
   }
 
   static async signup(formData: SignupFormData): Promise<BackendAuth> {
+    console.log(formData);
+    
     const response = await authInstance.post<BackendAuth>('/auth/signup', formData);
     return response.data;
   }

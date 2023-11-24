@@ -37,7 +37,6 @@ export default function RecipeReviewCard(): JSX.Element {
   };
 
   return (
-    
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
@@ -53,12 +52,14 @@ export default function RecipeReviewCard(): JSX.Element {
         title="Название локации"
         subheader="November 23, 2023"
       />
-      <CardMedia
-        component="img"
-        height="194"
-        image="https://kartinki.pics/uploads/posts/2022-03/1647532093_1-kartinkin-net-p-kartinki-bara-1.jpg"
-        alt="Описание локации"
-      />
+      <a href="/location/:id">
+        <CardMedia
+          component="img"
+          height="194"
+          image="https://kartinki.pics/uploads/posts/2022-03/1647532093_1-kartinkin-net-p-kartinki-bara-1.jpg"
+          alt="Описание локации"
+        />
+      </a>
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
@@ -86,7 +87,7 @@ export default function RecipeReviewCard(): JSX.Element {
             Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
             heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
             browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-            and chorizo in the pan. 
+            and chorizo in the pan.
           </Typography>
           <Typography />
           <Typography />

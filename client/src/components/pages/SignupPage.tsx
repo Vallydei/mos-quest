@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Button, TextField } from '@mui/material';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkSignup } from '../../redux/slices/auth/createAsyncThunks';
 import type { SignupFormData } from '../../types/auth';
@@ -8,30 +7,69 @@ import type { SignupFormData } from '../../types/auth';
 export default function SignupPage(): JSX.Element {
   const dispatch = useAppDispatch();
   return (
-    <Form
+    <form
       onSubmit={(e) => {
         e.preventDefault();
+      
+
         const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
+        console.log('смотри сюда', formData);
         void dispatch(thunkSignup(formData));
       }}
     >
-      <Form.Group className="mb-3" controlId="formBasicName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control name='name' type="text" placeholder="Name" />
-      </Form.Group>
+      <h1>Регистрация</h1>
+      <TextField
+        required
+        label="Name"
+        placeholder="Name"
+        error={false && 'Invalid email address or password'}
+        name="name"
+      />
+      <TextField
+        required
+        label="E-mail"
+        placeholder="E-mail"
+        error={false && 'Invalid email address or password'}
+        name="email"
+      />
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control name='email' type="email" placeholder="Enter email" />
-      </Form.Group>
+      <TextField
+        required
+        label="Password"
+        placeholder="Password"
+        error={false && 'Invalid email address or password'}
+        name="password"
+      />
+      <div>
+        <Button type="submit" color="success" variant="contained" size="large">
+          Submit
+        </Button>
+      </div>
+    </form>
+    // <Form
+    //   onSubmit={(e) => {
+    //     e.preventDefault();
+    //     const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
+    //     void dispatch(thunkSignup(formData));
+    //   }}
+    // >
+    //   <Form.Group className="mb-3" controlId="formBasicName">
+    //     <Form.Label>Name</Form.Label>
+    //     <Form.Control name="name" type="text" placeholder="Name" />
+    //   </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control name='password' type="password" placeholder="Password" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    //   <Form.Group className="mb-3" controlId="formBasicEmail">
+    //     <Form.Label>Email address</Form.Label>
+    //     <Form.Control name="email" type="email" placeholder="Enter email" />
+    //   </Form.Group>
+
+    //   <Form.Group className="mb-3" controlId="formBasicPassword">
+    //     <Form.Label>Password</Form.Label>
+    //     <Form.Control name="password" type="password" placeholder="Password" />
+    //   </Form.Group>
+    //   <Button variant="primary" type="submit">
+    //     Submit
+    //   </Button>
+    // </Form>
   );
 }

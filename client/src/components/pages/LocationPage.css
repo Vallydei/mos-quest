@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.locationContainer {
+  display: flex;
+  border-radius: 5px;
+  border: solid grey 1px;
+  padding: 30px;
+  margin: 50px 0;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+ 
+  /* justify-content: space-between; */
+}
+.carouselContainer {
+  margin-bottom: 40px;
+
+}
+
+
+.SecondExample {
+  min-width: 300px;
+  /* flex: 0 0 50%; */
+
+}
+
+.SecondExample .Project {
+  background-color: lightblue;
+  max-width: 100%;
+  position: relative;
+  height: 35vh;
+  /* min-height: 200px; */
+  overflow: hidden;
+  color: #fff;
+  font-size: 25px;
+  border: 3px solid #fff;
+  text-transform: capitalize;
+}
+
+.SecondExample .Project * {
+  color: #fff;
+}
+
+.imgLocation,
+.imgLocationMap {
+  object-fit: cover;
+  width: 100%;
+
+}
+
+.imgLocationMap {
+  height: 250px;
+}
+
+.commentContainer {
+  border-top: solid lightgrey 2px;
+  padding: 10px 0 20px;
+  display: flex;
+}
+
+.commentsField{ padding-top: 30px;}
+.avatar {
+  width: 60px;
+  margin-right: 20px;
+}
+
+.inputComments {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.commentTextArea{
+  width: 75%;
+ 
+}

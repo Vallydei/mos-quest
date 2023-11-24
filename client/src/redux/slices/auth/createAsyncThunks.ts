@@ -18,7 +18,9 @@ export const thunkLogin = createAsyncThunk(
 export const thunkSignup = createAsyncThunk(
   'authSlice/thunkSignup',
   async (formData: SignupFormData) => {
+    console.log(formData);
     const backendAuth = await AuthService.signup(formData);
+    
     return { ...backendAuth, user: { ...backendAuth.user, status: 'authenticated' } };
   },
 );
