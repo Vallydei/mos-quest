@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper } from '@mui/material';
-import '../pages/LacationPage.css';
+import '../pages/LocationPage.css';
 
 type ItemProps = {
   item: { name: string; description: string; img: string };

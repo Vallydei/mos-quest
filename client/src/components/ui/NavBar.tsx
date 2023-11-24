@@ -23,20 +23,26 @@ export default function NavBar(): JSX.Element {
 
         <ListItem role="none">
           <ListItemButton role="menuitem" component="a" href="/" aria-label="Home">
-            <Home />
+            <Home /> Главная
           </ListItemButton>
         </ListItem>
-
+        <ListDivider />
         <ListItem role="none">
           <ListItemButton role="menuitem" component="a" href="/locations">
             Locations
           </ListItemButton>
         </ListItem>
         <ListDivider />
+        <ListItem role="none">
+          <ListItemButton role="menuitem" component="a" href="/account">
+            Личный кабинет
+          </ListItemButton>
+        </ListItem>
+        <ListDivider />
         {/* {auth.user.status === 'authenticated' ? ( */}
         <ListItem role="none">
           <ListItemButton role="menuitem" component="a" href="/themepage">
-            Achievements
+            Категории квестов
           </ListItemButton>
         </ListItem>
         {/* ) : ( */}

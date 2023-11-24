@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 import Item from './CarouselItem';
-import '../pages/LacationPage.css';
+import '../pages/LocationPage.css';
 
 export default function CarouselElement(): JSX.Element {
   const items = [

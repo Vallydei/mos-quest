@@ -5,7 +5,7 @@ import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
 import { TextField } from '@mui/material';
 import CarouselElement from '../ui/CarouselElement';
-import CommentCard from './CommentCard';
+import CommentCard from '../ui/CommentCard';
 
 export default function LocationPage(): JSX.Element {
   const location = {
