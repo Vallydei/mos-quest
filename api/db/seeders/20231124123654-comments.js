@@ -2,32 +2,32 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      'People',
+      "Comments",
       [
         {
           userId: 1,
           locationId: 1,
-          text: 'Лера делает не так!'
+          text: "Лера делает не так!",
         },
         {
           userId: 2,
           locationId: 1,
-          text: 'Лера делает на много лучше!'
+          text: "Лера делает на много лучше!",
         },
         {
           userId: 2,
           locationId: 1,
-          text: 'Лера шикарная женщина(Маша)! (Изменить на Машу)'
+          text: "Лера шикарная женщина(Маша)! (Изменить на Машу)",
         },
         {
           userId: 1,
           locationId: 1,
-          text: 'Никита котик!(злодейский)'
+          text: "Никита котик!(злодейский)",
         },
         {
           userId: 1,
           locationId: 1,
-          text: 'Го тусить в пятницу!'
+          text: "Го тусить в пятницу!",
         },
       ],
       {}
