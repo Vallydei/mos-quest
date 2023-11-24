@@ -2,10 +2,11 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/ui/NavBar';
-import MainPage from './components/pages/MainPage';
+// import MainPage from './components/pages/MainPage';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import QuestPage from './components/pages/QuestPage';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App(): JSX.Element {
   return (
