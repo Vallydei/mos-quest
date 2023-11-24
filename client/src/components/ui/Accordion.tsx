@@ -132,22 +132,22 @@ export default function ControlledAccordions(): JSX.Element {
 
   return (
     <div>
-         <ThemeProvider theme={theme}>
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Шаг 1</Typography>
+      <ThemeProvider theme={theme}>
+        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Typography sx={{ width: '33%', flexShrink: 0 }}>Шаг 1</Typography>
 
-          <Typography sx={{ color: 'text.secondary' }}>{quest.questions[0].title}</Typography>
-        </AccordionSummary>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-            <AccordionDetails>
-              <Typography>{quest.questions[0].question}</Typography>
-           
+            <Typography sx={{ color: 'text.secondary' }}>{quest.questions[0].title}</Typography>
+          </AccordionSummary>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <AccordionDetails>
+                <Typography>{quest.questions[0].question}</Typography>
+
                 <TextField
                   id="outlined-basic"
                   size="small"
@@ -156,57 +156,55 @@ export default function ControlledAccordions(): JSX.Element {
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
                 />
-                  <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
-                Next
-              </Button>
-             
-            
-            </AccordionDetails>
+                <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
+                  Next
+                </Button>
+              </AccordionDetails>
+            </Grid>
           </Grid>
-        </Grid>
-      </Accordion>
-      {[2, 3, 4, 5].map((step) => (
-        <Accordion
-          key={`panel${step}`}
-          disabled={isAccordionDisabled[`acc${step}`]}
-          expanded={expanded === `panel${step}`}
-          onChange={handleChange(`panel${step}`)}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls={`panel${step}bh-content`}
-            id={`panel${step}bh-header`}
-          >
-            <Typography sx={{ width: '33%', flexShrink: 0 }}>{`Шаг ${step}`}</Typography>
-            <Typography sx={{ color: 'text.secondary' }}>
-              {quest.questions[step - 1].title}
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>{quest.questions[step - 1].question}</Typography>
-            <TextField
-              id={`outlined-basic-${step}`}
-              size="small"
-              label="Ответ на вопрос:"
-              variant="outlined"
-              value={userAnswer}
-              sx={{ height: '40px' }}
-              onChange={(e) => setUserAnswer(e.target.value)}
-            />
-            {step === quest.questions.length ? (
-              <Button sx={{ height: '40px' }} onClick={finishButtonClick} variant="outlined">
-                Finish
-              </Button>
-            ) : (
-              <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
-                Next
-              </Button>
-            )}
-          </AccordionDetails>
         </Accordion>
-      ))}
-      <ToastContainer />
-       </ThemeProvider>
+        {[2, 3, 4, 5].map((step) => (
+          <Accordion
+            key={`panel${step}`}
+            disabled={isAccordionDisabled[`acc${step}`]}
+            expanded={expanded === `panel${step}`}
+            onChange={handleChange(`panel${step}`)}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`panel${step}bh-content`}
+              id={`panel${step}bh-header`}
+            >
+              <Typography sx={{ width: '33%', flexShrink: 0 }}>{`Шаг ${step}`}</Typography>
+              <Typography sx={{ color: 'text.secondary' }}>
+                {quest.questions[step - 1].title}
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{quest.questions[step - 1].question}</Typography>
+              <TextField
+                id={`outlined-basic-${step}`}
+                size="small"
+                label="Ответ на вопрос:"
+                variant="outlined"
+                value={userAnswer}
+                sx={{ height: '40px' }}
+                onChange={(e) => setUserAnswer(e.target.value)}
+              />
+              {step === quest.questions.length ? (
+                <Button sx={{ height: '40px' }} onClick={finishButtonClick} variant="outlined">
+                  Finish
+                </Button>
+              ) : (
+                <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
+                  Next
+                </Button>
+              )}
+            </AccordionDetails>
+          </Accordion>
+        ))}
+        <ToastContainer />
+      </ThemeProvider>
     </div>
   );
 }
