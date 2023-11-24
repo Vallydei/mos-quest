@@ -33,26 +33,26 @@ export default function NavBar(): JSX.Element {
           </ListItemButton>
         </ListItem>
         <ListDivider />
-        {auth.user.status === 'authenticated' ? (
+        {/* {auth.user.status === 'authenticated' ? ( */}
+        <ListItem role="none">
+          <ListItemButton role="menuitem" component="a" href="/themepage">
+            Achievements
+          </ListItemButton>
+        </ListItem>
+        {/* ) : ( */}
+        <>
           <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" href="/themepage">
-              Achievements
+            <ListItemButton role="menuitem" component="a" href="/login">
+              Login
             </ListItemButton>
           </ListItem>
-        ) : (
-          <>
-            <ListItem role="none">
-              <ListItemButton role="menuitem" component="a" href="/login">
-                Login
-              </ListItemButton>
-            </ListItem>
-            <ListItem role="none">
-              <ListItemButton role="menuitem" component="a" href="/signup">
-                SignUp
-              </ListItemButton>
-            </ListItem>
-          </>
-        )}
+          <ListItem role="none">
+            <ListItemButton role="menuitem" component="a" href="/signup">
+              SignUp
+            </ListItemButton>
+          </ListItem>
+        </>
+        {/* )} */}
         <ListItem role="none">
           <ListItemButton
             role="menuitem"
