@@ -28,7 +28,7 @@ export default function NavBar(): JSX.Element {
         </ListItem>
 
         <ListItem role="none">
-          <ListItemButton role="menuitem" component="a" href="/location">
+          <ListItemButton role="menuitem" component="a" href="/locations">
             Locations
           </ListItemButton>
         </ListItem>

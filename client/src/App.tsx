@@ -11,6 +11,7 @@ import AchievePage from './components/pages/AchievePage';
 import ThemePage from './components/pages/ThemePage';
 import PrivateRouter from './components/HOC/PrivateRouter';
 import { useAppSelector } from './redux/hooks';
+import LocationsPage from './components/pages/LocationsPage'
 import LocationPage from './components/pages/LocationPage';
 
 function App(): JSX.Element {
@@ -20,6 +21,7 @@ function App(): JSX.Element {
       <NavBar />
 
       <Routes>
+          <Route path="/locations" element={<LocationsPage />} />
         <Route path="/" element={<QuestPage />} />
         <Route path="/location/:id" element={<LocationPage />} />{' '}
         <Route element={<PrivateRouter isAllowed={user === 'authenticated'} />}>
