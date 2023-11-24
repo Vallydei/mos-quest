@@ -14,7 +14,7 @@ import './AchievePage.css';
 
 const icons = [<BeachAccessIcon />, <AccessAlarmIcon />, <ThreeDRotationIcon />];
 
-export default function AchievePage(): React.JSX.Element {
+export default function AccountPage(): React.JSX.Element {
   const [checked, setChecked] = React.useState([1]);
 
   const handleToggle = (value: number) => () => {

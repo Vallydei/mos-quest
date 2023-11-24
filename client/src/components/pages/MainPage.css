@@ -1,0 +1,174 @@
+@import url(https://pro.fontawesome.com/releases/v5.11.2/css/all.css);
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  transition: 0.25s;
+  /* background: black; */
+}
+
+.mainContainer .options {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  min-width: 600px;
+  max-width: 900px;
+  width: calc(100% - 100px);
+  height: 400px;
+}
+
+.mainContainer .options .option {
+  position: relative;
+  overflow: hidden;
+  min-width: 60px;
+  margin: 10px;
+  background: var(--optionBackground, var(--defaultBackground, #e6e9ed));
+  background-size: auto 120%;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.option:nth-child(1) {
+  background-color: #ed5565;
+}
+.img1 {
+  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_01.jpg');
+}
+.option:nth-child(2),
+.img2 {
+  --defaultBackground: #fc6e51;
+}
+
+.img2 {
+  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_02.jpg');
+}
+
+.option:nth-child(3) {
+  --defaultBackground: #ffce54;
+}
+
+.img3 {
+  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_03.jpg');
+}
+
+.option:nth-child(4) {
+  --defaultBackground: #2ecc71;
+}
+.img4 {
+  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_04.jpg');
+}
+.option:nth-child(5) {
+  --defaultBackground: #5d9cec;
+}
+
+.img5 {
+  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_05.jpg');
+}
+.option:nth-child(6) {
+  --defaultBackground: #ac92ec;
+}
+
+.img6 {
+  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_06.jpg');
+}
+
+.option.active {
+  flex-grow: 10000;
+  transform: scale(1);
+  max-width: 600px;
+  margin: 0px;
+  border-radius: 40px;
+  background-size: auto 100%;
+}
+
+.option.active .label {
+  bottom: 20px;
+  left: 20px;
+}
+.option.active .label .info > div {
+  left: 0px;
+  opacity: 1;
+}
+.option:not(.active) {
+  flex-grow: 1;
+  border-radius: 30px;
+}
+
+.option:not(.active) .label {
+  bottom: 10px;
+  left: 10px;
+}
+.option:not(.active) .label .info > div {
+  left: 20px;
+  opacity: 0;
+}
+
+.label {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  height: 40px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  max-width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: white;
+  color: var(--defaultBackground);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+}
+.fa-martini-glass-citrus:before {
+  content: '\f561';
+  /* color: rgba(0, 0, 0, 0.1); */
+}
+
+.fa-mug-hot:before {
+  content: '\f7b6';
+}
+
+.fa-beer-mug-empty:before {
+  content: '\f0fc';
+}
+
+/* гитара \f7a6 , здание \f19c*/
+.fa-palette:before {
+  content: '\f53f';
+}
+
+.btmMainContainer {
+  margin: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+.btmMain {
+  max-width: 300px;
+  max-height: 200px;
+  padding: 30px;
+  background-color: #0b9549d5;
+  border-radius: 30px;
+  border: none;
+  font-size: 3em;
+  cursor: pointer;
+}
