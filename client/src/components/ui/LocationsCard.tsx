@@ -42,7 +42,7 @@ export default function RecipeReviewCard(): JSX.Element {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            Quest
+            MQ
           </Avatar>
         }
         action={
@@ -50,7 +50,7 @@ export default function RecipeReviewCard(): JSX.Element {
             <MoreVertIcon />
           </IconButton>
         }
-        title="BAR Pink PIG"
+        title="Название локации"
         subheader="November 23, 2023"
       />
       <CardMedia
