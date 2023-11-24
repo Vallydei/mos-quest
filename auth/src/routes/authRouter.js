@@ -33,6 +33,7 @@ authRouter.post('/login', async (req, res) => {
 authRouter.post('/signup', async (req, res) => {
   try {
     const { email, password, name } = req.body;
+    console.log(req.body);
     const [user, created] = await User.findOrCreate({
       where: { email },
       defaults: { name, hashpass: await bcrypt.hash(password, 10) },

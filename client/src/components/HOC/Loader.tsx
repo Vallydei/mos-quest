@@ -1,5 +1,4 @@
 import React from 'react';
-import Spinner from 'react-bootstrap/Spinner';
 
 type LoaderProps = {
   children: JSX.Element;
