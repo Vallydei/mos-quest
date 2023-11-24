@@ -6,6 +6,7 @@ import NavBar from './components/ui/NavBar';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import QuestPage from './components/pages/QuestPage';
+import 'react-toastify/dist/ReactToastify.css';
 import LocationPage from './components/pages/LocationPage';
 
 function App(): JSX.Element {
