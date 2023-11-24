@@ -21,10 +21,11 @@ function App(): JSX.Element {
 
       <Routes>
         <Route path="/" element={<QuestPage />} />
-        <Route path="/location/:id" element={<LocationPage />} />            <Route element={<PrivateRouter isAllowed={user === 'authenticated'} />}>
-            <Route path="/achievements" element={<AchievePage />} />
-            </Route>
-            <Route path="/themepage" element={<ThemePage />} />
+        <Route path="/location/:id" element={<LocationPage />} />{' '}
+        <Route element={<PrivateRouter isAllowed={user === 'authenticated'} />}>
+          <Route path="/achievements" element={<AchievePage />} />
+        </Route>
+        <Route path="/themepage" element={<ThemePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
       </Routes>
