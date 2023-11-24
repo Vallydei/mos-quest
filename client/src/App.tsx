@@ -3,7 +3,7 @@ import '@fontsource/inter';
 import { Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import NavBar from './components/ui/NavBar';
-//import MainPage from './components/pages/MainPage';
+import MainPage from './components/pages/MainPage';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import QuestPage from './components/pages/QuestPage';
@@ -23,7 +23,8 @@ function App(): JSX.Element {
 
       <Routes>
           <Route path="/locations" element={<LocationsPage />} />
-        <Route path="/" element={<QuestPage />} />
+        <Route path="/quest" element={<QuestPage />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/location/:id" element={<LocationPage />} />{' '}
         <Route element={<PrivateRouter isAllowed={user === 'authenticated'} />}>
           <Route path="/achievements" element={<AchievePage />} />
