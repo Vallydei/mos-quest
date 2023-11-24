@@ -11,6 +11,7 @@ import AchievePage from './components/pages/AchievePage';
 import ThemePage from './components/pages/ThemePage';
 import PrivateRouter from './components/HOC/PrivateRouter';
 import { useAppSelector } from './redux/hooks';
+import LocationsPage from './components/pages/LocationsPage'
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user.status);
@@ -24,6 +25,7 @@ function App(): JSX.Element {
       <Row className="justify-content-center align-items-center">
         <Col xs={12}>
           <Routes>
+          <Route path="/locations" element={<LocationsPage />} />
             <Route path="/" element={<QuestPage />} />
             <Route element={<PrivateRouter isAllowed={user === 'authenticated'} />}>
             <Route path="/achievements" element={<AchievePage />} />
