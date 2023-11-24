@@ -1,13 +1,12 @@
+
 .listItem1 {
   background-image: url('../../../../client/public/2.jpg');
   background-size: cover;
-
 }
 
 .listItem2 {
   background-image: url('../../../../client/public/3.jpg');
   background-size: cover;
-
 }
 
 .listItem3 {
@@ -22,6 +21,4 @@
   border-radius: 20px;
   text-align: center;
   font-weight: bold;
-
 }
-

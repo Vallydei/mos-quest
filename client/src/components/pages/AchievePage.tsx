@@ -4,8 +4,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction'; // new line
+import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
 import Checkbox from '@mui/material/Checkbox';
+import Grow from '@mui/material/Grow';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
@@ -13,7 +14,7 @@ import './AchievePage.css';
 
 const icons = [<BeachAccessIcon />, <AccessAlarmIcon />, <ThreeDRotationIcon />];
 
-export default function AchievePage (): React.JSX.Element {
+export default function AchievePage(): React.JSX.Element {
   const [checked, setChecked] = React.useState([1]);
 
   const handleToggle = (value: number) => () => {
@@ -36,14 +37,18 @@ export default function AchievePage (): React.JSX.Element {
         {[0, 1, 2, 3, 4, 5].map((value) => {
           const labelId = `checkbox-list-secondary-label-${value}`;
           return (
-              <ListItem key={value} disablePadding className='list-item'>
+            <Grow in timeout={500} key={value}>
+              <ListItem
+                key={value}
+                disablePadding
+                className='list-item'
+                sx={{ '&:hover': { backgroundColor: '#f5f5f5' } }} // Add hover effect
+              >
                 <ListItemButton>
-                  <ListItemAvatar>
-                    {icons[value % icons.length]}
-                  </ListItemAvatar>
-                  <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+                  <ListItemAvatar>{icons[value % icons.length]}</ListItemAvatar>
+                  <ListItemText id={labelId} primary={`Ачивка ${value + 1}`} />
                   <ListItemSecondaryAction>
-                    <Checkbox 
+                    <Checkbox
                       className='checkbox-icon'
                       edge="end"
                       onChange={handleToggle(value)}
@@ -53,6 +58,7 @@ export default function AchievePage (): React.JSX.Element {
                   </ListItemSecondaryAction>
                 </ListItemButton>
               </ListItem>
+            </Grow>
           );
         })}
       </List>
