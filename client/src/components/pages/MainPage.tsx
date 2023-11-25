@@ -46,7 +46,7 @@ export default function MainPage(): JSX.Element {
               <i className="fas fa-solid fa-beer-mug-empty" />
             </div>
             <div className="info">
-              <div className="main">Ultricies</div>
+              <div className="main">МАША Я ТУТЬ!</div>
               <div className="sub">Elit ut aliquam purus sit</div>
             </div>
           </div>

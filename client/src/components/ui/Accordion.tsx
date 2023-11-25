@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, Grid, TextField, ThemeProvider, createTheme } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
+import RecipeReviewCard from './LocationsCard';
 
 export default function ControlledAccordions(): JSX.Element {
   const theme = createTheme({
@@ -25,7 +26,7 @@ export default function ControlledAccordions(): JSX.Element {
     questions: [
       {
         title: 'вопрос1',
-        question: 'текст вопроса 1',
+        question: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, sed dolorum sunt, odit unde ipsum labore, praesentium asperiores doloremque iste ea eum quisquam libero saepe quia dolores repellendus voluptas. Alias?',
         answer: '1',
       },
       {
@@ -161,6 +162,9 @@ export default function ControlledAccordions(): JSX.Element {
                 </Button>
               </AccordionDetails>
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <RecipeReviewCard />
+            </Grid>
           </Grid>
         </Accordion>
         {[2, 3, 4, 5].map((step) => (
@@ -180,6 +184,8 @@ export default function ControlledAccordions(): JSX.Element {
                 {quest.questions[step - 1].title}
               </Typography>
             </AccordionSummary>
+            <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
             <AccordionDetails>
               <Typography>{quest.questions[step - 1].question}</Typography>
               <TextField
@@ -201,6 +207,11 @@ export default function ControlledAccordions(): JSX.Element {
                 </Button>
               )}
             </AccordionDetails>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <RecipeReviewCard />
+            </Grid>
+            </Grid>
           </Accordion>
         ))}
         <ToastContainer />
