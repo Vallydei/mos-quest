@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 import React, { useEffect } from 'react';
-import './MainPage.css';
+import './css/MainPage.css'
 
 export default function MainPage(): JSX.Element {
   useEffect(() => {

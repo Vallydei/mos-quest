@@ -1,18 +1,19 @@
-const express = require('express');
-const { Image, Location} = require('../../db/models');
-const verifyAccessToken = require('../midddlewares/verifyAccessToken');
-const checkAuthor = require('../midddlewares/checkAuthor');
+const express = require("express");
+const { Image, Location, Comment } = require("../../db/models");
+const verifyAccessToken = require("../midddlewares/verifyAccessToken");
+const checkAuthor = require("../midddlewares/checkAuthor");
 
 const apiLocationRouter = express.Router();
 
 apiLocationRouter
-  .route('/')
+  .route("/")
   .get(async (req, res) => {
     try {
-      const quests = await Location.findAll({
-        include: Image,
+      const locations = await Location.findAll({
+        include: [Image, Comment]
+
       });
-      res.json(quests);
+      res.json(locations);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
@@ -29,8 +30,8 @@ apiLocationRouter
     }
   });
 
-  apiLocationRouter
-  .route('/:id')
+apiLocationRouter
+  .route("/:id")
   .get(verifyAccessToken, async (req, res) => {
     try {
       const location = await Location.findByPk(req.params.id, {
