@@ -8,8 +8,15 @@ import { Button, Grid, TextField, ThemeProvider, createTheme } from '@mui/materi
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import RecipeReviewCard from './LocationsCard';
+import type { QuestType } from '../../types/questType/questType';
 
-export default function ControlledAccordions(): JSX.Element {
+type ControlledAccordionsProps = {
+  quest: QuestType;
+};
+
+export default function ControlledAccordions({ quest }: ControlledAccordionsProps): JSX.Element {
+
+  
   const theme = createTheme({
     palette: {
       primary: {
@@ -21,36 +28,6 @@ export default function ControlledAccordions(): JSX.Element {
       // другие цвета, если нужно
     },
   });
-  const quest = {
-    title: 'title',
-    questions: [
-      {
-        title: 'вопрос1',
-        question: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, sed dolorum sunt, odit unde ipsum labore, praesentium asperiores doloremque iste ea eum quisquam libero saepe quia dolores repellendus voluptas. Alias?',
-        answer: '1',
-      },
-      {
-        title: 'вопрос2',
-        question: 'текст вопроса 2',
-        answer: '2',
-      },
-      {
-        title: 'вопрос3',
-        question: 'текст вопроса 3',
-        answer: '3',
-      },
-      {
-        title: 'вопрос4',
-        question: 'текст вопроса 4',
-        answer: '4',
-      },
-      {
-        title: 'вопрос5',
-        question: 'текст вопроса 5',
-        answer: '5',
-      },
-    ],
-  };
 
   const [isAccordionDisabled, setIsAccordionDisabled] = React.useState({
     acc2: true,
@@ -68,7 +45,7 @@ export default function ControlledAccordions(): JSX.Element {
   };
 
   const handleButtonClick = (): void => {
-    const currentQuestion = quest.questions[currentStep - 1];
+    const currentQuestion = quest.Questions[currentStep - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
       const nextAccordion = `acc${currentStep + 1}`;
       setIsAccordionDisabled((prevState) => ({
@@ -93,7 +70,7 @@ export default function ControlledAccordions(): JSX.Element {
   };
 
   const finishButtonClick = (): void => {
-    const currentQuestion = quest.questions[currentStep - 1];
+    const currentQuestion = quest.Questions[currentStep - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
       const nextAccordion = `acc${currentStep + 1}`;
       setIsAccordionDisabled((prevState) => ({
@@ -142,12 +119,12 @@ export default function ControlledAccordions(): JSX.Element {
           >
             <Typography sx={{ width: '33%', flexShrink: 0 }}>Шаг 1</Typography>
 
-            <Typography sx={{ color: 'text.secondary' }}>{quest.questions[0].title}</Typography>
+            <Typography sx={{ color: 'text.secondary' }}>{quest.Questions[0].title}</Typography>
           </AccordionSummary>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <AccordionDetails>
-                <Typography>{quest.questions[0].question}</Typography>
+                <Typography>{quest.Questions[0].question}</Typography>
 
                 <TextField
                   id="outlined-basic"
@@ -181,36 +158,36 @@ export default function ControlledAccordions(): JSX.Element {
             >
               <Typography sx={{ width: '33%', flexShrink: 0 }}>{`Шаг ${step}`}</Typography>
               <Typography sx={{ color: 'text.secondary' }}>
-                {quest.questions[step - 1].title}
+                {quest.Questions[step - 1].title}
               </Typography>
             </AccordionSummary>
             <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-            <AccordionDetails>
-              <Typography>{quest.questions[step - 1].question}</Typography>
-              <TextField
-                id={`outlined-basic-${step}`}
-                size="small"
-                label="Ответ на вопрос:"
-                variant="outlined"
-                value={userAnswer}
-                sx={{ height: '40px' }}
-                onChange={(e) => setUserAnswer(e.target.value)}
-              />
-              {step === quest.questions.length ? (
-                <Button sx={{ height: '40px' }} onClick={finishButtonClick} variant="outlined">
-                  Finish
-                </Button>
-              ) : (
-                <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
-                  Next
-                </Button>
-              )}
-            </AccordionDetails>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <RecipeReviewCard />
-            </Grid>
+              <Grid item xs={12} sm={6}>
+                <AccordionDetails>
+                  <Typography>{quest.Questions[step - 1].question}</Typography>
+                  <TextField
+                    id={`outlined-basic-${step}`}
+                    size="small"
+                    label="Ответ на вопрос:"
+                    variant="outlined"
+                    value={userAnswer}
+                    sx={{ height: '40px' }}
+                    onChange={(e) => setUserAnswer(e.target.value)}
+                  />
+                  {step === quest.Questions.length ? (
+                    <Button sx={{ height: '40px' }} onClick={finishButtonClick} variant="outlined">
+                      Finish
+                    </Button>
+                  ) : (
+                    <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
+                      Next
+                    </Button>
+                  )}
+                </AccordionDetails>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <RecipeReviewCard />
+              </Grid>
             </Grid>
           </Accordion>
         ))}
