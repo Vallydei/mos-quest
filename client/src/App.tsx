@@ -15,6 +15,7 @@ import LocationPage from './components/pages/LocationPage';
 import MainPage from './components/pages/MainPage';
 import AccountPage from './components/pages/AccountPage';
 import { thunkGetCommentsOfLocation, thunkGetLocations } from './redux/slices/locations/locationAsyncThunks';
+import { thunkGetQuests } from './redux/slices/questThunks/questAsyncThunks';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user.status);
@@ -22,6 +23,7 @@ function App(): JSX.Element {
   useEffect(() => {
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
+    void dispatch(thunkGetQuests())
   }, []);
   return (
     <Container>
@@ -29,7 +31,7 @@ function App(): JSX.Element {
 
       <Routes>
         <Route path="/locations" element={<LocationsPage />} />
-        <Route path="/quest" element={<QuestPage />} />
+        <Route path="/quest/:questId" element={<QuestPage />} />
         <Route path="/location/:id" element={<LocationPage />} />{' '}
         <Route path="/account" element={<AccountPage />} />
         <Route path="/" element={<MainPage />} />
