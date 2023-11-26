@@ -8,8 +8,11 @@ export default function QuestPage(): JSX.Element {
   const quests = useAppSelector((store) => store.questsSlice.quests);
   const { questId } = useParams();
   const quest = quests.find((el) => el?.id === Number(questId));
-  const prog = useAppSelector((store) => store.questsSlice.currentUserProgress);
-  console.log('туть', prog);
+ 
+  // 
+  
+
+
   
 
   return (

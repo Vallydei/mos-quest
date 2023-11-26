@@ -11,6 +11,7 @@ apiQuestRouter
     try {
       const quests = await Quest.findAll({
         include: Question,
+        order: [[Question, 'id', 'ASC']],
       });
       res.json(quests);
     } catch (error) {

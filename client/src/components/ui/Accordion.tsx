@@ -17,6 +17,24 @@ type ControlledAccordionsProps = {
 };
 
 export default function ControlledAccordions({ quest }: ControlledAccordionsProps): JSX.Element {
+  const prog = useAppSelector((store) => store.questsSlice.currentUserProgress);
+
+  let openAcc: [] | number[] = [];
+  let openAcc2: [] | number[] = [];
+  if (prog.length) openAcc = prog.map((el) => el.questionId);
+  if (quest.Questions) openAcc2 = quest.Questions.map((el) => el.id);
+
+  const countCommonElements = (arr1, arr2) => {
+    const set1 = new Set(arr1);
+    const set2 = new Set(arr2);
+
+    const intersection = new Set([...set1].filter((element) => set2.has(element)));
+
+    return intersection.size;
+  };
+  const count = countCommonElements(openAcc, openAcc2);
+  console.log('туть', count);
+
   const authSlice = useAppSelector((store) => store.authSlice);
   const dispatch = useAppDispatch();
 
@@ -39,8 +57,26 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
     acc5: true,
   });
 
-  const [expanded, setExpanded] = React.useState<string | false>(false);
   const [currentStep, setCurrentStep] = React.useState(1);
+  React.useEffect(() => {
+    const updatedDisabledState = {};
+    for (let i = 1; i <= 5; i++) {
+      console.log(count);
+
+      if (i <= count) {
+        updatedDisabledState[`acc${i}`] = false;
+      } else {
+        updatedDisabledState[`acc${i}`] = true;
+      }
+    }
+    console.log(updatedDisabledState);
+
+    setIsAccordionDisabled(updatedDisabledState);
+    setCurrentStep(count);
+  }, [count]);
+
+  const [expanded, setExpanded] = React.useState<string | false>(false);
+
   const [userAnswer, setUserAnswer] = React.useState('');
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -48,6 +84,8 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
   };
 
   const handleButtonClick = (): void => {
+    console.log(currentStep);
+
     const currentQuestion = quest.Questions[currentStep - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
       const nextAccordion = `acc${currentStep + 1}`;
@@ -57,7 +95,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
       }));
       setCurrentStep((prevStep) => prevStep + 1);
       setExpanded(`panel${currentStep + 1}`);
-     void dispatch(
+      void dispatch(
         thunkNewProgress({
           userId: authSlice.user.status === 'authenticated' ? authSlice.user.id : 555,
           questionId: currentQuestion.id,

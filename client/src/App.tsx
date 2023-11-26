@@ -33,7 +33,7 @@ function App(): JSX.Element {
         void dispatch(thunkGetProgress(user.id)); ////ПАМАГИТИ
       }
     });
-  }, []);
+  }, [user.status]);
   return (
     <Container>
       <NavBar />
