@@ -13,7 +13,6 @@ apiCommentsRouter
         include: User,
         order: [["createdAt", "DESC"]],
       });
-      console.log(comments);
       res.json(comments);
     } catch (error) {
       console.log(error);

@@ -9,14 +9,17 @@ import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import RecipeReviewCard from './LocationsCard';
 import type { QuestType } from '../../types/questType/questType';
+import { thunkNewProgress } from '../../redux/slices/questThunks/questAsyncThunks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 type ControlledAccordionsProps = {
   quest: QuestType;
 };
 
 export default function ControlledAccordions({ quest }: ControlledAccordionsProps): JSX.Element {
+  const authSlice = useAppSelector((store) => store.authSlice);
+  const dispatch = useAppDispatch();
 
-  
   const theme = createTheme({
     palette: {
       primary: {
@@ -54,6 +57,13 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
       }));
       setCurrentStep((prevStep) => prevStep + 1);
       setExpanded(`panel${currentStep + 1}`);
+     void dispatch(
+        thunkNewProgress({
+          userId: authSlice.user.status === 'authenticated' ? authSlice.user.id : 555,
+          questionId: currentQuestion.id,
+          complete: true,
+        }),
+      );
       setUserAnswer(''); // Очищаем поле ответа после перехода к следующему вопросу
     } else {
       toast.error('Падумай, бро', {

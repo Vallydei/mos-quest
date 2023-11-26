@@ -12,7 +12,6 @@ apiQuestRouter
       const quests = await Quest.findAll({
         include: Question,
       });
-      console.log(quests);
       res.json(quests);
     } catch (error) {
       console.log(error);
