@@ -18,7 +18,7 @@ const AnimatedListItemButton = styled(ListItemButton)(({ theme }) => ({
 export default function ThemePage(): JSX.Element {
   return (
     <div>
-      <h1>Тематический гид</h1>
+      <h1 style={{ color: 'white', fontSize: '30px', textAlign: 'center' }}>Тематический гид</h1>
       <List component="nav" aria-label="mailbox folders">
         <Grow in timeout={1000}>
           <AnimatedListItemButton className="listItem1">

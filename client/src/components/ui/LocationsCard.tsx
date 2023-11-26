@@ -37,7 +37,7 @@ export default function RecipeReviewCard(): JSX.Element {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, bgcolor: 'white', color: 'black' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -60,8 +60,8 @@ export default function RecipeReviewCard(): JSX.Element {
           alt="Описание локации"
         />
       </a>
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
+      <CardContent sx={{ color: 'white' }}>
+        <Typography variant="body2" color="black" fontWeight="bold">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like.
         </Typography>
@@ -77,13 +77,13 @@ export default function RecipeReviewCard(): JSX.Element {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
+        <CardContent sx={{ color: 'black' }}>
+          <Typography paragraph fontWeight="bold">Method:</Typography>
+          <Typography paragraph fontWeight="bold">
             Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
             minutes.
           </Typography>
-          <Typography paragraph>
+          <Typography paragraph fontWeight="bold">
             Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
             heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
             browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken

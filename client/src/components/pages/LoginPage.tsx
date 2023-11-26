@@ -3,9 +3,11 @@ import { Button, TextField } from '@mui/material';
 import type { LoginFormData } from '../../types/auth';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkLogin } from '../../redux/slices/auth/createAsyncThunks';
+import './LoginPage.css'; // Путь к вашему CSS-файлу
 
 export default function LoginPage(): JSX.Element {
   const dispatch = useAppDispatch();
+
   return (
     <form
       onSubmit={(e) => {
@@ -21,6 +23,8 @@ export default function LoginPage(): JSX.Element {
         placeholder="E-mail"
         error={false && 'Invalid email address or password'}
         name="email"
+        style={{ color: 'white', backgroundColor: 'white', borderRadius: '10px' }} // Установите белый цвет текста
+        inputProps={{ style: { color: 'white' } }} // Приоритет цвета для инпута
       />
 
       <TextField
@@ -29,7 +33,10 @@ export default function LoginPage(): JSX.Element {
         placeholder="Password"
         error={false && 'Invalid email address or password'}
         name="password"
+        style={{ color: 'white', backgroundColor: 'white', borderRadius: '10px' }} // Установите белый цвет текста
+        inputProps={{ style: { color: 'white' } }} // Приоритет цвета для инпута
       />
+
       <div>
         <Button type="submit" color="success" variant="contained" size="large">
           Submit
@@ -38,14 +45,3 @@ export default function LoginPage(): JSX.Element {
     </form>
   );
 }
-// {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-//   <Form.Label>Email address</Form.Label>
-//   <Form.Control type="email" name="email" placeholder="Enter email" />
-// </Form.Group> */}
-
-// // eslint-disable-next-line no-lone-blocks
-// {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-//   <Form.Label>Password</Form.Label>
-//   <Form.Control type="password" name="password" placeholder="Password" />
-// </Form.Group>
-// <Button type="submit">Submit</Button> */}

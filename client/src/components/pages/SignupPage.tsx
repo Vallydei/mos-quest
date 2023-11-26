@@ -24,6 +24,7 @@ export default function SignupPage(): JSX.Element {
         placeholder="Name"
         error={false && 'Invalid email address or password'}
         name="name"
+        style={{ color: 'white', backgroundColor: 'white', borderRadius: '10px' }}
       />
       <TextField
         required
@@ -31,6 +32,7 @@ export default function SignupPage(): JSX.Element {
         placeholder="E-mail"
         error={false && 'Invalid email address or password'}
         name="email"
+        style={{ color: 'white', backgroundColor: 'white', borderRadius: '10px' }}
       />
 
       <TextField
@@ -39,6 +41,7 @@ export default function SignupPage(): JSX.Element {
         placeholder="Password"
         error={false && 'Invalid email address or password'}
         name="password"
+        style={{ color: 'white', backgroundColor: 'white', borderRadius: '10px' }}
       />
       <div>
         <Button type="submit" color="success" variant="contained" size="large">
