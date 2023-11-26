@@ -1,19 +1,20 @@
-const express = require('express');
-const { Comment, User } = require('../../db/models');
-const verifyAccessToken = require('../midddlewares/verifyAccessToken');
-const checkAuthor = require('../midddlewares/checkAuthor');
+const express = require("express");
+const { Comment, User } = require("../../db/models");
+const verifyAccessToken = require("../midddlewares/verifyAccessToken");
+const checkAuthor = require("../midddlewares/checkAuthor");
 
 const apiCommentsRouter = express.Router();
 
 apiCommentsRouter
-  .route('/')
+  .route("/")
   .get(async (req, res) => {
     try {
-      const posts = await Comment.findAll({
+      const comments = await Comment.findAll({
         include: User,
-        order: [['createdAt', 'DESC']],
+        order: [["createdAt", "DESC"]],
       });
-      res.json(posts);
+      console.log(comments);
+      res.json(comments);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
@@ -36,7 +37,7 @@ apiCommentsRouter
   });
 
 apiCommentsRouter
-  .route('/:id')
+  .route("/:id")
   .delete(verifyAccessToken, checkAuthor, async (req, res) => {
     try {
       const post = await Comment.findByPk(req.params.id);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '@fontsource/inter';
 import { Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
@@ -9,14 +9,20 @@ import QuestPage from './components/pages/QuestPage';
 import 'react-toastify/dist/ReactToastify.css';
 import ThemePage from './components/pages/ThemePage';
 import PrivateRouter from './components/HOC/PrivateRouter';
-import { useAppSelector } from './redux/hooks';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
 import LocationsPage from './components/pages/LocationsPage';
 import LocationPage from './components/pages/LocationPage';
 import MainPage from './components/pages/MainPage';
 import AccountPage from './components/pages/AccountPage';
+import { thunkGetCommentsOfLocation, thunkGetLocations } from './redux/slices/locations/locationAsyncThunks';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user.status);
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    void dispatch(thunkGetLocations());
+    void dispatch(thunkGetCommentsOfLocation());
+  }, []);
   return (
     <Container>
       <NavBar />

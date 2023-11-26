@@ -52,7 +52,7 @@ export default function RecipeReviewCard(): JSX.Element {
         title="BAR Pink PIG"
         subheader="November 23, 2023"
       />
-      <a href="/location/:id">
+      <a href={`/location/${location.id}`}>
         <CardMedia
           component="img"
           height="194"
