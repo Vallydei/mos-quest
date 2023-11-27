@@ -171,3 +171,79 @@
   font-size: 3em;
   cursor: pointer;
 }
+/* ... Your existing styles ... */
+
+/* New styles for animations */
+.option {
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.option.active {
+  flex-grow: 10000;
+  transform: scale(1);
+  max-width: 600px;
+  margin: 0px;
+  border-radius: 40px;
+  background-size: auto 100%;
+  opacity: 1;
+  animation: fadeInOption 0.5s ease-in-out;
+}
+
+.option:not(.active) {
+  flex-grow: 1;
+  border-radius: 30px;
+  opacity: 1;
+  animation: fadeInOption 0.5s ease-in-out;
+}
+
+/* Additional keyframes for animations */
+@keyframes fadeInOption {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.option.active .label {
+  animation: fadeInLabel 0.5s ease-in-out;
+}
+
+.option:not(.active) .label {
+  animation: fadeInLabel 0.5s ease-in-out;
+}
+
+.option.active .label .info > div {
+  animation: fadeInInfo 0.5s ease-in-out;
+}
+
+.option:not(.active) .label .info > div {
+  animation: fadeInInfo 0.5s ease-in-out;
+}
+
+/* Additional keyframes for label and info animations */
+@keyframes fadeInLabel {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInInfo {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+

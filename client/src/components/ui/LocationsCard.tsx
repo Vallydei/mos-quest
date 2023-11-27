@@ -42,7 +42,7 @@ export default function RecipeReviewCard({ location }: RecipeReviewCardProps): J
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, bgcolor: 'white', color: 'black' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -59,8 +59,8 @@ export default function RecipeReviewCard({ location }: RecipeReviewCardProps): J
           alt="Описание локации"
         />
       </a>
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
+      <CardContent sx={{ color: 'white' }}>
+        <Typography variant="body2" color="black" fontWeight="bold">
           {location?.shortDescription}
         </Typography>
       </CardContent>
@@ -76,7 +76,7 @@ export default function RecipeReviewCard({ location }: RecipeReviewCardProps): J
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{location?.description}</Typography>
+          <Typography paragraph fontWeight="bold">{location?.description} </Typography>
           <Typography />
           <Typography />
         </CardContent>

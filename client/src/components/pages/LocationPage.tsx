@@ -11,6 +11,8 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import GoogleMaps from '../ui/GoogleMaps';
 import { thunkPostCommentOfLocation } from '../../redux/slices/locations/locationAsyncThunks';
 import type { CommentFormType } from '../../types/locationType/locationType';
+import "./css/LocPage.css"; 
+import "./css/LocationPage.css"
 
 export default function LocationPage(): JSX.Element {
   const locations = useAppSelector((store) => store.locationsSlice.locations);
@@ -53,7 +55,7 @@ export default function LocationPage(): JSX.Element {
 
             <Sheet
               sx={{
-                bgcolor: 'background.level1',
+                bgcolor: 'white',
                 borderRadius: 'sm',
                 p: 1.5,
                 my: 1.5,
@@ -61,6 +63,7 @@ export default function LocationPage(): JSX.Element {
                 gap: 2,
                 '& > div': { flex: 1 },
               }}
+              className="CardContent" // Add the class for CardContent animation
             >
               <div>
                 <Typography fontWeight="lg">{location?.description}</Typography>
@@ -70,7 +73,7 @@ export default function LocationPage(): JSX.Element {
               OnePlaceChallenge
             </Button>
           </div>
-          <div className="commentsField">
+          <div className="commentsField" style={{ color: 'white' }}>
             <h3>Комментарии</h3>
             <br />
             {commentsLocations.map((comment) => (

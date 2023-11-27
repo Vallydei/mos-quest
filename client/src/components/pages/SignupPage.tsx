@@ -4,72 +4,86 @@ import { useAppDispatch } from '../../redux/hooks';
 import { thunkSignup } from '../../redux/slices/auth/createAsyncThunks';
 import type { SignupFormData } from '../../types/auth';
 
+const styles = {
+  formContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh', // Center vertically on the screen
+  },
+  form: {
+    width: '500px', // Increased width
+    padding: '20px',
+    display: 'flex', // Center inputs horizontally
+    flexDirection: 'column', // Align inputs vertically
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    animation: 'fadeIn 0.5s ease-in', // Add fade-in animation
+  },
+  textField: {
+    width: '100%', // Make inputs of equal length
+    marginBottom: '20px',
+  },
+  button: {
+    marginTop: '10px',
+  },
+};
+
 export default function SignupPage(): JSX.Element {
   const dispatch = useAppDispatch();
+
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-      
+    <div style={styles.formContainer}>
+      <form
+        style={styles.form}
+        onSubmit={(e) => {
+          e.preventDefault();
 
-        const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
-        console.log('смотри сюда', formData);
-        void dispatch(thunkSignup(formData));
-      }}
-    >
-      <h1>Регистрация</h1>
-      <TextField
-        required
-        label="Name"
-        placeholder="Name"
-        error={false && 'Invalid email address or password'}
-        name="name"
-      />
-      <TextField
-        required
-        label="E-mail"
-        placeholder="E-mail"
-        error={false && 'Invalid email address or password'}
-        name="email"
-      />
-
-      <TextField
-        required
-        label="Password"
-        placeholder="Password"
-        error={false && 'Invalid email address or password'}
-        name="password"
-      />
-      <div>
-        <Button type="submit" color="success" variant="contained" size="large">
-          Submit
-        </Button>
-      </div>
-    </form>
-    // <Form
-    //   onSubmit={(e) => {
-    //     e.preventDefault();
-    //     const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
-    //     void dispatch(thunkSignup(formData));
-    //   }}
-    // >
-    //   <Form.Group className="mb-3" controlId="formBasicName">
-    //     <Form.Label>Name</Form.Label>
-    //     <Form.Control name="name" type="text" placeholder="Name" />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="formBasicEmail">
-    //     <Form.Label>Email address</Form.Label>
-    //     <Form.Control name="email" type="email" placeholder="Enter email" />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="formBasicPassword">
-    //     <Form.Label>Password</Form.Label>
-    //     <Form.Control name="password" type="password" placeholder="Password" />
-    //   </Form.Group>
-    //   <Button variant="primary" type="submit">
-    //     Submit
-    //   </Button>
-    // </Form>
+          const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
+          console.log('смотри сюда', formData);
+          void dispatch(thunkSignup(formData));
+        }}
+      >
+        <h1>Регистрация</h1>
+        <TextField
+          required
+          label="Name"
+          placeholder="Name"
+          error={false && 'Invalid email address or password'}
+          name="name"
+          style={styles.textField}
+        />
+        <TextField
+          required
+          label="E-mail"
+          placeholder="E-mail"
+          error={false && 'Invalid email address or password'}
+          name="email"
+          style={styles.textField}
+        />
+        <TextField
+          required
+          label="Password"
+          placeholder="Password"
+          error={false && 'Invalid email address or password'}
+          name="password"
+          type="password"
+          style={styles.textField}
+        />
+        <div>
+          <Button
+            type="submit"
+            color="success"
+            variant="contained"
+            size="large"
+            style={styles.button}
+          >
+            Submit
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 }

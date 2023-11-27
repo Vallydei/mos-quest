@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import LocationService from '../../../services/locationService';
-import type { CommentFormType, CommentType } from '../../../types/locationType/locationType';
+import type { CommentFormType } from '../../../types/locationType/locationType';
 
 export const thunkGetLocations = createAsyncThunk('locationSlice/thunkGetLocations', async () =>
   LocationService.getAll(),

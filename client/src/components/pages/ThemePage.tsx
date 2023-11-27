@@ -10,16 +10,16 @@ const AnimatedListItemButton = styled(ListItemButton)(({ theme }) => ({
   height: 200,
   borderRadius: 20,
   fontWeight: 'bold',
-  transition: 'transform 0.3s', // Smooth transition for the transform property
+  transition: 'transform 0.3s', 
   '&:hover': {
-    transform: 'scale(1.1)', // Increase size on hover
+    transform: 'scale(1.1)', 
   },
 }));
 
 export default function ThemePage(): JSX.Element {
   return (
     <div >
-      <h1>Тематический гид</h1>
+      <h1 style={{ color: 'white', fontSize: '30px', textAlign: 'center' }}>Тематический гид</h1>
       <List className='themeContainer' component="nav" aria-label="mailbox folders">
         <Grow in timeout={1000}>
           <Link to="/quest/1" className='link'>

@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import type {
-  CommentFormType,
+  
   CommentType,
   LocationType,
 } from '../../../types/locationType/locationType';
