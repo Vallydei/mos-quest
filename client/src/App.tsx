@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from './redux/hooks';
 import LocationsPage from './components/pages/LocationsPage';
 import LocationPage from './components/pages/LocationPage';
 import MainPage from './components/pages/MainPage';
-import AccountPage from './components/pages/AccountPage';
+
 import {
   thunkGetCommentsOfLocation,
   thunkGetLocations,

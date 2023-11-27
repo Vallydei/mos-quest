@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '@mui/material';
 import { useAppSelector } from '../../redux/hooks';
 import AchieveCard from '../ui/AchieveCard';
 import './css/AccountPage.css';
