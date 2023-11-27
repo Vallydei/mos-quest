@@ -1,23 +1,19 @@
 import React from 'react';
 import { Paper } from '@mui/material';
-import '../pages/LocationPage.css';
+import '../pages/css/LocationPage.css';
+import type { ImageType } from '../../types/locationType/locationType';
 
 type ItemProps = {
-  item: { name: string; description: string; img: string };
+  item: ImageType;
 };
 
 export default function Item({ item }: ItemProps): JSX.Element {
   return (
-    <Paper className="Project" elevation={10}>
-      <img
-        className="imgLocation"        
-        src={item.img}
-        alt=""
-      />
-      {/* <h2>{item.name}</h2>
-      <p>{item.description}</p> */}
+    // <Paper className="Project" elevation={10}>
+      <div className="Project">
+        <img  className="imgLocation" src={item.locationImg} alt="placePicture" />
+      </div>
 
-      {/* <Button className="CheckButton">Check it out!</Button> */}
-    </Paper>
+    // </Paper>
   );
 }

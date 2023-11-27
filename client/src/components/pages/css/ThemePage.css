@@ -1,0 +1,34 @@
+.themeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90vh;
+
+}
+.link {
+  text-decoration: none;
+}
+.listItem1 {
+  background-image: url('../../../../../client/public/2.jpg');
+  background-size: cover;
+
+}
+
+.listItem2 {
+  background-image: url('../../../../../client/public/3.jpg');
+  background-size: cover;
+}
+
+.listItem3 {
+  background-image: url('../../../../../client/public/1.jpg');
+  background-size: cover;
+}
+
+
+.listItemButton {
+  width: 100%; 
+  height: 200px; 
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+}
