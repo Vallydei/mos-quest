@@ -1,0 +1,85 @@
+/* LocPage.css */
+
+/* Container animation */
+.locationContainer {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Carousel container animation */
+.carouselContainer {
+  animation: slideIn 1s ease-in-out;
+}
+
+/* Map container animation */
+.mapContainer {
+  animation: fadeZoomIn 1s ease-in-out;
+}
+
+/* Content card animation */
+.CardContent {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Comments field animation */
+.commentsField {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Input form animation */
+.inputComments {
+  animation: slideInUp 1s ease-in-out;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
