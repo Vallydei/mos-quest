@@ -7,10 +7,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, Grid, TextField, ThemeProvider, createTheme } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
-import RecipeReviewCard from './LocationsCard';
 import type { QuestType } from '../../types/questType/questType';
 import { thunkNewProgress } from '../../redux/slices/questThunks/questAsyncThunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import LocationCard from './LocationsCard';
 
 type ControlledAccordionsProps = {
   quest: QuestType;
@@ -188,7 +188,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
               </AccordionDetails>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <RecipeReviewCard />
+              <LocationCard />
             </Grid>
           </Grid>
         </Accordion>
@@ -243,7 +243,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
                 </AccordionDetails>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <RecipeReviewCard />
+                <LocationCard />
               </Grid>
             </Grid>
           </Accordion>

@@ -1,11 +1,13 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import type {
-  CommentFormType,
+
   CommentType,
   LocationType,
 } from '../../../types/locationType/locationType';
 import {
+  thunkDeleteCommentOfLocation,
+  thunkEditCommentOfLocation,
   thunkGetCommentsOfLocation,
   thunkGetLocations,
   thunkPostCommentOfLocation,
@@ -42,6 +44,16 @@ export const locationsSlice = createSlice({
     builder.addCase(thunkPostCommentOfLocation.fulfilled, (state, action) => {
       state.comments.push(action.payload);
     });
+    builder.addCase(thunkEditCommentOfLocation.fulfilled, (state, action) => {
+      state.comments = state.comments.map((comment) =>
+        comment.id === action.payload.id ? action.payload : comment,
+      );
+    });
+    builder.addCase(thunkDeleteCommentOfLocation.fulfilled, (state, action) => {
+      if (state.comments)
+      state.comments = state.comments.filter((comment) => comment.id !== action.payload);
+      else return state;
+    });
   },
 });
 
@@ -51,6 +63,3 @@ export const { getSelectedLocation } = locationsSlice.actions;
 // builder.addCase(deletePostThunk.fulfilled, (state, action) =>
 //   state.filter((el) => el.id !== action.payload),
 // );
-// builder.addCase(updatePostThunk.fulfilled, (state, action) => {
-//   state = state.map((post) => (post.id === action.payload.id ? action.payload : post));
-// });

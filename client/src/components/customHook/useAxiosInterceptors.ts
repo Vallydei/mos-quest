@@ -5,6 +5,7 @@ import { thunkRefreshToken } from '../../redux/slices/auth/createAsyncThunks';
 
 export default function useAxiosInterceptors(authInstance: AxiosInstance): void {
   const accessToken = useAppSelector((store) => store.authSlice.accessToken);
+  const user = useAppSelector((store)=> store.authSlice.user)
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -37,5 +38,5 @@ export default function useAxiosInterceptors(authInstance: AxiosInstance): void 
       authInstance.interceptors.request.eject(requestInterceptor);
       authInstance.interceptors.response.eject(responseInterceptor);
     };
-  }, [accessToken]);
+  }, [user.status]);
 }

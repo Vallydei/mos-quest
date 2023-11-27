@@ -3,7 +3,7 @@ const { Comment } = require('../../db/models');
 
 async function checkAuthor(req, res, next) {
   try {
-    const { id } = req.params;
+    const { id } = req.body;
     const targetComment = await Comment.findByPk(id);
     if (targetComment.userId !== res.locals.user.id) {
       return res

@@ -30,11 +30,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-type RecipeReviewCardProps = {
+type LocationCardProps = {
   location: LocationType;
 };
 
-export default function RecipeReviewCard({ location }: RecipeReviewCardProps): JSX.Element {
+export default function LocationCard({ location }: LocationCardProps): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = (): void => {

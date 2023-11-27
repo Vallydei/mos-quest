@@ -13,7 +13,6 @@ import { useAppDispatch, useAppSelector } from './redux/hooks';
 import LocationsPage from './components/pages/LocationsPage';
 import LocationPage from './components/pages/LocationPage';
 import MainPage from './components/pages/MainPage';
-import AccountPage from './components/pages/AccountPage';
 import {
   thunkGetCommentsOfLocation,
   thunkGetLocations,
@@ -55,13 +54,13 @@ function App(): JSX.Element {
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="/quest/:questId" element={<QuestPage />} />
         <Route path="/location/:id" element={<LocationPage />} />{' '}
-        <Route path="/account" element={<AccountPage />} />
+        {/* <Route path="/account" element={<AccountPage />} /> */}
         <Route path="/" element={<MainPage />} />
         <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
         <Route path="/themepage" element={<ThemePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/acc" element={<AccPage />} />
+        <Route path="/account" element={<AccPage />} />
       </Routes>
     </Container>
   );
