@@ -1,14 +1,17 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import type { QuestType } from '../../../types/questType/questType';
-import { thunkGetQuests } from './questAsyncThunks';
+import { thunkGetProgress, thunkGetQuests } from './questAsyncThunks';
+import type { ProgressType } from '../../../types/progressType/progressType';
 
 const initialState: {
   quests: QuestType[];
   currentQuest: null | QuestType;
+  currentUserProgress: ProgressType[];
 } = {
   quests: [],
   currentQuest: null,
+  currentUserProgress: [],
 };
 
 export const questSlice = createSlice({
@@ -27,6 +30,13 @@ export const questSlice = createSlice({
       ...state,
       quests: action.payload, /// почему не работает extraReducers: (builder) => {builder.addCase(thunkGetLocations.fulfilled,(state, action) => (state.locations = action.payload));
     }));
+    builder.addCase(
+      thunkGetProgress.fulfilled,
+      (state, action: PayloadAction<ProgressType[]>) => ({
+        ...state,
+        currentUserProgress: action.payload, /// почему не работает extraReducers: (builder) => {builder.addCase(thunkGetLocations.fulfilled,(state, action) => (state.locations = action.payload));
+      }),
+    );
   },
 });
 

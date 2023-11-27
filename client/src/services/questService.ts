@@ -14,6 +14,7 @@ class QuestService {
     const response = await questInstance.get<QuestType[]>('/api/quest');
     return response.data;
   }
+
 }
 
 export default QuestService;

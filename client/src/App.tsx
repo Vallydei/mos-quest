@@ -18,7 +18,7 @@ import {
   thunkGetCommentsOfLocation,
   thunkGetLocations,
 } from './redux/slices/locations/locationAsyncThunks';
-import { thunkGetQuests } from './redux/slices/questThunks/questAsyncThunks';
+import { thunkGetQuests, thunkGetProgress } from './redux/slices/questThunks/questAsyncThunks';
 import { thunkCheckAuth } from './redux/slices/auth/createAsyncThunks';
 import AccPage from './components/pages/AccPage';
 import thunkGetAchieves from './redux/slices/achievesAsyncThunk';
@@ -36,8 +36,13 @@ function App(): JSX.Element {
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
     void dispatch(thunkGetQuests());
-    void dispatch(thunkGetAchieves());
-  }, []);
+    void dispatch(thunkGetAchieves());;
+    void dispatch(thunkCheckAuth()).then(() => {
+      if (user.status === 'authenticated') {
+        void dispatch(thunkGetProgress(user.id)); ////ПАМАГИТИ
+      }
+    });
+  }, [user.status]);
 
   useAxiosInterceptors(authInstance);
   useAxiosInterceptors(locationInstance);
@@ -46,7 +51,6 @@ function App(): JSX.Element {
   return (
     <Container>
       <NavBar />
-
       <Routes>
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="/quest/:questId" element={<QuestPage />} />
