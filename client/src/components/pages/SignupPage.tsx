@@ -42,7 +42,7 @@ export default function SignupPage(): JSX.Element {
           e.preventDefault();
 
           const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
-          console.log('смотри сюда', formData);
+          // console.log('смотри сюда', formData);
           void dispatch(thunkSignup(formData));
         }}
       >

@@ -9,12 +9,7 @@ export default function QuestPage(): JSX.Element {
   const { questId } = useParams();
   const quest = quests.find((el) => el?.id === Number(questId));
  
-  // 
   
-
-
-  
-
   return (
     <div>
       <Box component="section" sx={{ p: 4, border: '1px dashed white' }} flex={2}>

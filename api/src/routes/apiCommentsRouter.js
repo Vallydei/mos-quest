@@ -51,7 +51,7 @@ apiCommentsRouter
 
 apiCommentsRouter
   .route("/:id")
-  .delete(verifyAccessToken, checkAuthor, async (req, res) => {
+  .delete(verifyAccessToken,  checkAuthor, async (req, res) => {
     try {
       const comment = await Comment.findByPk(req.params.id);
       await comment.destroy();

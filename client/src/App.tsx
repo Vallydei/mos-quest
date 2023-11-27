@@ -10,8 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import ThemePage from './components/pages/ThemePage';
 import PrivateRouter from './components/HOC/PrivateRouter';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
-import LocationsPage from './components/pages/LocationsPage';
-import LocationPage from './components/pages/LocationPage';
 import MainPage from './components/pages/MainPage';
 
 import {
@@ -27,6 +25,8 @@ import { authInstance } from './services/authService';
 import { locationInstance } from './services/locationService';
 import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
+import LocationsPage from './components/pages/LocationsPage';
+import LocationPage from './components/pages/LocationPage';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user);

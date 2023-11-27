@@ -22,66 +22,48 @@ export default function NavBar(): JSX.Element {
         <ListDivider />
 
         <Link to="/">
-          <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" aria-label="Home">
-              <Home /> Главная
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton role="menuitem" aria-label="Home">
+            <Home /> Главная
+          </ListItemButton>
         </Link>
 
         <ListDivider />
         <Link to="/locations">
-          <ListItem role="none">
-            <ListItemButton role="menuitem" component="a">
-              Локации
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton role="menuitem">Локации</ListItemButton>
         </Link>
 
         <ListDivider />
         <Link to="/themepage">
           {' '}
-          <ListItem role="none">
-            <ListItemButton role="menuitem" component="a">
-              Категории квестов
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton role="menuitem">Категории квестов</ListItemButton>
         </Link>
 
         <ListDivider />
         {auth.user.status === 'authenticated' ? (
           <>
             <Link to="/account">
-              <ListItem role="none" sx={{ marginInlineStart: 'auto' }}>
-                <ListItemButton
-                  role="menuitem"
-                  component="a"
-                  href="#horizontal-list"
-                  aria-label="Profile"
-                >
-                  <Person /> Личный кабинет
-                </ListItemButton>
-              </ListItem>
+              <ListItemButton
+                sx={{ marginInlineStart: 'auto' }}
+                role="menuitem"
+                href="#horizontal-list"
+                aria-label="Profile"
+              >
+                <Person /> Личный кабинет
+              </ListItemButton>
             </Link>
             <ListDivider />
           </>
         ) : (
           <>
             <Link to="/login">
-              <ListItem role="none">
-                <ListItemButton role="menuitem" component="a">
-                  Вход
-                </ListItemButton>
-              </ListItem>
+              <ListItemButton role="menuitem">Вход</ListItemButton>
             </Link>
             <ListDivider />
             <Link to="/signup">
               {' '}
-              <ListItem role="none">
-                <ListItemButton role="menuitem" component="a">
-                  Регистрация
-                </ListItemButton>
-              </ListItem>
+              {/* <ListItem role="none"> */}
+              <ListItemButton role="menuitem">Регистрация</ListItemButton>
+              {/* </ListItem> */}
             </Link>
             <ListDivider />
           </>
@@ -89,11 +71,7 @@ export default function NavBar(): JSX.Element {
         <Link to="/logout">
           {' '}
           <ListItem role="none">
-            <ListItemButton
-              role="menuitem"
-              onClick={() => void dispatch(thunkLogout())}
-              component="a"
-            >
+            <ListItemButton role="menuitem" onClick={() => void dispatch(thunkLogout())}>
               Выйти
             </ListItemButton>
           </ListItem>
