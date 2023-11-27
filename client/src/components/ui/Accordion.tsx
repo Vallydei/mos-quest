@@ -9,14 +9,35 @@ import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import RecipeReviewCard from './LocationsCard';
 import type { QuestType } from '../../types/questType/questType';
+import { thunkNewProgress } from '../../redux/slices/questThunks/questAsyncThunks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 type ControlledAccordionsProps = {
   quest: QuestType;
 };
 
 export default function ControlledAccordions({ quest }: ControlledAccordionsProps): JSX.Element {
+  const prog = useAppSelector((store) => store.questsSlice.currentUserProgress);
 
-  
+  let openAcc: [] | number[] = [];
+  let openAcc2: [] | number[] = [];
+  if (prog.length) openAcc = prog.map((el) => el.questionId);
+  if (quest.Questions) openAcc2 = quest.Questions.map((el) => el.id);
+
+  const countCommonElements = (arr1: number[], arr2: number[]): number => {
+    const set1 = new Set(arr1);
+    const set2 = new Set(arr2);
+
+    const intersection = new Set([...set1].filter((element) => set2.has(element)));
+
+    return intersection.size;
+  };
+  const count = countCommonElements(openAcc, openAcc2) + 1;
+  console.log('туть', count);
+
+  const authSlice = useAppSelector((store) => store.authSlice);
+  const dispatch = useAppDispatch();
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -36,27 +57,49 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
     acc5: true,
   });
 
-  const [expanded, setExpanded] = React.useState<string | false>(false);
   const [currentStep, setCurrentStep] = React.useState(1);
+  React.useEffect(() => {
+    const updatedDisabledState = {};
+    for (let i = 1; i <= 5; i++) {
+      if (i <= count) {
+        updatedDisabledState[`acc${i}`] = false;
+      } else {
+        updatedDisabledState[`acc${i}`] = true;
+      }
+    }
+
+    setIsAccordionDisabled(updatedDisabledState);
+    setCurrentStep(count);
+  }, [count]);
+
+  const [expanded, setExpanded] = React.useState<string | false>(false);
+
   const [userAnswer, setUserAnswer] = React.useState('');
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const handleButtonClick = (): void => {
-    const currentQuestion = quest.Questions[currentStep - 1];
+  const handleButtonClick = (step: number): void => {
+    const currentQuestion = quest.Questions[step - 1]; // Используем номер шага для получения текущего вопроса
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-      const nextAccordion = `acc${currentStep + 1}`;
+      const nextAccordion = `acc${step + 1}`;
       setIsAccordionDisabled((prevState) => ({
         ...prevState,
         [nextAccordion]: false,
       }));
-      setCurrentStep((prevStep) => prevStep + 1);
-      setExpanded(`panel${currentStep + 1}`);
+      setCurrentStep(step + 1);
+      setExpanded(`panel${step + 1}`);
+      void dispatch(
+        thunkNewProgress({
+          userId: authSlice.user.status === 'authenticated' ? authSlice.user.id : 555,
+          questionId: currentQuestion.id,
+          complete: true,
+        }),
+      );
       setUserAnswer(''); // Очищаем поле ответа после перехода к следующему вопросу
     } else {
-      toast.error('Падумай, бро', {
+      toast.error('Подумайте еще раз', {
         position: 'top-center',
         autoClose: 1000,
         hideProgressBar: false,
@@ -69,16 +112,16 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
     }
   };
 
-  const finishButtonClick = (): void => {
-    const currentQuestion = quest.Questions[currentStep - 1];
+  const finishButtonClick = (step: number): void => {
+    const currentQuestion = quest.Questions[step - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-      const nextAccordion = `acc${currentStep + 1}`;
+      const nextAccordion = `acc${step + 1}`;
       setIsAccordionDisabled((prevState) => ({
         ...prevState,
         [nextAccordion]: false,
       }));
-      setCurrentStep((prevStep) => prevStep + 1);
-      setExpanded(`panel${currentStep + 1}`);
+      setCurrentStep(step + 1);
+      setExpanded(`panel${step + 1}`);
       setUserAnswer('');
 
       void Swal.fire({
@@ -88,14 +131,14 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
         color: '#716add',
         background: '#fff url(https://sweetalert2.github.io/images/trees.png)',
         backdrop: `
-        rgba(0,0,123,0.4)
-        url("https://sweetalert2.github.io/images/nyan-cat.gif")
-        left top
-        no-repeat
-      `,
+          rgba(0,0,123,0.4)
+          url("https://sweetalert2.github.io/images/nyan-cat.gif")
+          left top
+          no-repeat
+        `,
       });
     } else {
-      toast.error('Падумай, бро', {
+      toast.error('Подумайте еще раз', {
         position: 'top-center',
         autoClose: 1000,
         hideProgressBar: false,
@@ -131,10 +174,15 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
                   size="small"
                   label="Ответ на вопрос:"
                   variant="outlined"
+                  name="input1"
                   value={userAnswer}
                   onChange={(e) => setUserAnswer(e.target.value)}
                 />
-                <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
+                <Button
+                  sx={{ height: '40px' }}
+                  onClick={() => handleButtonClick(1)} // Передача номера шага в функцию
+                  variant="outlined"
+                >
                   Next
                 </Button>
               </AccordionDetails>
@@ -169,17 +217,26 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
                     id={`outlined-basic-${step}`}
                     size="small"
                     label="Ответ на вопрос:"
+                    name={`input${step}`}
                     variant="outlined"
                     value={userAnswer}
                     sx={{ height: '40px' }}
                     onChange={(e) => setUserAnswer(e.target.value)}
                   />
                   {step === quest.Questions.length ? (
-                    <Button sx={{ height: '40px' }} onClick={finishButtonClick} variant="outlined">
+                    <Button
+                      sx={{ height: '40px' }}
+                      onClick={() => finishButtonClick(quest.Questions.length)} // Передача номера последнего шага
+                      variant="outlined"
+                    >
                       Finish
                     </Button>
                   ) : (
-                    <Button sx={{ height: '40px' }} onClick={handleButtonClick} variant="outlined">
+                    <Button
+                      sx={{ height: '40px' }}
+                      onClick={() => handleButtonClick(step)} // Передача номера шага в функцию
+                      variant="outlined"
+                    >
                       Next
                     </Button>
                   )}

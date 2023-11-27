@@ -8,6 +8,12 @@ export default function QuestPage(): JSX.Element {
   const quests = useAppSelector((store) => store.questsSlice.quests);
   const { questId } = useParams();
   const quest = quests.find((el) => el?.id === Number(questId));
+ 
+  // 
+  
+
+
+  
 
   return (
     <div>
@@ -18,7 +24,7 @@ export default function QuestPage(): JSX.Element {
         >
           <CircularProgress color="inherit" />
         </Backdrop>
-        {quest !== undefined ? <ControlledAccordions quest={quest} /> : <></>}
+        {quest !== undefined ? <ControlledAccordions quest={quest} /> : (<>Загрузка</>) }
       </Box>
     </div>
   );
