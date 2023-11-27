@@ -6,23 +6,35 @@ module.exports = {
       [
         {
           description: "who you gonna call",
-          img: "https://i5.walmartimages.com/asr/9ca9b4c8-3376-4ce1-8f37-75ffb42030c6.7a7b7f031be163162ff93f1d832bda72.jpeg",
+          img: "/images/fichi/achieve1-PhotoRoom.png-PhotoRoom.png",
         },
         {
           description: "who you gonna call",
-          img: "https://i5.walmartimages.com/asr/9ca9b4c8-3376-4ce1-8f37-75ffb42030c6.7a7b7f031be163162ff93f1d832bda72.jpeg",
+          img: "/images/fichi/achieve2-PhotoRoom.png-PhotoRoom.png",
         },
         {
           description: "who you gonna call",
-          img: "https://i5.walmartimages.com/asr/9ca9b4c8-3376-4ce1-8f37-75ffb42030c6.7a7b7f031be163162ff93f1d832bda72.jpeg",
+          img: "/images/fichi/achieve3-PhotoRoom.png-PhotoRoom.png",
         },
         {
           description: 'Peace, door, boll',
-          img: 'https://strategicpsychology.com.au/wp-content/uploads/Multicultural-character.jpg',
+          img: '/images/fichi/achieve4-PhotoRoom.png-PhotoRoom.png',
         },
         {
           description: 'Стииииилъ',
-          img: 'https://img.freepik.com/premium-vector/geek-logo-design-template_7492-36.jpg',
+          img: '/images/fichi/achieve5-PhotoRoom.png-PhotoRoom.png',
+        },
+        {
+          description: 'Стииииилъ',
+          img: '/images/fichi/achieve6-PhotoRoom.png-PhotoRoom.png',
+        },
+        {
+          description: 'Стииииилъ',
+          img: '/images/fichi/achieve7-PhotoRoom.png-PhotoRoom.png',
+        },
+        {
+          description: 'Стииииилъ',
+          img: '/images/fichi/achieve8-PhotoRoom.png-PhotoRoom.png',
         },
       ],
       {}

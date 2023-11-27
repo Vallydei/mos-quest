@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 import React, { useEffect } from 'react';
-import './MainPage.css';
+import './css/MainPage.css'
+import { Link } from 'react-router-dom';
 
 export default function MainPage(): JSX.Element {
   useEffect(() => {
@@ -14,6 +15,7 @@ export default function MainPage(): JSX.Element {
       });
     });
   }, []);
+
   return (
     <Container className="mainContainer">
       <div className="options">
@@ -46,7 +48,7 @@ export default function MainPage(): JSX.Element {
               <i className="fas fa-solid fa-beer-mug-empty" />
             </div>
             <div className="info">
-              <div className="main">Ultricies</div>
+              <div className="main">МАША Я ТУТЬ!</div>
               <div className="sub">Elit ut aliquam purus sit</div>
             </div>
           </div>
@@ -76,17 +78,17 @@ export default function MainPage(): JSX.Element {
       </div>
 
       <div className="btmMainContainer">
-        <a href="/locations">
+        <Link to="/locations">
           <button type="button" className="btmMain">
             Локации
           </button>
-        </a>
+        </Link>
 
-        <a href="/themepage">
+        <Link to="/themepage">
           <button type="button" className="btmMain">
             Квесты
           </button>
-        </a>
+        </Link>
       </div>
     </Container>
   );

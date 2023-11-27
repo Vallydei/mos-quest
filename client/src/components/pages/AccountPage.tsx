@@ -10,7 +10,7 @@ import Grow from '@mui/material/Grow';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
-import './AchievePage.css';
+import './css/AchievePage.css';
 
 const icons = [<BeachAccessIcon />, <AccessAlarmIcon />, <ThreeDRotationIcon />];
 
