@@ -1,47 +1,102 @@
 import React from 'react';
-import { Button, TextField } from '@mui/material';
-import type { LoginFormData } from '../../types/auth';
+import { Button, TextField, Grow } from '@mui/material';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkLogin } from '../../redux/slices/auth/createAsyncThunks';
-import './LoginPage.css'; // Путь к вашему CSS-файлу
+import type { LoginFormData } from '../../types/auth';
+import { styled } from '@mui/system';
+import './LoginPage.css';
+
+const styles = {
+  formContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  },
+  form: {
+    width: '500px',
+    padding: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.5s',
+  },
+  textField: {
+    width: '100%',
+    marginBottom: '20px',
+  },
+  button: {
+    marginTop: '10px',
+  },
+};
+
+const AnimatedTextField = styled(TextField)(({ theme }) => ({
+  ...styles.textField,
+  transition: 'transform 0.3s',
+  '&:focus': {
+    transform: 'scale(1.05)',
+  },
+}));
+
+const AnimatedButton = styled(Button)(({ theme }) => ({
+  ...styles.button,
+  transition: 'transform 0.3s',
+  '&:hover': {
+    transform: 'scale(1.1)',
+  },
+}));
 
 export default function LoginPage(): JSX.Element {
   const dispatch = useAppDispatch();
+  const [cardVisible, setCardVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    // Trigger the entrance animation when the component mounts
+    setCardVisible(true);
+  }, []);
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        const formData = Object.fromEntries(new FormData(e.currentTarget)) as LoginFormData;
-        void dispatch(thunkLogin(formData));
-      }}
-    >
-      <h1>Войти</h1>
-      <TextField
-        required
-        label="E-mail"
-        placeholder="E-mail"
-        error={false && 'Invalid email address or password'}
-        name="email"
-        style={{ color: 'white', backgroundColor: 'white', borderRadius: '10px' }} // Установите белый цвет текста
-        inputProps={{ style: { color: 'white' } }} // Приоритет цвета для инпута
-      />
+    <div style={styles.formContainer}>
+      <Grow in={cardVisible} timeout={500}>
+        <form
+          style={styles.form}
+          onSubmit={(e) => {
+            e.preventDefault();
 
-      <TextField
-        required
-        label="Password"
-        placeholder="Password"
-        error={false && 'Invalid email address or password'}
-        name="password"
-        style={{ color: 'white', backgroundColor: 'white', borderRadius: '10px' }} // Установите белый цвет текста
-        inputProps={{ style: { color: 'white' } }} // Приоритет цвета для инпута
-      />
-
-      <div>
-        <Button type="submit" color="success" variant="contained" size="large">
-          Submit
-        </Button>
-      </div>
-    </form>
+            const formData = Object.fromEntries(new FormData(e.currentTarget)) as LoginFormData;
+            console.log('смотри сюда', formData);
+            void dispatch(thunkLogin(formData));
+          }}
+        >
+          <h1>Вход</h1>
+          <AnimatedTextField
+            required
+            label="E-mail"
+            placeholder="E-mail"
+            error={false && 'Invalid email address or password'}
+            name="email"
+          />
+          <AnimatedTextField
+            required
+            label="Password"
+            placeholder="Password"
+            error={false && 'Invalid email address or password'}
+            name="password"
+            type="password"
+          />
+          <AnimatedButton
+            type="submit"
+            color="success"
+            variant="contained"
+            size="large"
+          >
+            Login
+          </AnimatedButton>
+        </form>
+      </Grow>
+    </div>
   );
 }

@@ -9,9 +9,9 @@ const AnimatedListItemButton = styled(ListItemButton)(({ theme }) => ({
   height: 200,
   borderRadius: 20,
   fontWeight: 'bold',
-  transition: 'transform 0.3s', // Smooth transition for the transform property
+  transition: 'transform 0.3s', 
   '&:hover': {
-    transform: 'scale(1.1)', // Increase size on hover
+    transform: 'scale(1.1)', 
   },
 }));
 
