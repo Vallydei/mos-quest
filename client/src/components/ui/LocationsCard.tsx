@@ -29,7 +29,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function RecipeReviewCard(): JSX.Element {
+export default function LocationsCard(): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = (): void => {
