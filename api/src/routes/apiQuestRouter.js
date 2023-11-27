@@ -1,5 +1,5 @@
 const express = require('express');
-const { Quest, Question} = require('../../db/models');
+const { Quest, Question, Location, Image} = require('../../db/models');
 const verifyAccessToken = require('../midddlewares/verifyAccessToken');
 const checkAuthor = require('../midddlewares/checkAuthor');
 
@@ -10,7 +10,15 @@ apiQuestRouter
   .get(async (req, res) => {
     try {
       const quests = await Quest.findAll({
-        include: Question,
+        include: [
+          {
+            model: Question,
+            include: {
+              model: Location, // Включаем связанные данные Location
+              include: Image, // Включаем связанные данные Image у Location
+            },
+          },
+        ],
         order: [[Question, 'id', 'ASC']],
       });
       res.json(quests);

@@ -188,7 +188,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
               </AccordionDetails>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <RecipeReviewCard />
+              <RecipeReviewCard location={quest.Questions[0].Location} />
             </Grid>
           </Grid>
         </Accordion>
@@ -243,7 +243,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
                 </AccordionDetails>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <RecipeReviewCard />
+                <RecipeReviewCard location={quest.Questions[step - 1].Location} />
               </Grid>
             </Grid>
           </Accordion>
