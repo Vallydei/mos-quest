@@ -29,6 +29,152 @@ module.exports = {
           locationImg:
             'https://mos-holidays.ru/wp-content/uploads/2015/10/Honey-Ill-call-back2.jpg',
         },
+        {
+          locationId: 2,
+          locationImg:
+            '/images/ShrodingersCat/Cat4.jpeg',
+        },
+        {
+          locationId: 2,
+          locationImg:
+            '/images/ShrodingersCat/cat5.avif',
+        },
+        {
+          locationId: 2,
+          locationImg:
+            '/images/ShrodingersCat/shrodinger1.jpg',
+        },
+        {
+          locationId: 2,
+          locationImg:
+            '/images/ShrodingersCat/shrodinger2.jpg',
+        },
+        {
+          locationId: 2,
+          locationImg:
+            '/images/ShrodingersCat/shrodinger3.jpg',
+        },
+        {
+          locationId: 3,
+          locationImg:
+            '/images/NeonMonkey/neon-monkey_slide_1.png',
+        },
+        {
+          locationId: 3,
+          locationImg:
+            '/images/NeonMonkey/neon-monkey_slide_2.png',
+        },
+        {
+          locationId: 3,
+          locationImg:
+            '/images/NeonMonkey/neon-monkey_slide_3.png',
+        },
+        {
+          locationId: 3,
+          locationImg:
+            '/images/NeonMonkey/neon-monkey_slide_4.png',
+        },
+        {
+          locationId: 3,
+          locationImg:
+            '/images/NeonMonkey/neon-monkey_slide_5.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_1.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_2.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_3.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_4.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_10.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_6.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_7.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_9.png',
+        },
+        {
+          locationId: 4,
+          locationImg:
+            '/images/CosmoHomyack/kosmo-homyak_slide_5.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_kitchen_3.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_kitchen_4.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_kitchen_7.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_kitchen_8.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_kitchen_9.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_5.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_1.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_2.png',
+        },
+        
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_4.png',
+        },
+        {
+          locationId: 5,
+          locationImg:
+            '/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_3.png',
+        },
       ],
       {}
     );

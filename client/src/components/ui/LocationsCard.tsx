@@ -12,8 +12,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { LocationType } from '../../types/locationType/locationType';
+
+import type { LocationType } from '../../types/locationType/locationType';
 
 type ExpandMoreProps = {
   expand: boolean;
@@ -31,12 +31,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 type RecipeReviewCardProps = {
-  location: LocationType
-}
+  location: LocationType;
+};
 
-export default function RecipeReviewCard({location}: RecipeReviewCardProps): JSX.Element {
+export default function RecipeReviewCard({ location }: RecipeReviewCardProps): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
-
 
   const handleExpandClick = (): void => {
     setExpanded(!expanded);
@@ -50,9 +49,7 @@ export default function RecipeReviewCard({location}: RecipeReviewCardProps): JSX
             Quest
           </Avatar>
         }
-
         title={location?.title}
-       
       />
       <a href={`/location/${Number(location?.id)}`}>
         <CardMedia
@@ -63,7 +60,8 @@ export default function RecipeReviewCard({location}: RecipeReviewCardProps): JSX
         />
       </a>
       <CardContent>
-        <Typography variant="body2" color="text.secondary">{location?.description}
+        <Typography variant="body2" color="text.secondary">
+          {location?.shortDescription}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -78,14 +76,7 @@ export default function RecipeReviewCard({location}: RecipeReviewCardProps): JSX
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
-
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-            heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-            browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-            and chorizo in the pan.
-          </Typography>
+          <Typography paragraph>{location?.description}</Typography>
           <Typography />
           <Typography />
         </CardContent>

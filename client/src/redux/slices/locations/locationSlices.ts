@@ -1,12 +1,20 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import type { CommentType, LocationType } from '../../../types/locationType/locationType';
-import { thunkGetCommentsOfLocation, thunkGetLocations } from './locationAsyncThunks';
+import type {
+  CommentFormType,
+  CommentType,
+  LocationType,
+} from '../../../types/locationType/locationType';
+import {
+  thunkGetCommentsOfLocation,
+  thunkGetLocations,
+  thunkPostCommentOfLocation,
+} from './locationAsyncThunks';
 
 const initialState: {
   locations: LocationType[];
   location: LocationType | null;
-  comments: CommentType[] | [];
+  comments: CommentType[];
 } = {
   locations: [],
   location: null,
@@ -25,23 +33,21 @@ export const locationsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(thunkGetLocations.fulfilled, (state, action) => ({
-      ...state,
-      locations: action.payload, /// почему не работает extraReducers: (builder) => {builder.addCase(thunkGetLocations.fulfilled,(state, action) => (state.locations = action.payload));
-    }));
-    builder.addCase(thunkGetCommentsOfLocation.fulfilled, (state, action) => ({
-      ...state,
-      comments: action.payload,
-    }));
+    builder.addCase(thunkGetLocations.fulfilled, (state, action) => {
+      state.locations = action.payload;
+    });
+    builder.addCase(thunkGetCommentsOfLocation.fulfilled, (state, action) => {
+      state.comments = action.payload;
+    });
+    builder.addCase(thunkPostCommentOfLocation.fulfilled, (state, action) => {
+      state.comments.push(action.payload);
+    });
   },
 });
 
 export default locationsSlice.reducer;
 export const { getSelectedLocation } = locationsSlice.actions;
 
-// builder.addCase(addPostThunk.fulfilled, (state, action) => {
-//   state.unshift(action.payload);
-// });
 // builder.addCase(deletePostThunk.fulfilled, (state, action) =>
 //   state.filter((el) => el.id !== action.payload),
 // );
