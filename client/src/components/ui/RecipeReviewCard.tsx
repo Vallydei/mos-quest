@@ -56,7 +56,7 @@ export default function RecipeReviewCard(): JSX.Element {
         <CardMedia
           component="img"
           height="194"
-          image="https://kartinki.pics/uploads/posts/2022-03/1647532093_1-kartinkin-net-p-kartinki-bara-1.jpg"
+          image="1647532135_2-kartinkin-net-p-kartinki-bara-2.jpg"
           alt="Описание локации"
         />
       </a>
