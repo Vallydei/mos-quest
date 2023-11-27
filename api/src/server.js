@@ -6,6 +6,7 @@ const apiUsersRouter = require('./routes/apiUsersRouter');
 const apiQuestRouter = require('./routes/apiQuestRouter');
 const apiQuestionsRouter = require('./routes/apiQuestionRouter');
 const apiLocationRouter = require('./routes/apiLocationRouter');
+const apiAcievesRouter = require('./routes/apiAchievesRouter');
 const apiProgressRouter = require('./routes/apiProgressRouter');
 
 const app = express();
@@ -24,6 +25,7 @@ app.use('/api/users', apiUsersRouter);
 app.use('/api/quest', apiQuestRouter);
 app.use('/api/question', apiQuestionsRouter);
 app.use('/api/location', apiLocationRouter);
+app.use('/api/achieves', apiAcievesRouter)
 app.use('/api/progress', apiProgressRouter);
 
 app.listen(PORT, () => console.log(`API server has started on port ${PORT}`));

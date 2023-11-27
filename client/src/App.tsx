@@ -18,22 +18,36 @@ import {
   thunkGetCommentsOfLocation,
   thunkGetLocations,
 } from './redux/slices/locations/locationAsyncThunks';
-import { thunkGetProgress, thunkGetQuests } from './redux/slices/questThunks/questAsyncThunks';
+import { thunkGetQuests, thunkGetProgress } from './redux/slices/questThunks/questAsyncThunks';
 import { thunkCheckAuth } from './redux/slices/auth/createAsyncThunks';
+import AccPage from './components/pages/AccPage';
+import thunkGetAchieves from './redux/slices/achievesAsyncThunk';
+import useAxiosInterceptors from './components/customHook/useAxiosInterceptors';
+import { authInstance } from './services/authService';
+import { locationInstance } from './services/locationService';
+import { achieveInstance } from './services/achieveService';
+import { questInstance } from './services/questService';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user);
   const dispatch = useAppDispatch();
   useEffect(() => {
+    void dispatch(thunkCheckAuth());
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
     void dispatch(thunkGetQuests());
+    void dispatch(thunkGetAchieves());;
     void dispatch(thunkCheckAuth()).then(() => {
       if (user.status === 'authenticated') {
         void dispatch(thunkGetProgress(user.id)); ////ПАМАГИТИ
       }
     });
   }, [user.status]);
+
+  useAxiosInterceptors(authInstance);
+  useAxiosInterceptors(locationInstance);
+  useAxiosInterceptors(achieveInstance);
+  useAxiosInterceptors(questInstance);
   return (
     <Container>
       <NavBar />
@@ -47,6 +61,7 @@ function App(): JSX.Element {
         <Route path="/themepage" element={<ThemePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/acc" element={<AccPage />} />
       </Routes>
     </Container>
   );

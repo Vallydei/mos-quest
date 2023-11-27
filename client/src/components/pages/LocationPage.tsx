@@ -7,12 +7,26 @@ import { TextField } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import CarouselElement from '../ui/CarouselElement';
 import CommentCard from '../ui/CommentCard';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import GoogleMaps from '../ui/GoogleMaps';
+import { thunkPostCommentOfLocation } from '../../redux/slices/locations/locationAsyncThunks';
+import type { CommentFormType } from '../../types/locationType/locationType';
 
 export default function LocationPage(): JSX.Element {
   const locations = useAppSelector((store) => store.locationsSlice.locations);
   const comments = useAppSelector((store) => store.locationsSlice.comments);
   const { id } = useParams();
+  const dispatch = useAppDispatch();
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    // if (user.status === 'authenticated')
+    const formData = Object.fromEntries(new FormData(e.currentTarget)) as Omit<
+      CommentFormType,
+      'locationId'
+    >;
+    void dispatch(thunkPostCommentOfLocation({ ...formData, locationId: Number(id) }));
+    e.currentTarget.reset();
+  };
   const location = locations.find((el) => el?.id === Number(id));
   const commentsLocations = comments.filter((el) => el.locationId === Number(id));
 
@@ -24,9 +38,10 @@ export default function LocationPage(): JSX.Element {
             <CarouselElement images={location?.Images} />
           </div>
           <div className="mapContainer">
-            <a target="_blank" href={location?.adress} rel="noreferrer">
-              <img className="imgLocationMap" src={location?.map} alt="locationMap" />
-            </a>
+            {/* <a target="_blank" href={location?.adress} rel="noreferrer"> */}
+            <GoogleMaps map={location?.map} />
+            {/* <img className="imgLocationMap" src={location?.map} alt="locationMap" /> */}
+            {/* </a> */}
           </div>
         </div>
 
@@ -62,16 +77,16 @@ export default function LocationPage(): JSX.Element {
               <CommentCard key={comment.id} comment={comment} />
             ))}
 
-            <form noValidate className="inputComments">
+            <form onSubmit={(e) => submitHandler(e)} noValidate className="inputComments">
               <TextField
                 size="medium"
                 rows="5"
                 id="outlined-required"
                 label="Оставьте комментарий"
                 className="commentTextArea"
-                name="comment"
+                name="text"
               />
-              <Button variant="outlined" color="neutral">
+              <Button type="submit" variant="outlined" color="neutral">
                 Отправить
               </Button>
             </form>

@@ -9,20 +9,12 @@ export const thunkCheckAuth = createAsyncThunk<AuthState>('authSlice/thunkCheckA
 
 export const thunkLogin = createAsyncThunk(
   'authSlice/thunkLogin',
-  async (formData: LoginFormData) => {
-    const backendAuth = await AuthService.login(formData);
-    return { ...backendAuth, user: { ...backendAuth.user, status: 'authenticated' } };
-  },
+  async (formData: LoginFormData) => AuthService.login(formData),
 );
 
 export const thunkSignup = createAsyncThunk(
   'authSlice/thunkSignup',
-  async (formData: SignupFormData) => {
-    console.log(formData);
-    const backendAuth = await AuthService.signup(formData);
-    
-    return { ...backendAuth, user: { ...backendAuth.user, status: 'authenticated' } };
-  },
+  async (formData: SignupFormData) => AuthService.signup(formData),
 );
 
 export const thunkLogout = createAsyncThunk('authSlice/thunkLogout', () => AuthService.logout());
