@@ -11,9 +11,9 @@ apiCommentsRouter
     try {
       const comments = await Comment.findAll({
         include: User,
-        order: [["createdAt", "DESC"]],
+        order: [["createdAt", "ASC"]],
       });
-      console.log(comments);
+
       res.json(comments);
     } catch (error) {
       console.log(error);
@@ -22,14 +22,16 @@ apiCommentsRouter
   })
   .post(verifyAccessToken, async (req, res) => {
     try {
-      const post = await Comment.create({
+      console.log(req.body);
+      const comment = await Comment.create({
         ...req.body,
-        authorId: res.locals.user.id,
+        userId: res.locals.user.id,
+        // locationId: res.params
       });
-      const postWithAuthor = await Comment.findByPk(post.id, {
+      const commentWithAuthor = await Comment.findByPk(comment.id, {
         include: User,
       });
-      res.status(201).json(postWithAuthor);
+      res.status(201).json(commentWithAuthor);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);

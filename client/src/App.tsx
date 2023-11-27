@@ -14,17 +14,35 @@ import LocationsPage from './components/pages/LocationsPage';
 import LocationPage from './components/pages/LocationPage';
 import MainPage from './components/pages/MainPage';
 import AccountPage from './components/pages/AccountPage';
-import { thunkGetCommentsOfLocation, thunkGetLocations } from './redux/slices/locations/locationAsyncThunks';
+import {
+  thunkGetCommentsOfLocation,
+  thunkGetLocations,
+} from './redux/slices/locations/locationAsyncThunks';
 import { thunkGetQuests } from './redux/slices/questThunks/questAsyncThunks';
+import { thunkCheckAuth } from './redux/slices/auth/createAsyncThunks';
+import AccPage from './components/pages/AccPage';
+import thunkGetAchieves from './redux/slices/achievesAsyncThunk';
+import useAxiosInterceptors from './components/customHook/useAxiosInterceptors';
+import { authInstance } from './services/authService';
+import { locationInstance } from './services/locationService';
+import { achieveInstance } from './services/achieveService';
+import { questInstance } from './services/questService';
 
 function App(): JSX.Element {
-  const user = useAppSelector((state) => state.authSlice.user.status);
-  const dispatch = useAppDispatch()
+  const user = useAppSelector((state) => state.authSlice.user);
+  const dispatch = useAppDispatch();
   useEffect(() => {
+    void dispatch(thunkCheckAuth());
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
-    void dispatch(thunkGetQuests())
+    void dispatch(thunkGetQuests());
+    void dispatch(thunkGetAchieves());
   }, []);
+
+  useAxiosInterceptors(authInstance);
+  useAxiosInterceptors(locationInstance);
+  useAxiosInterceptors(achieveInstance);
+  useAxiosInterceptors(questInstance);
   return (
     <Container>
       <NavBar />
@@ -35,10 +53,11 @@ function App(): JSX.Element {
         <Route path="/location/:id" element={<LocationPage />} />{' '}
         <Route path="/account" element={<AccountPage />} />
         <Route path="/" element={<MainPage />} />
-        <Route element={<PrivateRouter isAllowed={user === 'authenticated'} />} />
+        <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
         <Route path="/themepage" element={<ThemePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/acc" element={<AccPage />} />
       </Routes>
     </Container>
   );

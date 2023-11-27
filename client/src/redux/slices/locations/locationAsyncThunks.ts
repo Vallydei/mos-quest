@@ -1,46 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import LocationService from '../../../services/locationService';
-import type { LocationType, CommentType } from '../../../types/locationType/locationType';
+import type { CommentFormType, CommentType } from '../../../types/locationType/locationType';
 
-export const thunkGetLocations = createAsyncThunk<LocationType[]>(
-  'locationSlice/thunkGetLocations',
-  async () => {
-    const locations = await LocationService.getAll();
-    return locations;
-  },
+export const thunkGetLocations = createAsyncThunk('locationSlice/thunkGetLocations', async () =>
+  LocationService.getAll(),
 );
 
-export const thunkGetCommentsOfLocation = createAsyncThunk<CommentType[]>(
+export const thunkGetCommentsOfLocation = createAsyncThunk(
   'locationCommentSlice/thunkGetCommentsOfLocation',
-  async () => {
-    const comments = await LocationService.getAllComments();
-    return comments;
-  },
+  async () => LocationService.getAllComments(),
 );
-// export const thunkLogin = createAsyncThunk(
-//   'authSlice/thunkLogin',
-//   async (formData: LoginFormData) => {
-//     const backendAuth = await AuthService.login(formData);
-//     return { ...backendAuth, user: { ...backendAuth.user, status: 'authenticated' } };
-//   },
-// );
 
-// export const thunkSignup = createAsyncThunk(
-//   'authSlice/thunkSignup',
-//   async (formData: SignupFormData) => {
-//     console.log(formData);
-//     const backendAuth = await AuthService.signup(formData);
-
-//     return { ...backendAuth, user: { ...backendAuth.user, status: 'authenticated' } };
-//   },
-// );
-
-// export const thunkLogout = createAsyncThunk('authSlice/thunkLogout', () => AuthService.logout());
-
-// export const thunkRefreshToken = createAsyncThunk<AuthState['accessToken']>(
-//   'authSlice/thunkRefreshToken',
-//   async () => {
-//     const backendAuth = await AuthService.refresh();
-//     return backendAuth.accessToken;
-//   },
-// );
+export const thunkPostCommentOfLocation = createAsyncThunk(
+  'locationCommentSlice/thunkPostCommentOfLocation',
+  async (comment: CommentFormType) => 
+    LocationService.postComment(comment)
+  ,
+);

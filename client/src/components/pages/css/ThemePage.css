@@ -1,7 +1,17 @@
+.themeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90vh;
 
+}
+.link {
+  text-decoration: none;
+}
 .listItem1 {
   background-image: url('../../../../../client/public/2.jpg');
   background-size: cover;
+
 }
 
 .listItem2 {

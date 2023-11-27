@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 import React, { useEffect } from 'react';
 import './css/MainPage.css'
+import { Link } from 'react-router-dom';
 
 export default function MainPage(): JSX.Element {
   useEffect(() => {
@@ -76,17 +77,17 @@ export default function MainPage(): JSX.Element {
       </div>
 
       <div className="btmMainContainer">
-        <a href="/locations">
+        <Link to="/locations">
           <button type="button" className="btmMain">
             Локации
           </button>
-        </a>
+        </Link>
 
-        <a href="/themepage">
+        <Link to="/themepage">
           <button type="button" className="btmMain">
             Квесты
           </button>
-        </a>
+        </Link>
       </div>
     </Container>
   );

@@ -3,6 +3,7 @@ import type { UserType } from '../auth';
 export type LocationType = {
   id: number;
   title: string;
+  shortDescription: string;
   description: string;
   adress: string;
   map: string;
@@ -22,4 +23,9 @@ export type CommentType = {
   locationId: number;
   text: string;
   User: UserType[];
+};
+
+export type CommentFormType = {
+  text: string;
+  locationId: number;
 };

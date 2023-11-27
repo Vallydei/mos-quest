@@ -6,6 +6,7 @@ import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import Home from '@mui/icons-material/Home';
 import Person from '@mui/icons-material/Person';
+import { Link } from 'react-router-dom';
 import { thunkLogout } from '../../redux/slices/auth/createAsyncThunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
@@ -15,70 +16,88 @@ export default function NavBar(): JSX.Element {
   return (
     <Box component="nav" aria-label="My site" sx={{ flexGrow: 1 }}>
       <List role="menubar" orientation="horizontal">
-        <ListDivider />
         <ListItem role="none">
           Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
         </ListItem>
         <ListDivider />
 
-        <ListItem role="none">
-          <ListItemButton role="menuitem" component="a" href="/" aria-label="Home">
-            <Home /> Главная
-          </ListItemButton>
-        </ListItem>
-        <ListDivider />
-        <ListItem role="none">
-          <ListItemButton role="menuitem" component="a" href="/locations">
-            Locations
-          </ListItemButton>
-        </ListItem>
-        <ListDivider />
-        <ListItem role="none">
-          <ListItemButton role="menuitem" component="a" href="/account">
-            Личный кабинет
-          </ListItemButton>
-        </ListItem>
-        <ListDivider />
-        {/* {auth.user.status === 'authenticated' ? ( */}
-        <ListItem role="none">
-          <ListItemButton role="menuitem" component="a" href="/themepage">
-            Категории квестов
-          </ListItemButton>
-        </ListItem>
-        {/* ) : ( */}
-        <>
+        <Link to="/">
           <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" href="/login">
-              Login
+            <ListItemButton role="menuitem" component="a" aria-label="Home">
+              <Home /> Главная
             </ListItemButton>
           </ListItem>
+        </Link>
+
+        <ListDivider />
+        <Link to="/locations">
           <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" href="/signup">
-              SignUp
+            <ListItemButton role="menuitem" component="a">
+              Локации
             </ListItemButton>
           </ListItem>
-        </>
-        {/* )} */}
-        <ListItem role="none">
-          <ListItemButton
-            role="menuitem"
-            onClick={() => void dispatch(thunkLogout())}
-            component="a"
-            href="/logout"
-          >
-            logout
-          </ListItemButton>
-        </ListItem>
-        <ListItem role="none" sx={{ marginInlineStart: 'auto' }}>
-          <ListItemButton
-            role="menuitem"
-            component="a"
-            href="#horizontal-list"
-            aria-label="Profile"
-          >
-            <Person />
-          </ListItemButton>
-        </ListItem>
+        </Link>
+
+        <ListDivider />
+        <Link to="/themepage">
+          {' '}
+          <ListItem role="none">
+            <ListItemButton role="menuitem" component="a">
+              Категории квестов
+            </ListItemButton>
+          </ListItem>
+        </Link>
+
+        <ListDivider />
+        {auth.user.status === 'authenticated' ? (
+          <>
+            <Link to="/account">
+              <ListItem role="none" sx={{ marginInlineStart: 'auto' }}>
+                <ListItemButton
+                  role="menuitem"
+                  component="a"
+                  href="#horizontal-list"
+                  aria-label="Profile"
+                >
+                  <Person /> Личный кабинет
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            <ListDivider />
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <ListItem role="none">
+                <ListItemButton role="menuitem" component="a">
+                  Вход
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            <ListDivider />
+            <Link to="/signup">
+              {' '}
+              <ListItem role="none">
+                <ListItemButton role="menuitem" component="a">
+                  Регистрация
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            <ListDivider />
+          </>
+        )}
+        <Link to="/logout">
+          {' '}
+          <ListItem role="none">
+            <ListItemButton
+              role="menuitem"
+              onClick={() => void dispatch(thunkLogout())}
+              component="a"
+            >
+              Выйти
+            </ListItemButton>
+          </ListItem>
+        </Link>
       </List>
     </Box>
   );
