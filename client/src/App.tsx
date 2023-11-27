@@ -62,7 +62,7 @@ function App(): JSX.Element {
             <Route path="/themepage" element={<ThemePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-        <Route path="/acc" element={<AccPage />} />
+        <Route path="/account" element={<AccPage />} />
           </Routes>
         </Container>
       </Box>

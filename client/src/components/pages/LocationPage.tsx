@@ -11,7 +11,8 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import GoogleMaps from '../ui/GoogleMaps';
 import { thunkPostCommentOfLocation } from '../../redux/slices/locations/locationAsyncThunks';
 import type { CommentFormType } from '../../types/locationType/locationType';
-import "./LocPage.css"; 
+import "./css/LocPage.css"; 
+import "./css/LocationPage.css"
 
 export default function LocationPage(): JSX.Element {
   const locations = useAppSelector((store) => store.locationsSlice.locations);

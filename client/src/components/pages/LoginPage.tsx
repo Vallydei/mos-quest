@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, TextField, Grow } from '@mui/material';
+import { styled } from '@mui/system';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkLogin } from '../../redux/slices/auth/createAsyncThunks';
 import type { LoginFormData } from '../../types/auth';
-import { styled } from '@mui/system';
-import './LoginPage.css';
+import './css/LoginPage.css';
 
 const styles = {
   formContainer: {
@@ -87,12 +87,7 @@ export default function LoginPage(): JSX.Element {
             name="password"
             type="password"
           />
-          <AnimatedButton
-            type="submit"
-            color="success"
-            variant="contained"
-            size="large"
-          >
+          <AnimatedButton type="submit" color="success" variant="contained" size="large">
             Login
           </AnimatedButton>
         </form>
