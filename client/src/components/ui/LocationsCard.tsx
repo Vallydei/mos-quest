@@ -12,7 +12,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+import type { LocationType } from '../../types/locationType/locationType';
 
 type ExpandMoreProps = {
   expand: boolean;
@@ -29,7 +30,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function LocationsCard(): JSX.Element {
+type RecipeReviewCardProps = {
+  location: LocationType;
+};
+
+export default function RecipeReviewCard({ location }: RecipeReviewCardProps): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = (): void => {
@@ -37,33 +42,26 @@ export default function LocationsCard(): JSX.Element {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, bgcolor: 'white', color: 'black' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            MQ
+            Quest
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Название локации"
-        subheader="November 23, 2023"
+        title={location?.title}
       />
-      <a href="/location/:id">
+      <a href={`/location/${Number(location?.id)}`}>
         <CardMedia
           component="img"
           height="194"
-          image="1647532135_2-kartinkin-net-p-kartinki-bara-2.jpg"
+          image={location?.Images[4].locationImg}
           alt="Описание локации"
         />
       </a>
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+      <CardContent sx={{ color: 'white' }}>
+        <Typography variant="body2" color="black" fontWeight="bold">
+          {location?.shortDescription}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -78,16 +76,8 @@ export default function LocationsCard(): JSX.Element {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
-          </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-            heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-            browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-            and chorizo in the pan.
+          <Typography paragraph fontWeight="bold">
+            {location?.description}{' '}
           </Typography>
           <Typography />
           <Typography />
