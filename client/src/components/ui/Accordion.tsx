@@ -20,11 +20,12 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#000000',
+        main: '#000000', // черный цвет (hex)
       },
       text: {
-        primary: '#000000',
+        primary: '#000000', // черный цвет текста (hex)
       },
+      // другие цвета, если нужно
     },
   });
 
