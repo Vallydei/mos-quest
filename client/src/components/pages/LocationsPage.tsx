@@ -1,5 +1,6 @@
 import React from 'react';
 import LocationCard from '../ui/LocationsCard';
+import './css/LocationsPage.css'; // Import the CSS file for styling
 import { useAppSelector } from '../../redux/hooks';
 
 export default function LocationsPage(): JSX.Element {

@@ -15,6 +15,7 @@ export default function MainPage(): JSX.Element {
       });
     });
   }, []);
+
   return (
     <Container className="mainContainer">
       <div className="options">

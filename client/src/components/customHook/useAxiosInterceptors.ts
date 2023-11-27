@@ -7,6 +7,7 @@ export default function useAxiosInterceptors(authInstance: AxiosInstance): void 
   const accessToken = useAppSelector((store) => store.authSlice.accessToken);
   const user = useAppSelector((store)=> store.authSlice.user)
   const dispatch = useAppDispatch();
+  const user = useAppSelector((store) => store.authSlice.user);
 
   useEffect(() => {
     const requestInterceptor = authInstance.interceptors.request.use(

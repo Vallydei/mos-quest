@@ -1,55 +1,97 @@
 import React from 'react';
-import { Button, TextField } from '@mui/material';
-import type { LoginFormData } from '../../types/auth';
+import { Button, TextField, Grow } from '@mui/material';
+import { styled } from '@mui/system';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkLogin } from '../../redux/slices/auth/createAsyncThunks';
+import type { LoginFormData } from '../../types/auth';
+import './css/LoginPage.css';
+
+const styles = {
+  formContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  },
+  form: {
+    width: '500px',
+    padding: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.5s',
+  },
+  textField: {
+    width: '100%',
+    marginBottom: '20px',
+  },
+  button: {
+    marginTop: '10px',
+  },
+};
+
+const AnimatedTextField = styled(TextField)(({ theme }) => ({
+  ...styles.textField,
+  transition: 'transform 0.3s',
+  '&:focus': {
+    transform: 'scale(1.05)',
+  },
+}));
+
+const AnimatedButton = styled(Button)(({ theme }) => ({
+  ...styles.button,
+  transition: 'transform 0.3s',
+  '&:hover': {
+    transform: 'scale(1.1)',
+  },
+}));
 
 export default function LoginPage(): JSX.Element {
   const dispatch = useAppDispatch();
-  // if (
-  //   values.email &&
-  //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-  // )
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        const formData = Object.fromEntries(new FormData(e.currentTarget)) as LoginFormData;
-        void dispatch(thunkLogin(formData));
-      }}
-    >
-      <h1>Войти</h1>
-      <TextField
-        required
-        label="E-mail"
-        placeholder="E-mail"
-        error={false && 'Invalid email address or password'}
-        name="email"
-      />
+  const [cardVisible, setCardVisible] = React.useState(false);
 
-      <TextField
-        required
-        label="Password"
-        placeholder="Password"
-        error={false && 'Invalid email address or password'}
-        name="password"
-      />
-      <div>
-        <Button type="submit" color="success" variant="contained" size="large">
-          Submit
-        </Button>
-      </div>
-    </form>
+  React.useEffect(() => {
+    // Trigger the entrance animation when the component mounts
+    setCardVisible(true);
+  }, []);
+
+  return (
+    <div style={styles.formContainer}>
+      <Grow in={cardVisible} timeout={500}>
+        <form
+          style={styles.form}
+          onSubmit={(e) => {
+            e.preventDefault();
+
+            const formData = Object.fromEntries(new FormData(e.currentTarget)) as LoginFormData;
+            console.log('смотри сюда', formData);
+            void dispatch(thunkLogin(formData));
+          }}
+        >
+          <h1>Вход</h1>
+          <AnimatedTextField
+            required
+            label="E-mail"
+            placeholder="E-mail"
+            error={false && 'Invalid email address or password'}
+            name="email"
+          />
+          <AnimatedTextField
+            required
+            label="Password"
+            placeholder="Password"
+            error={false && 'Invalid email address or password'}
+            name="password"
+            type="password"
+          />
+          <AnimatedButton type="submit" color="success" variant="contained" size="large">
+            Login
+          </AnimatedButton>
+        </form>
+      </Grow>
+    </div>
   );
 }
-// {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-//   <Form.Label>Email address</Form.Label>
-//   <Form.Control type="email" name="email" placeholder="Enter email" />
-// </Form.Group> */}
-
-// // eslint-disable-next-line no-lone-blocks
-// {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-//   <Form.Label>Password</Form.Label>
-//   <Form.Control type="password" name="password" placeholder="Password" />
-// </Form.Group>
-// <Button type="submit">Submit</Button> */}
