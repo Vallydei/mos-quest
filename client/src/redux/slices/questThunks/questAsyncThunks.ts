@@ -3,6 +3,7 @@ import QuestService from '../../../services/questService';
 import type { QuestType } from '../../../types/questType/questType';
 import ProgressService from '../../../services/progressService';
 import type { ProgressType, ProgressTypeData } from '../../../types/progressType/progressType';
+import type { UserType } from '../../../types/auth';
 
 export const thunkGetQuests = createAsyncThunk<QuestType[]>(
   'questSlice/thunkGetQuests',
@@ -12,9 +13,9 @@ export const thunkGetQuests = createAsyncThunk<QuestType[]>(
   },
 );
 
-export const thunkGetProgress = createAsyncThunk<ProgressType[]>(
+export const thunkGetProgress = createAsyncThunk<ProgressType[], UserType['id']>(
   'questSlice/thunkGetProgress',
-  async (id) => ProgressService.getAllProgress(id),
+  async (id: UserType['id']) => ProgressService.getAllProgress(id),
 );
 export const thunkNewProgress = createAsyncThunk(
   'questSlice/thunkNewProgress',
