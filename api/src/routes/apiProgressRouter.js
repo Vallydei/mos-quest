@@ -1,6 +1,5 @@
 const express = require('express');
 const { UserProgress, User } = require('../../db/models');
-const verifyAccessToken = require('../midddlewares/verifyAccessToken');
 
 const apiProgressRouter = express.Router();
 
@@ -44,7 +43,6 @@ apiProgressRouter
       },
         include: User,
       });
-      console.log('юс прог', userProgress);
       res.json(userProgress);
     } catch (error) {
       console.log('Ошибка получения прогресса');

@@ -1,0 +1,48 @@
+.getedAchiev {
+  width: 270px;
+  height: 270px;
+  margin: 17px;
+  background-color: #030029;
+  position: relative;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.getedAchiev h2 {
+  font-family: system-ui;
+  font-size: 2rem;
+  color: #ffa3fd;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 2;
+}
+
+.getedAchiev img {
+  position: relative; /* Добавлено: установка позиции элемента изображения */
+  z-index: 3;
+}
+
+.getedAchiev::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 140%;
+  background-image: linear-gradient(180deg, #865dff, #e384ff);
+  animation: rotate 3s linear infinite;
+}
+
+.getedAchiev::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  background-color: #030029;
+  border-radius: inherit;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg); /* Исправлено: свойство transform вместо rotate */
+  }
+}

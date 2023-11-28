@@ -11,6 +11,7 @@ import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
 import ThreeDRotationIcon from '@mui/icons-material/ThreeDRotation';
 import './css/AchievePage.css';
+import Test from '../ui/test';
 
 const icons = [<BeachAccessIcon />, <AccessAlarmIcon />, <ThreeDRotationIcon />];
 
@@ -33,6 +34,7 @@ export default function AccountPage(): React.JSX.Element {
   return (
     <div className='achievement-container'>
       <h1>Мои достижения</h1>
+     
       <List dense className='list-container'>
         {[0, 1, 2, 3, 4, 5].map((value) => {
           const labelId = `checkbox-list-secondary-label-${value}`;
