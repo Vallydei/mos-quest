@@ -12,10 +12,6 @@ const AnimatedListItemButton = styled(ListItemButton)(({ theme }) => ({
   height: 200,
   borderRadius: 20,
   fontWeight: 'bold',
-  transition: 'transform 0.3s',
-  '&:hover': {
-    transform: 'scale(1.1)',
-  },
 }));
 
 export default function ThemePage(): JSX.Element {
