@@ -22,7 +22,7 @@ export default function AccPage(): JSX.Element {
   };
 
   return (
-    <div className="accountContainer accountContainerCustom">
+    <div className="accountContainer">
       <Profilecard
         profileImgUrl={profileData.imgUrl}
         profileName={user.status === 'authenticated' ? user.name : 'Неопозднанное нечто'}
@@ -31,10 +31,12 @@ export default function AccPage(): JSX.Element {
         ProfileNumber={profileData.number}
         ProfileEmail={user.status === 'authenticated' ? user.email : profileData.email}
       />{' '}
+      <div className="accountContainer accountContainerCustom">
       {achieves.ahieves.map((achieve) => (
         <AchieveCard key={achieve.id} achieve={achieve} getedAchievs={getedAchievs} />
       ))}
       <UserEditModal/>
+      </div>
     </div>
   );
 }

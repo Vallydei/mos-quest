@@ -1,5 +1,4 @@
 import React from 'react';
-import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
@@ -11,8 +10,8 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import GoogleMaps from '../ui/GoogleMaps';
 import { thunkPostCommentOfLocation } from '../../redux/slices/locations/locationAsyncThunks';
 import type { CommentFormType } from '../../types/locationType/locationType';
-import "./css/LocPage.css"; 
-import "./css/LocationPage.css"
+import './css/LocPage.css';
+import './css/LocationPage.css';
 
 export default function LocationPage(): JSX.Element {
   const locations = useAppSelector((store) => store.locationsSlice.locations);
@@ -23,7 +22,8 @@ export default function LocationPage(): JSX.Element {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.currentTarget)) as Omit<
       CommentFormType,
-      'locationId'>;
+      'locationId'
+    >;
     void dispatch(thunkPostCommentOfLocation({ ...formData, locationId: Number(id) }));
     e.currentTarget.reset();
   };
@@ -31,22 +31,21 @@ export default function LocationPage(): JSX.Element {
   const commentsLocations = comments.filter((el) => el.locationId === Number(id));
 
   return (
-    <Box>
-      <div className="locationContainer">
-        <div className="columnContainer">
-          <div className="carouselContainer">
-            <CarouselElement images={location?.Images} />
-          </div>
-          <div className="mapContainer">
-            <GoogleMaps map={location?.map} />
-          </div>
+    <div className="locationContainer">
+      <div className="columnContainer">
+        <div className="carouselContainer">
+          <CarouselElement images={location?.Images} />
         </div>
+        <div className="mapContainer">
+          <GoogleMaps map={location?.map} />
+        </div>
+      </div>
 
-        <div className="columnContainer">
-          <div className="CardContent">
-            <Typography fontSize="xl" fontWeight="lg">
-              {location?.title}
-            </Typography>
+      <div className="columnContainer">
+        <div className="CardContent">
+          <Typography fontSize="xl" fontWeight="lg">
+            {location?.title}
+          </Typography>
 
           <Sheet
             sx={{
@@ -58,7 +57,7 @@ export default function LocationPage(): JSX.Element {
               gap: 2,
               '& > div': { flex: 1 },
             }}
-              // className="CardContent" // Add the class for CardContent animation
+            // className="CardContent" // Add the class for CardContent animation
           >
             <div>
               <Typography fontWeight="lg">{location?.description}</Typography>
@@ -94,6 +93,6 @@ export default function LocationPage(): JSX.Element {
           </form>
         </div>
       </div>
-    </Box>
+    </div>
   );
 }
