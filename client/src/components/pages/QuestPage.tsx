@@ -15,10 +15,9 @@ export default function QuestPage(): JSX.Element {
         component="section"
         sx={{
           p: 4,
-          border: '1px dashed white',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '10px',
-          boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    
           animation: 'fadeIn 0.5s ease-in',
         }}
         flex={2}
