@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -30,11 +31,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-type RecipeReviewCardProps = {
+type LocationsCardrops = {
   location: LocationType;
 };
 
-export default function RecipeReviewCard({ location }: RecipeReviewCardProps): JSX.Element {
+export default function LocationsCard({ location }: LocationsCardrops): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = (): void => {
