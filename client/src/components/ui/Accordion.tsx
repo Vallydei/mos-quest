@@ -156,6 +156,20 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
     }
   };
 
+  function generateNumberArray(length) {
+    const resultArray = [];
+    let currentValue = 2;
+
+    for (let i = 0; i < length; i++) {
+      resultArray.push(currentValue);
+      currentValue++;
+    }
+
+    return resultArray;
+  }
+
+  console.log(quest.Questions.length);
+
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -197,7 +211,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
             </Grid>
           </Grid>
         </Accordion>
-        {[2, 3, 4, 5].map((step) => (
+        {generateNumberArray(quest.Questions.length - 1)?.map((step) => (
           <Accordion
             key={`panel${step}`}
             disabled={isAccordionDisabled[`acc${step}`]}
