@@ -36,10 +36,10 @@ function App(): JSX.Element {
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
     void dispatch(thunkGetQuests());
-    void dispatch(thunkGetAchieves());;
+    void dispatch(thunkGetAchieves());
     void dispatch(thunkCheckAuth()).then(() => {
       if (user.status === 'authenticated') {
-        void dispatch(thunkGetProgress(user.id)); ////ПАМАГИТИ
+        void dispatch(thunkGetProgress(user.id)); /// /ПАМАГИТИ
       }
     });
   }, [user.status]);
@@ -52,17 +52,27 @@ function App(): JSX.Element {
     <>
       <CssBaseline />
       <NavBar />
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100vw',height: '170vh', background: '#008080' }}>
-        <Container component="main" sx={{ flexGrow: 1 }}>          <Routes>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100vw',
+          height: '170vh',
+          background: '#008080',
+        }}
+      >
+        <Container component="main" sx={{ flexGrow: 1 }}>
+          {' '}
+          <Routes>
             <Route path="/locations" element={<LocationsPage />} />
             <Route path="/quest/:questId" element={<QuestPage />} />
             <Route path="/location/:id" element={<LocationPage />} />
             <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
-            <Route path="/" element={<MainPage/>} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/themepage" element={<ThemePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-        <Route path="/account" element={<AccPage />} />
+            <Route path="/account" element={<AccPage />} />
           </Routes>
         </Container>
       </Box>
