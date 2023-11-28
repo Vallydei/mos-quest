@@ -52,7 +52,7 @@ function App(): JSX.Element {
     <>
       <CssBaseline />
       <NavBar />
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100vw',height: '170vh', background: '#008080' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100vw',height: '170vh', background: 'teal' }}>
         <Container component="main" sx={{ flexGrow: 1 }}>          <Routes>
             <Route path="/locations" element={<LocationsPage />} />
             <Route path="/quest/:questId" element={<QuestPage />} />

@@ -32,3 +32,37 @@
   text-align: center;
   font-weight: bold;
 }
+
+.themeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90vh;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.listItem1,
+.listItem2,
+.listItem3 {
+  background-size: 100%; /* Изначальный размер */
+  overflow: hidden;
+}
+
+.listItem1:hover,
+.listItem2:hover,
+.listItem3:hover {
+  background-size: 110%; /* Увеличиваем размер фона на 10% при наведении */
+  transition: background-size 0.3s ease-in-out; /* Плавное увеличение/уменьшение */
+  transition: ;
+}
+
+.listItemButton {
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+}
