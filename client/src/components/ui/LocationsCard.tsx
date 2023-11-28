@@ -53,12 +53,16 @@ export default function LocationsCard({ location }: LocationsCardrops): JSX.Elem
         title={location?.title}
       />
       <a href={`/location/${Number(location?.id)}`}>
-        <CardMedia
-          component="img"
-          height="194"
-          image={location?.Images[0].locationImg}
-          alt="Описание локации"
-        />
+        {location?.Images[4] ? (
+          <CardMedia
+            component="img"
+            height="194"
+            image={location?.Images[4].locationImg}
+            alt="Описание локации"
+          />
+        ) : (
+          <>Нит картинок</>
+        )}
       </a>
       <CardContent sx={{ color: 'white' }}>
         <Typography variant="body2" color="black" fontWeight="bold">

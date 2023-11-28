@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
+import type { AchieveType } from '../../types/locationType/achievesType';
+
+import '../pages/css/test.css';
+
 
 type AchieveCardProps = {
-  achieve: string;
+  achieve: AchieveType;
+  getedAchievs: number[];
 };
 
-export default function AchieveCard({ achieve }: AchieveCardProps): JSX.Element {
-const [achieveStatus, setAchieveStatus] = useState('disabledImg')
-
+export default function AchieveCard({ achieve, getedAchievs }: AchieveCardProps): JSX.Element {
   return (
-    <div className="achieveContainer">
-      <img className={`achieveImg ${achieveStatus}`} src={achieve} alt="достижение" />
-      <p>AchieveCard</p>
+    <div className={`${
+      (getedAchievs.includes(achieve.id)) ? 'getedAchiev' : 'achieveContainer'
+    }`}>
+      <img
+        className={`achieveImg ${
+          (getedAchievs.includes(achieve.id)) ? 'achieveImg' : 'disabledImg'
+        }`}
+        src={achieve.img}
+        alt="достижение"
+      />
+      <p>{achieve.description}</p>
     </div>
   );
-}
+}  
