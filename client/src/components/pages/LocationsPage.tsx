@@ -4,7 +4,7 @@ import './css/LocationsPage.css'; // Import the CSS file for styling
 import { useAppSelector } from '../../redux/hooks';
 
 export default function LocationsPage(): JSX.Element {
-  const locations = useAppSelector((store) => store.locationsSlice.locations);  
+  const locations = useAppSelector((store) => store.locationsSlice.locations);
   return (
     <div style={{ 
       display: 'grid',

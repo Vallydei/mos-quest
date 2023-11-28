@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
@@ -30,11 +31,11 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-type RecipeReviewCardProps = {
+type LocationsCardrops = {
   location: LocationType;
 };
 
-export default function RecipeReviewCard({ location }: RecipeReviewCardProps): JSX.Element {
+export default function LocationsCard({ location }: LocationsCardrops): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = (): void => {
@@ -52,12 +53,16 @@ export default function RecipeReviewCard({ location }: RecipeReviewCardProps): J
         title={location?.title}
       />
       <a href={`/location/${Number(location?.id)}`}>
-        <CardMedia
-          component="img"
-          height="194"
-          image={location?.Images[4].locationImg}
-          alt="Описание локации"
-        />
+        {location?.Images[4] ? (
+          <CardMedia
+            component="img"
+            height="194"
+            image={location?.Images[4].locationImg}
+            alt="Описание локации"
+          />
+        ) : (
+          <>Нит картинок</>
+        )}
       </a>
       <CardContent sx={{ color: 'white' }}>
         <Typography variant="body2" color="black" fontWeight="bold">
@@ -76,7 +81,9 @@ export default function RecipeReviewCard({ location }: RecipeReviewCardProps): J
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph fontWeight="bold">{location?.description} </Typography>
+          <Typography paragraph fontWeight="bold">
+            {location?.description}{' '}
+          </Typography>
           <Typography />
           <Typography />
         </CardContent>

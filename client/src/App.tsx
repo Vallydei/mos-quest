@@ -21,7 +21,7 @@ import {
 import { thunkGetQuests, thunkGetProgress } from './redux/slices/questThunks/questAsyncThunks';
 import { thunkCheckAuth } from './redux/slices/auth/createAsyncThunks';
 import AccPage from './components/pages/AccPage';
-import thunkGetAchieves from './redux/slices/achievesAsyncThunk';
+import { thunkGetUserAchiv, thunkGetAchieves } from './redux/slices/achievesAsyncThunk';
 import useAxiosInterceptors from './components/customHook/useAxiosInterceptors';
 import { authInstance } from './services/authService';
 import { locationInstance } from './services/locationService';
@@ -31,17 +31,25 @@ import { questInstance } from './services/questService';
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user);
   const dispatch = useAppDispatch();
+
+  // useInitialLoad();
+
   useEffect(() => {
+    // DRY - dont repeat yourself
+    // bulkDispatch([...])
     void dispatch(thunkCheckAuth());
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
+   
+  }, []);
+
+  useEffect(() => {
     void dispatch(thunkGetQuests());
-    void dispatch(thunkGetAchieves());;
-    void dispatch(thunkCheckAuth()).then(() => {
-      if (user.status === 'authenticated') {
-        void dispatch(thunkGetProgress(user.id)); ////ПАМАГИТИ
-      }
-    });
+    void dispatch(thunkGetAchieves());
+    if (user.status === 'authenticated') {
+      void dispatch(thunkGetProgress(user.id)); /// /ПАМАГИТИ
+      void dispatch(thunkGetUserAchiv(user.id));
+    }
   }, [user.status]);
 
   useAxiosInterceptors(authInstance);
@@ -52,17 +60,27 @@ function App(): JSX.Element {
     <>
       <CssBaseline />
       <NavBar />
-      <Box sx={{ display: 'flex', flexDirection: 'column', width: '100vw',height: '170vh', background: 'teal' }}>
-        <Container component="main" sx={{ flexGrow: 1 }}>          <Routes>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100vw',
+          height: '170vh',
+          background: '#008080',
+        }}
+      >
+        <Container component="main" sx={{ flexGrow: 1 }}>
+          {' '}
+          <Routes>
             <Route path="/locations" element={<LocationsPage />} />
             <Route path="/quest/:questId" element={<QuestPage />} />
             <Route path="/location/:id" element={<LocationPage />} />
             <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
-            <Route path="/" element={<MainPage/>} />
+            <Route path="/" element={<MainPage />} />
             <Route path="/themepage" element={<ThemePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-        <Route path="/account" element={<AccPage />} />
+            <Route path="/account" element={<AccPage />} />
           </Routes>
         </Container>
       </Box>
