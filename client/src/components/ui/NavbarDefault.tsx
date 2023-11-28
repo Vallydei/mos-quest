@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { thunkLogout } from '../../redux/slices/auth/createAsyncThunks';
+import logo from '../../../public/logo.png';
 
 function NavbarDefault(): JSX.Element {
   const dispatch = useAppDispatch();

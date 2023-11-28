@@ -27,6 +27,7 @@ import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
 import LocationsPage from './components/pages/LocationsPage';
 import LocationPage from './components/pages/LocationPage';
+import OptionNavbar from './components/ui/OptionalNavbar';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user);
@@ -40,7 +41,6 @@ function App(): JSX.Element {
     void dispatch(thunkCheckAuth());
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
-   
   }, []);
 
   useEffect(() => {
@@ -59,7 +59,8 @@ function App(): JSX.Element {
   return (
     <>
       <CssBaseline />
-      <NavBar />
+      {/* <NavBar /> */}
+      <OptionNavbar />
       <Box
         sx={{
           display: 'flex',

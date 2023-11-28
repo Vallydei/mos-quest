@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Person from '@mui/icons-material/Person';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { thunkLogout } from '../../redux/slices/auth/createAsyncThunks';
+import logo from '../../../public/logo.png';
 
 const navVariants = {
   initial: {
