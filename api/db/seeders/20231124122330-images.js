@@ -30,17 +30,26 @@ module.exports = {
             "https://mos-holidays.ru/wp-content/uploads/2015/10/Honey-Ill-call-back2.jpg",
         },
         {
-          locationId: 2,
-          locationImg: "/images/ShrodingersCat/Cat4.jpeg",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_1.png",
         },
         {
-          locationId: 2,
-          locationImg: "/images/ShrodingersCat/cat5.avif",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_2.png",
         },
         {
-          locationId: 2,
-          locationImg: "/images/ShrodingersCat/shrodinger1.jpg",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_3.png",
         },
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_4.png",
+        },
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_5.png",
+        },
+
         {
           locationId: 2,
           locationImg: "/images/ShrodingersCat/shrodinger2.jpg",
@@ -58,15 +67,15 @@ module.exports = {
           locationImg: "/images/CulturaQ/Вход в музей Дом Бурганова_2.png",
         },
         {
-          locationId: 3,
+          locationId: 2,
           locationImg: "/images/NeonMonkey/neon-monkey_slide_3.png",
         },
         {
-          locationId: 3,
+          locationId: 2,
           locationImg: "/images/NeonMonkey/neon-monkey_slide_4.png",
         },
         {
-          locationId: 3,
+          locationId: 2,
           locationImg: "/images/NeonMonkey/neon-monkey_slide_5.png",
         },
         {
@@ -105,11 +114,7 @@ module.exports = {
           locationId: 4,
           locationImg: "/images/CosmoHomyack/kosmo-homyak_slide_5.png",
         },
-        {
-          locationId: 5,
-          locationImg:
-            "/images/CulturaQ/Галерея Люди-легенды.png",
-        },
+        
         {
           locationId: 5,
           locationImg:
