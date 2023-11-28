@@ -19,7 +19,7 @@ export default function ThemePage(): JSX.Element {
 
   return (
     <div>
-      <h1 style={{ color: 'white', fontSize: '30px', textAlign: 'center' }}>Тематический гид</h1>
+      <h1 className='headerTheme'>Тематический гид</h1>
       <List className="themeContainer" component="nav" aria-label="mailbox folders">
         <Grow in timeout={1000}>
           <Link to="/quest/1" className="link">
@@ -30,8 +30,8 @@ export default function ThemePage(): JSX.Element {
                 setIsOpen(true);
               }}
             >
-              <ListItemText
-                primary={<Typography style={{ color: 'white', fontSize: '40px' }}>18+</Typography>}
+              <ListItemText 
+                primary={<p className='titleTheme' >18+</p>}
               />
             </AnimatedListItemButton>
           </Link>
@@ -42,7 +42,7 @@ export default function ThemePage(): JSX.Element {
             <AnimatedListItemButton className="listItem2" divider>
               <ListItemText
                 primary={
-                  <Typography style={{ color: 'white', fontSize: '40px' }}>Geek Stuff</Typography>
+                  <p className='titleTheme' >Geek Stuff</p>
                 }
               />
             </AnimatedListItemButton>
@@ -54,9 +54,9 @@ export default function ThemePage(): JSX.Element {
             <AnimatedListItemButton className="listItem3">
               <ListItemText
                 primary={
-                  <Typography style={{ color: 'white', fontSize: '40px' }}>
+                  <p className='titleTheme' >
                     Культурный отдых
-                  </Typography>
+                  </p>
                 }
               />
             </AnimatedListItemButton>

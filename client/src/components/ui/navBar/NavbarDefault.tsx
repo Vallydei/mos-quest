@@ -1,17 +1,26 @@
 import Person from '@mui/icons-material/Person';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { thunkLogout } from '../../redux/slices/auth/createAsyncThunks';
-import logo from '../../../public/logo.png';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { thunkLogout } from '../../../redux/slices/auth/createAsyncThunks';
+import logo from '../../../../public/logo.png';
 
 function NavbarDefault(): JSX.Element {
   const dispatch = useAppDispatch();
   const auth = useAppSelector((store) => store.authSlice);
   return (
-    <nav className="flex justify-between items-center px-10 py-5">
+    <nav className="nav flex justify-between items-center px-10 py-5">
       <div>
-        <h2 className="text-xl text-white font-semibold">Logo</h2>
+        <Link to="/">
+          <div
+            color="inherit"
+            className="text-xl text-white font-semibold"
+            role="menuitem"
+            aria-label="Home"
+          >
+            <img src={logo} alt="Logo" style={{ height: '50px' }} />
+          </div>
+        </Link>
       </div>
 
       <ul
@@ -21,12 +30,6 @@ function NavbarDefault(): JSX.Element {
         <li color="inherit" role="none" className="p-4title">
           Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
         </li>
-
-        <Link to="/">
-          <li color="inherit" className="p-3 hover:text-white" role="menuitem" aria-label="Home">
-            <img src={logo} alt="Logo" style={{ height: '50px' }} />
-          </li>
-        </Link>
 
         <Link to="/locations">
           <li color="inherit" className="p-3 hover:text-white" role="menuitem">
@@ -46,7 +49,7 @@ function NavbarDefault(): JSX.Element {
           <Link to="/account">
             <li
               color="inherit"
-              className="p-3 hover:text-white"
+              className="font-jakarta text-sm px-4 py-2 rounded-full text-white font-medium bg-white bg-opacity-[.08] border border-white border-opacity-[.08] hover:border-opacity-25"
               role="menuitem"
               aria-label="Profile"
             >

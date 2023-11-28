@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import '@fontsource/inter';
 import { Route, Routes } from 'react-router-dom';
 import { Box, Container, CssBaseline } from '@mui/material';
-import NavBar from './components/ui/NavBar';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import QuestPage from './components/pages/QuestPage';
@@ -27,7 +26,7 @@ import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
 import LocationsPage from './components/pages/LocationsPage';
 import LocationPage from './components/pages/LocationPage';
-import OptionNavbar from './components/ui/OptionalNavbar';
+import OptionNavbar from './components/ui/navBar/OptionalNavbar';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user);
@@ -59,32 +58,33 @@ function App(): JSX.Element {
   return (
     <>
       <CssBaseline />
-      {/* <NavBar /> */}
+
       <OptionNavbar />
-      <Box
-        sx={{
+
+      <main
+        style={{
           display: 'flex',
           flexDirection: 'column',
-          width: '100vw',
-          height: '170vh',
-          background: '#008080',
+          // height: '100vh',
+                   backgroundColor: '#008080',
+          // justifyContent: 'space-around',
+          alignItems: 'space-around',
+          padding: '30px 150px',
         }}
       >
-        <Container component="main" sx={{ flexGrow: 1 }}>
-          {' '}
-          <Routes>
-            <Route path="/locations" element={<LocationsPage />} />
-            <Route path="/quest/:questId" element={<QuestPage />} />
-            <Route path="/location/:id" element={<LocationPage />} />
-            <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
-            <Route path="/" element={<MainPage />} />
-            <Route path="/themepage" element={<ThemePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/account" element={<AccPage />} />
-          </Routes>
-        </Container>
-      </Box>
+        {' '}
+        <Routes>
+          <Route path="/locations" element={<LocationsPage />} />
+          <Route path="/quest/:questId" element={<QuestPage />} />
+          <Route path="/location/:id" element={<LocationPage />} />
+          <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/themepage" element={<ThemePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/account" element={<AccPage />} />
+        </Routes>
+      </main>
     </>
   );
 }

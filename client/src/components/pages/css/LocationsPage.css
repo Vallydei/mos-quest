@@ -1,8 +1,12 @@
 .locations-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  gap: 30px;
   animation: fadeIn 1s ease-in-out;
+  justify-items:center;
+  margin: 0 100px;
+
 }
 
 @keyframes fadeIn {

@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import React, { useEffect } from 'react';
 import './css/MainPage.css';
 import './css/Badge.scss';
@@ -18,7 +17,7 @@ export default function MainPage(): JSX.Element {
   }, []);
 
   return (
-    <Container className="mainContainer">
+    <div className="mainContainer">
       <div className="options">
         <div className="option active img1">
           <div className="label">
@@ -90,6 +89,6 @@ export default function MainPage(): JSX.Element {
           </div>
         </Link>
       </div>
-    </Container>
+    </div>
   );
 }

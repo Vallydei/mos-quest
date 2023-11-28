@@ -2,9 +2,9 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Person from '@mui/icons-material/Person';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { thunkLogout } from '../../redux/slices/auth/createAsyncThunks';
-import logo from '../../../public/logo.png';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { thunkLogout } from '../../../redux/slices/auth/createAsyncThunks';
+import './NavBar.css';
 
 const navVariants = {
   initial: {
@@ -44,12 +44,6 @@ function NavbarFixed(): JSX.Element {
         <li color="inherit" role="none" className="p-4 hover:opacity-50">
           Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
         </li>
-
-        <Link to="/">
-          <li color="inherit" className="p-4 hover:opacity-50" role="menuitem" aria-label="Home">
-            <img src={logo} alt="Logo" style={{ height: '50px' }} />
-          </li>
-        </Link>
 
         <Link to="/locations">
           <li color="inherit" className="p-4 hover:opacity-50" role="menuitem">
