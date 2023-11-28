@@ -33,14 +33,20 @@ export default function LocationPage(): JSX.Element {
   return (
     <Box>
       <div className="locationContainer">
-        <div className="cardContent">
-          <CarouselElement images={location?.Images} />
+        <div className="columnContainer">
+          <div className="carouselContainer">
+            <CarouselElement images={location?.Images} />
+          </div>
+          <div className="mapContainer">
+            <GoogleMaps map={location?.map} />
+          </div>
         </div>
 
-        <div className="cardContent description">
-          <Typography fontSize="xl" fontWeight="lg">
-            {location?.title}
-          </Typography>
+        <div className="columnContainer">
+          <div className="CardContent">
+            <Typography fontSize="xl" fontWeight="lg">
+              {location?.title}
+            </Typography>
 
           <Sheet
             sx={{

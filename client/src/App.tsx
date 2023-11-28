@@ -24,6 +24,7 @@ import { authInstance } from './services/authService';
 import { locationInstance } from './services/locationService';
 import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
+import { userInstance } from './services/userService';
 import LocationsPage from './components/pages/LocationsPage';
 import LocationPage from './components/pages/LocationPage';
 import OptionNavbar from './components/ui/navBar/OptionalNavbar';
@@ -55,6 +56,7 @@ function App(): JSX.Element {
   useAxiosInterceptors(locationInstance);
   useAxiosInterceptors(achieveInstance);
   useAxiosInterceptors(questInstance);
+  useAxiosInterceptors(userInstance);
   return (
     <>
       <CssBaseline />

@@ -3,6 +3,7 @@ import { useAppSelector } from '../../redux/hooks';
 import AchieveCard from '../ui/AchieveCard';
 import './css/AccountPage.css';
 import Profilecard from './Profilecard';
+import UserEditModal from '../ui/UserEditModal';
 
 export default function AccPage(): JSX.Element {
   const achieves = useAppSelector((store) => store.achieves);
@@ -33,6 +34,7 @@ export default function AccPage(): JSX.Element {
       {achieves.ahieves.map((achieve) => (
         <AchieveCard key={achieve.id} achieve={achieve} getedAchievs={getedAchievs} />
       ))}
+      <UserEditModal/>
     </div>
   );
 }
