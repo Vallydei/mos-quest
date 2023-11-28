@@ -15,6 +15,7 @@ import { red } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import type { LocationType } from '../../types/locationType/locationType';
+import { Link } from 'react-router-dom';
 
 type ExpandMoreProps = {
   expand: boolean;
@@ -52,7 +53,7 @@ export default function LocationsCard({ location }: LocationsCardrops): JSX.Elem
         }
         title={location?.title}
       />
-      <a href={`/location/${Number(location?.id)}`}>
+     <Link to={`/location/${Number(location?.id)}`} style={{ textDecoration: 'none' }}>
         {location?.Images[4] ? (
           <CardMedia
             component="img"
@@ -61,9 +62,9 @@ export default function LocationsCard({ location }: LocationsCardrops): JSX.Elem
             alt="Описание локации"
           />
         ) : (
-          <>Нит картинок</>
+          <>Нет картинок</>
         )}
-      </a>
+      </Link>
       <CardContent sx={{ color: 'white' }}>
         <Typography variant="body2" color="black" fontWeight="bold">
           {location?.shortDescription}

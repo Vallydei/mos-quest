@@ -40,10 +40,7 @@ export default function LocationPage(): JSX.Element {
             <CarouselElement images={location?.Images} />
           </div>
           <div className="mapContainer">
-            {/* <a target="_blank" href={location?.adress} rel="noreferrer"> */}
             <GoogleMaps map={location?.map} />
-            {/* <img className="imgLocationMap" src={location?.map} alt="locationMap" /> */}
-            {/* </a> */}
           </div>
         </div>
 
