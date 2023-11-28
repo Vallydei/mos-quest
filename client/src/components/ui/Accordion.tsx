@@ -7,10 +7,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, Grid, TextField, ThemeProvider, createTheme } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import RecipeReviewCard from './LocationsCard';
 import type { QuestType } from '../../types/questType/questType';
 import { thunkNewProgress } from '../../redux/slices/questThunks/questAsyncThunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import LocationCard from './LocationsCard';
+import { thunkNewUserAchiv } from '../../redux/slices/achievesAsyncThunk';
 
 type ControlledAccordionsProps = {
   quest: QuestType;
@@ -18,6 +20,7 @@ type ControlledAccordionsProps = {
 
 export default function ControlledAccordions({ quest }: ControlledAccordionsProps): JSX.Element {
   const prog = useAppSelector((store) => store.questsSlice.currentUserProgress);
+  const navigate = useNavigate();
 
   let openAcc: [] | number[] = [];
   let openAcc2: [] | number[] = [];
@@ -123,7 +126,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
       setCurrentStep(step + 1);
       setExpanded(`panel${step + 1}`);
       setUserAnswer('');
-
+      void dispatch(thunkNewUserAchiv({ achivId: quest.achivId }));
       void Swal.fire({
         title: 'Найс ворк, бро!',
         width: 600,
@@ -136,6 +139,8 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
           left top
           no-repeat
         `,
+      }).then(() => {
+        navigate('/account');
       });
     } else {
       toast.error('Подумайте еще раз', {
@@ -150,6 +155,20 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
       });
     }
   };
+
+  function generateNumberArray(length) {
+    const resultArray = [];
+    let currentValue = 2;
+
+    for (let i = 0; i < length; i++) {
+      resultArray.push(currentValue);
+      currentValue++;
+    }
+
+    return resultArray;
+  }
+
+  console.log(quest.Questions.length);
 
   return (
     <div>
@@ -188,11 +207,11 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
               </AccordionDetails>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <LocationCard />
+              <LocationCard location={quest.Questions[0].Location} />
             </Grid>
           </Grid>
         </Accordion>
-        {[2, 3, 4, 5].map((step) => (
+        {generateNumberArray(quest.Questions.length - 1)?.map((step) => (
           <Accordion
             key={`panel${step}`}
             disabled={isAccordionDisabled[`acc${step}`]}
@@ -243,7 +262,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
                 </AccordionDetails>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <LocationCard />
+                <LocationCard location={quest.Questions[step - 1].Location} />
               </Grid>
             </Grid>
           </Accordion>

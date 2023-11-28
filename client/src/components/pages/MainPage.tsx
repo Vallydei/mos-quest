@@ -1,6 +1,7 @@
 import { Container } from '@mui/material';
 import React, { useEffect } from 'react';
-import './css/MainPage.css'
+import './css/MainPage.css';
+import './css/Badge.scss';
 import { Link } from 'react-router-dom';
 
 export default function MainPage(): JSX.Element {
@@ -79,15 +80,14 @@ export default function MainPage(): JSX.Element {
 
       <div className="btmMainContainer">
         <Link to="/locations">
-          <button type="button" className="btmMain">
-            Локации
-          </button>
+          <div className="badge one">
+            <div className="text">Локации!</div>
+          </div>
         </Link>
-
         <Link to="/themepage">
-          <button type="button" className="btmMain">
-            Квесты
-          </button>
+          <div className="badge two">
+            <div className="text">Квесты!</div>
+          </div>
         </Link>
       </div>
     </Container>

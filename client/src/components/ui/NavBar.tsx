@@ -9,6 +9,8 @@ import Person from '@mui/icons-material/Person';
 import { Link } from 'react-router-dom';
 import { thunkLogout } from '../../redux/slices/auth/createAsyncThunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import logo from '../../../public/logo.png';
+import './NavBar.css';
 
 export default function NavBar(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -16,54 +18,73 @@ export default function NavBar(): JSX.Element {
   return (
     <Box component="nav" aria-label="My site" sx={{ flexGrow: 1 }}>
       <List role="menubar" orientation="horizontal">
-        <ListItem role="none">
+        <ListItem  role="none">
           Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
         </ListItem>
         <ListDivider />
 
         <Link to="/">
-          <ListItemButton role="menuitem" aria-label="Home">
-            <Home /> Главная
-          </ListItemButton>
+          <ListItem role="none">
+            <ListItemButton  role="menuitem" component="a" aria-label="Home">
+              <img src={logo} alt="Logo" style={{ height: '50px' }} />
+            </ListItemButton>
+          </ListItem>
         </Link>
 
         <ListDivider />
         <Link to="/locations">
-          <ListItemButton role="menuitem">Локации</ListItemButton>
+          <ListItem role="none">
+            <ListItemButton sx={{  marginTop: '7px' }} role="menuitem" component="a">
+              Локации
+            </ListItemButton>
+          </ListItem>
         </Link>
 
         <ListDivider />
         <Link to="/themepage">
           {' '}
-          <ListItemButton role="menuitem">Категории квестов</ListItemButton>
+          <ListItem role="none">
+            <ListItemButton  sx={{  marginTop: '7px' }} role="menuitem" component="a">
+              Категории квестов
+            </ListItemButton>
+          </ListItem>
         </Link>
 
         <ListDivider />
         {auth.user.status === 'authenticated' ? (
           <>
             <Link to="/account">
-              <ListItemButton
-                sx={{ marginInlineStart: 'auto' }}
-                role="menuitem"
-                href="#horizontal-list"
-                aria-label="Profile"
-              >
-                <Person /> Личный кабинет
-              </ListItemButton>
+              <ListItem role="none" sx={{ marginInlineStart: 'auto' }}>
+                <ListItemButton
+                  role="menuitem"
+                  component="a"
+                  href="#horizontal-list"
+                  aria-label="Profile"
+                  sx={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Person sx={{ marginRight: '0.5rem', marginTop: '15px' }} /> Личный кабинет
+                </ListItemButton>
+              </ListItem>
             </Link>
             <ListDivider />
           </>
         ) : (
           <>
             <Link to="/login">
-              <ListItemButton role="menuitem">Вход</ListItemButton>
+              <ListItem role="none">
+                <ListItemButton role="menuitem" component="a" sx={{  marginTop: '7px' }}>
+                  Вход
+                </ListItemButton>
+              </ListItem>
             </Link>
             <ListDivider />
             <Link to="/signup">
               {' '}
-              {/* <ListItem role="none"> */}
-              <ListItemButton role="menuitem">Регистрация</ListItemButton>
-              {/* </ListItem> */}
+              <ListItem role="none">
+                <ListItemButton role="menuitem" component="a" sx={{  marginTop: '7px' }}>
+                  Регистрация
+                </ListItemButton>
+              </ListItem>
             </Link>
             <ListDivider />
           </>
@@ -71,7 +92,12 @@ export default function NavBar(): JSX.Element {
         <Link to="/logout">
           {' '}
           <ListItem role="none">
-            <ListItemButton role="menuitem" onClick={() => void dispatch(thunkLogout())}>
+            <ListItemButton
+              role="menuitem"
+              onClick={() => void dispatch(thunkLogout())}
+              component="a"
+              sx={{  marginTop: '7px' }}
+            >
               Выйти
             </ListItemButton>
           </ListItem>
@@ -80,36 +106,3 @@ export default function NavBar(): JSX.Element {
     </Box>
   );
 }
-//     <NavBar className="bg-body-tertiary">
-//       <Container>
-//         <Navbar.Brand href="#home">
-//           Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
-//         </Navbar.Brand>
-//         <Nav className="me-auto">
-//           <Nav.Link as={Link} to="/">
-//             Home
-//           </Nav.Link>
-//           <Nav.Link as={Link} to="/location">
-//             Location
-//           </Nav.Link>
-//           {auth.user.status === 'authenticated' ? (
-//             <p />
-//           ) : (
-//             <>
-//               <Nav.Link as={Link} to="/login">
-//                 Login
-//               </Nav.Link>
-//               <Nav.Link as={Link} to="/signup">
-//                 Signup
-//               </Nav.Link>
-//             </>
-//           )}
-
-//           <Nav.Link as={Button} onClick={() => void dispatch(thunkLogout())}>
-//             Logout
-//           </Nav.Link>
-//         </Nav>
-//       </Container>
-//     </Navbar>
-//   );
-// }
