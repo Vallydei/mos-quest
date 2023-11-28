@@ -161,6 +161,12 @@ module.exports = {
           locationImg:
             "/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_3.png",
         },
+        {
+          locationId: 6,
+          locationImg:
+            "/images/scale_1200.jpeg",
+        },
+         
       ],
       {}
     );

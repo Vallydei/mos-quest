@@ -65,8 +65,10 @@ function App(): JSX.Element {
           display: 'flex',
           flexDirection: 'column',
           width: '100vw',
-          height: '170vh',
-          background: '#008080',
+          minHeight: '210vh',
+          backgroundSize: 'cover', /* растягиваем изображение на всю высоту */
+          background: 'radial-gradient(circle, #191970, #000000		)'
+          ,
         }}
       >
         <Container component="main" sx={{ flexGrow: 1 }}>
