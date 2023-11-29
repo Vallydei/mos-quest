@@ -29,3 +29,8 @@ export type CommentFormType = {
   text: string;
   locationId: number;
 };
+
+export type CommentEditType = {
+  text: string;
+  id: number;
+};

@@ -3,57 +3,33 @@ import { Button, TextField } from '@mui/material';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkSignup } from '../../redux/slices/auth/createAsyncThunks';
 import type { SignupFormData } from '../../types/auth';
-
-const styles = {
-  formContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh', // Center vertically on the screen
-  },
-  form: {
-    width: '500px', // Increased width
-    padding: '20px',
-    display: 'flex', // Center inputs horizontally
-    flexDirection: 'column', // Align inputs vertically
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    animation: 'fadeIn 0.5s ease-in', // Add fade-in animation
-  },
-  textField: {
-    width: '100%', // Make inputs of equal length
-    marginBottom: '20px',
-  },
-  button: {
-    marginTop: '10px',
-  },
-};
+import '../pages/css/SignupLoginPage.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignupPage(): JSX.Element {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   return (
-    <div style={styles.formContainer}>
+    <div className="formContainer">
       <form
-        style={styles.form}
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
 
           const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
-          console.log('смотри сюда', formData);
-          void dispatch(thunkSignup(formData));
+
+          void dispatch(thunkSignup(formData)).then(void navigate('/'));
         }}
       >
-        <h1>Регистрация</h1>
+        <h1 className="titleRegLog">Регистрация</h1>
         <TextField
           required
-          label="Name"
-          placeholder="Name"
+          label="Имя"
+          placeholder="Имя"
           error={false && 'Invalid email address or password'}
           name="name"
-          style={styles.textField}
+          className="textField"
         />
         <TextField
           required
@@ -61,28 +37,36 @@ export default function SignupPage(): JSX.Element {
           placeholder="E-mail"
           error={false && 'Invalid email address or password'}
           name="email"
-          style={styles.textField}
+          className="textField"
         />
         <TextField
           required
-          label="Password"
-          placeholder="Password"
+          label="Пароль"
+          placeholder="Пароль"
           error={false && 'Invalid email address or password'}
           name="password"
           type="password"
-          style={styles.textField}
+          className="textField"
         />
-        <div>
-          <Button
-            type="submit"
-            color="success"
-            variant="contained"
-            size="large"
-            style={styles.button}
-          >
-            Submit
-          </Button>
-        </div>
+        <TextField
+          required
+          label="Повторите пароль"
+          placeholder="Пароль"
+          error={false && 'Invalid email address or password'}
+          name="password"
+          type="password"
+          className="textField"
+        />
+
+        <Button
+          type="submit"
+          color="success"
+          variant="contained"
+          size="large"
+          className="buttonReg"
+        >
+          Submit
+        </Button>
       </form>
     </div>
   );

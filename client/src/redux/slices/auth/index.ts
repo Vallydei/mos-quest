@@ -15,6 +15,7 @@ const initialState: AuthState = {
     status: 'pending',
   },
   addUserModalIsOpen: false,
+ 
 };
 
 export const authSlice = createSlice({
@@ -36,6 +37,10 @@ export const authSlice = createSlice({
     });
     builder.addCase(thunkLogin.fulfilled, (state, action) => {
       state.accessToken = action.payload.accessToken;
+      state.user = { ...action.payload.user, status: 'authenticated' };
+    });
+
+    builder.addCase(thunkLogin.rejected, (state, action) => {
       state.user = { ...action.payload.user, status: 'authenticated' };
     });
     builder.addCase(thunkSignup.fulfilled, (state, action) => {

@@ -22,11 +22,9 @@ apiCommentsRouter
   })
   .post(verifyAccessToken, async (req, res) => {
     try {
-      console.log(req.body);
       const comment = await Comment.create({
         ...req.body,
         userId: res.locals.user.id,
-        // locationId: res.params
       });
       const commentWithAuthor = await Comment.findByPk(comment.id, {
         include: User,
@@ -36,28 +34,28 @@ apiCommentsRouter
       console.log(error);
       res.status(500).json(error);
     }
-  });
-
-apiCommentsRouter
-  .route("/:id")
-  .delete(verifyAccessToken, checkAuthor, async (req, res) => {
+  })
+  .patch(verifyAccessToken, checkAuthor,  async (req, res) => {
     try {
-      const post = await Comment.findByPk(req.params.id);
-      await post.destroy();
-      res.sendStatus(200);
+      const comment = await Comment.findByPk(req.body.id);
+      await comment.update(req.body);
+      const commentWithAuthor = await Comment.findByPk(comment.id, {
+        include: User,
+      });
+      res.json(commentWithAuthor);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
     }
-  })
-  .patch(verifyAccessToken, checkAuthor, async (req, res) => {
+  });
+
+apiCommentsRouter
+  .route("/:id")
+  .delete(verifyAccessToken,  checkAuthor, async (req, res) => {
     try {
-      const post = await Comment.findByPk(req.params.id);
-      await post.update(req.body);
-      const postWithAuthor = await Comment.findByPk(post.id, {
-        include: User,
-      });
-      res.json(postWithAuthor);
+      const comment = await Comment.findByPk(req.params.id);
+      await comment.destroy();
+      res.sendStatus(200);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);

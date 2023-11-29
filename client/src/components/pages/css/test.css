@@ -1,13 +1,28 @@
 .getedAchiev {
   width: 270px;
   height: 270px;
-  margin: 17px;
-  background-color: #030029;
   position: relative;
-  border-radius: 8px;
+  text-align: center;
   display: grid;
   place-items: center;
   overflow: hidden;
+  border-radius: 20px;
+  margin: 17px;
+  padding-top: 10px;
+  background:  rgb(5, 32, 112); ;  /* темно-синий цвет */
+  box-shadow:
+    inset rgba(0, 0, 0, 0.5) -3px -3px 8px,
+    inset rgba(255, 255, 255, 0.9) 3px 3px 8px,
+    rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
+}
+
+.getedAchiev::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  background-color:   rgb(5, 32, 112); ;
+  border-radius: inherit;
+ 
 }
 
 .getedAchiev h2 {
@@ -17,6 +32,7 @@
   text-transform: uppercase;
   text-align: center;
   z-index: 2;
+
 }
 
 .getedAchiev img {
@@ -33,13 +49,7 @@
   animation: rotate 3s linear infinite;
 }
 
-.getedAchiev::after {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  background-color: #030029;
-  border-radius: inherit;
-}
+
 
 @keyframes rotate {
   to {

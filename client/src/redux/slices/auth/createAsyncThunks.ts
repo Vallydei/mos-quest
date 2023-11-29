@@ -10,7 +10,8 @@ export const thunkCheckAuth = createAsyncThunk<AuthState>('authSlice/thunkCheckA
 
 export const thunkLogin = createAsyncThunk(
   'authSlice/thunkLogin',
-  async (formData: LoginFormData) => AuthService.login(formData),
+  async (formData: LoginFormData) =>
+    AuthService.login(formData),
 );
 
 export const thunkSignup = createAsyncThunk(

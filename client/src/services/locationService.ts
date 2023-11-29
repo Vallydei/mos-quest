@@ -1,5 +1,10 @@
 import axios from 'axios';
-import type { CommentFormType, CommentType, LocationType } from '../types/locationType/locationType';
+import type {
+  CommentEditType,
+  CommentFormType,
+  CommentType,
+  LocationType,
+} from '../types/locationType/locationType';
 
 export const locationInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASEURL,
@@ -22,11 +27,19 @@ class LocationService {
   }
 
   static async postComment(comment: CommentFormType): Promise<CommentType> {
-    const response = await locationInstance.post<CommentType>('/api/comments/', comment );
+    const response = await locationInstance.post<CommentType>('/api/comments/', comment);
     return response.data;
   }
 
+  static async editComment(comment: CommentEditType): Promise<CommentType> {
+    const response = await locationInstance.patch<CommentType>(`/api/comments`, comment);
+    return response.data;
+  }
 
+  static async deleteComment(id: number): Promise<number> {
+    await locationInstance.delete(`/api/comments/${id}`);
+    return id
+  }
 }
 
 export default LocationService;
