@@ -62,7 +62,7 @@ export default function NavBar(): JSX.Element {
                   aria-label="Profile"
                   sx={{ display: 'flex', alignItems: 'center' }}
                 >
-                  <Person sx={{ marginRight: '0.5rem', marginTop: '15px' }} /> Личный кабинет
+                  <Person sx={{ marginRight: '0.5rem', marginTop: '26px' }} /> Личный кабинет
                 </ListItemButton>
               </ListItem>
             </Link>

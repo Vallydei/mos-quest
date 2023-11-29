@@ -10,7 +10,7 @@ import Modal from '../ui/AnimateModal';
 const AnimatedListItemButton = styled(ListItemButton)(({ theme }) => ({
   width: '100%',
   height: 200,
-  borderRadius: 20,
+  borderRadius: 10,
   fontWeight: 'bold',
 }));
 

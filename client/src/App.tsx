@@ -67,10 +67,12 @@ function App(): JSX.Element {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          // height: '100vh',
-          background: 'linear-gradient(to right, rgba(100, 100, 100, 1), rgba(192, 192, 192, 1))',
-          // justifyContent: 'space-around',
+          // width: '100vw',
+          backgroundSize: 'cover', /* растягиваем изображение на всю высоту */
+          // minHeight: '210vh',
           alignItems: 'space-around',
+          background: 'radial-gradient(circle, #191970, #000000		)'
+          ,
           padding: '30px 150px',
         }}
       >
