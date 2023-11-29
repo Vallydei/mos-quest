@@ -3,6 +3,7 @@ import { Button, TextField } from '@mui/material';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkSignup } from '../../redux/slices/auth/createAsyncThunks';
 import type { SignupFormData } from '../../types/auth';
+import '../pages/css/SignupPage.css';
 
 const styles = {
   formContainer: {
@@ -35,9 +36,9 @@ export default function SignupPage(): JSX.Element {
   const dispatch = useAppDispatch();
 
   return (
-    <div style={styles.formContainer}>
+    <div className="formContainer">
       <form
-        style={styles.form}
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
 
@@ -46,14 +47,14 @@ export default function SignupPage(): JSX.Element {
           void dispatch(thunkSignup(formData));
         }}
       >
-        <h1>Регистрация</h1>
+        <h1 className='titleRegLog'>Регистрация</h1>
         <TextField
           required
           label="Name"
           placeholder="Name"
           error={false && 'Invalid email address or password'}
           name="name"
-          style={styles.textField}
+          className="textField"
         />
         <TextField
           required
@@ -61,7 +62,7 @@ export default function SignupPage(): JSX.Element {
           placeholder="E-mail"
           error={false && 'Invalid email address or password'}
           name="email"
-          style={styles.textField}
+          className="textField"
         />
         <TextField
           required
@@ -70,19 +71,18 @@ export default function SignupPage(): JSX.Element {
           error={false && 'Invalid email address or password'}
           name="password"
           type="password"
-          style={styles.textField}
+          className="textField"
         />
-        <div>
-          <Button
-            type="submit"
-            color="success"
-            variant="contained"
-            size="large"
-            style={styles.button}
-          >
-            Submit
-          </Button>
-        </div>
+
+        <Button
+          type="submit"
+          color="success"
+          variant="contained"
+          size="large"
+          className="buttonReg"
+        >
+          Submit
+        </Button>
       </form>
     </div>
   );

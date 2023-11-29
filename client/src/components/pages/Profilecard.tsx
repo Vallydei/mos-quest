@@ -9,41 +9,37 @@ import { toggleModal } from '../../redux/slices/auth';
 function Profilecard({
   profileImgUrl,
   profileName,
-  ProfileAddress,
   ProfileOccupation,
   ProfileNumber,
   ProfileEmail,
 }): JSX.Element {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   return (
     <Tilt className="card">
       <div className="card-top">
-
         <div className="card-top__profile-img">
           <img src={profileImgUrl} alt="" />
-         <h2> <FaGears onClick={() => dispatch(toggleModal())}  /></h2>
+          <h2>
+            {' '}
+            <FaGears onClick={() => dispatch(toggleModal())} />
+          </h2>
         </div>
-       
-        <div className="card-top__profile-content"> 
-          <h2 className="profile-name">{profileName}</h2> 
-          <h4 className="profile-occupation">{ProfileOccupation}</h4> 
+
+        <div className="card-top__profile-content">
+          <h2 className="profile-name">{profileName}</h2>
+          <h4 className="profile-occupation">{ProfileOccupation}</h4>
           <div className="profile-info">
-            <div className="profile-address">
-              <FaLocationDot />
-              <span>{ProfileAddress}</span>
-            </div>
             <div className="profile-number">
               <FaPhone />
               <span>{ProfileNumber}</span>
             </div>
-       
-          </div> 
-        </div> 
-      </div> 
-      <div className="card-bottom"> 
-        <div className="divider" /> 
-        <p className="profile-email">{ProfileEmail}</p> 
-      </div> 
+          </div>
+        </div>
+      </div>
+      <div className="card-bottom">
+        <div className="divider" />
+        <p className="profile-email">{ProfileEmail}</p>
+      </div>
     </Tilt>
   );
 }

@@ -1,8 +1,65 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  
 }
+
+/* .mainContainer {
+  background: linear-gradient(to right, rgba(100, 100, 100, 1), rgba(192, 192, 192, 1));
+} */
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 90vh;
+  padding-top: 30px;
+}
+
+.form {
+  height: 40vh;
+  width: 95%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.logTitle {
+  font-size: 2em;
+  font-weight: 800;
+}
+.textField {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.buttonReg {
+    width: 100%;
+    margin-top: 10px;
+    background: linear-gradient(to right, #b8860b, #cd853f); /* Градиент от темно-золотого к светло-золотому */
+    border: none;
+    /* color: #fff; Белый цвет текста кнопки для контраста */
+    padding: 15px 30px; /* Увеличение размеров кнопки */
+    border-radius: 8px; /* Увеличение радиуса скругления углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для кнопки */
+    transition: background 0.3s ease; /* Плавное изменение фона при наведении */
+  }
+  
+  .buttonReg:hover {
+    background: linear-gradient(to right, #a07000, #bf7f30); /* Измененный градиент при наведении для эффекта "перелива" */
+  }
+  @media (min-width: 768px)  {
+    .form{
+      width: 50%;
+      padding: 30px;
+    }
+    .textField {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }

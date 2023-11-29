@@ -68,7 +68,7 @@ function App(): JSX.Element {
           display: 'flex',
           flexDirection: 'column',
           // height: '100vh',
-                   backgroundColor: '#008080',
+          background: 'linear-gradient(to right, rgba(100, 100, 100, 1), rgba(192, 192, 192, 1))',
           // justifyContent: 'space-around',
           alignItems: 'space-around',
           padding: '30px 150px',

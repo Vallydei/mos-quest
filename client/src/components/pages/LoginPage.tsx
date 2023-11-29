@@ -59,10 +59,10 @@ export default function LoginPage(): JSX.Element {
   }, []);
 
   return (
-    <div style={styles.formContainer}>
+    <div className="formContainer">
       <Grow in={cardVisible} timeout={500}>
         <form
-          style={styles.form}
+          className="form"
           onSubmit={(e) => {
             e.preventDefault();
 
@@ -71,25 +71,27 @@ export default function LoginPage(): JSX.Element {
             void dispatch(thunkLogin(formData));
           }}
         >
-          <h1>Вход</h1>
-          <AnimatedTextField
+          <h1 className="titleRegLog">Вход</h1>
+          <TextField
+            className="textField"
             required
             label="E-mail"
             placeholder="E-mail"
             error={false && 'Invalid email address or password'}
             name="email"
           />
-          <AnimatedTextField
+          <TextField
             required
+            className="textField"
             label="Password"
             placeholder="Password"
             error={false && 'Invalid email address or password'}
             name="password"
             type="password"
           />
-          <AnimatedButton type="submit" color="success" variant="contained" size="large">
+          <Button className="buttonReg" type="submit" variant="contained" size="large">
             Login
-          </AnimatedButton>
+          </Button>
         </form>
       </Grow>
     </div>

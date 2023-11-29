@@ -1,6 +1,46 @@
 .nav {
   background-color: black;
- 
+  font-size: 1.3rem;
 }
 
+.px-10 {
+  padding: 1.25rem 10rem !important;
+}
+.p-4title {
+  font-weight: 800;
+  color: white;
+  font-size: 35px;
+  margin-right: 20px;
+}
+.p-3 {
+  border-radius: 40px;
+}
 
+.p-3:hover, .p-3:active {
+  background-color: rebeccapurple;
+  color: black;
+}
+
+.p-4 {
+  font-size: 1.1rem;
+}
+
+.logoutLoginButton {
+  font-size: 1.3rem !important;
+}
+
+.fixedNavbar {
+  width: 60%;
+  
+}
+.navLinks {
+  width: 100%;
+  justify-content: space-evenly;
+}
+.navbarList {
+  justify-content: space-around;
+}
+
+.p-4-title-fixed {
+  font-size: 1.5rem;
+}

@@ -35,14 +35,14 @@ function NavbarFixed(): JSX.Element {
       animate="animate"
       exit="exit"
       variants={navVariants}
-      className="fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-white bg-opacity-[.08] backdrop-blur-lg border border-white border-opacity-[.08]"
+      className="fixedNavbar  fixed z-[999] top-4 left-1/2 -translate-x-1/2 rounded-full p-1 bg-white bg-opacity-[.08] backdrop-blur-lg border border-white border-opacity-[.08]"
     >
       <ul
         role="menubar"
-        className="flex items-center gap-2 text-sm font-medium font-jakarta text-white"
+        className="navbarList flex items-center gap-2 text-sm font-medium font-jakarta text-white"
       >
-        <li color="inherit" role="none" className="p-4 hover:opacity-50">
-          Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
+        <li color="inherit" role="none" className="p-4-title-fixed">
+        Hello, {auth.user.status === 'authenticated' ? `${auth.user.name} !` : 'Guest!'}
         </li>
 
         <Link to="/locations">
@@ -74,7 +74,7 @@ function NavbarFixed(): JSX.Element {
             <Link to="/logout">
               {' '}
               <button
-                className="font-jakarta text-sm px-4 py-2 rounded-3xl text-white font-medium bg-[#171719] border border-white border-opacity-[.08] hover:border-opacity-25"
+                className="logoutLoginButton font-jakarta text-sm px-4 py-2 rounded-3xl text-white font-medium bg-[#171719] border border-white border-opacity-[.08] hover:border-opacity-25"
                 role="menuitem"
                 onClick={() => void dispatch(thunkLogout())}
               >

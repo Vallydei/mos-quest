@@ -19,14 +19,14 @@ export default function NavBar(): JSX.Element {
     <Box component="nav" aria-label="My site" sx={{ flexGrow: 1 }}>
       <List role="menubar" orientation="horizontal">
         <ListItem role="none">
-          Hello, {auth.user.status === 'authenticated' ? auth.user.name : 'Guest'}
+          Hello, {auth.user.status === 'authenticated' ? `${auth.user.name} + !` : 'Guest!'}
         </ListItem>
         <ListDivider />
 
         <Link to="/">
           <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" aria-label="Home">
-              <img src={logo} alt="Logo" style={{ height: '50px' }} />
+            <ListItemButton role="menuitem" component="a" aria-label="Home" >
+              <img src={logo} alt="Logo" style={{ height: '50px'}} />
             </ListItemButton>
           </ListItem>
         </Link>
