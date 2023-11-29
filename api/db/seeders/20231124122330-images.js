@@ -140,59 +140,69 @@ module.exports = {
             "/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_3.png",
         },
         {
-          locationId: 11,
-          locationImg:
-            "/images/ComicCon/1.png",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_1.png",
         },
         {
-          locationId: 11,
-          locationImg:
-            "/images/ComicCon/2.png",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_2.png",
         },
         {
-          locationId: 11,
-          locationImg:
-            "/images/ComicCon/3.png",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_3.png",
         },
         {
-          locationId: 11,
-          locationImg:
-            "/images/ComicCon/4.png",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_4.png",
         },
         {
-          locationId: 11,
-          locationImg:
-            "/images/ComicCon/5.png",
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_5.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_6.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_7.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_8.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_9.png",
         },
         {
-          locationId: 11,
+          locationId: 7,
           locationImg:
-            "/images/ComicCon/6.png",
+            "/images/PythonConf/010.png",
         },
         {
-          locationId: 10,
+          locationId: 7,
           locationImg:
-            "/images/Tokkpokki/06.png",
+            "/images/PythonConf/020.png",
         },
         {
-          locationId: 10,
+          locationId: 7,
           locationImg:
-            "/images/Tokkpokki/05.png",
+            "/images/PythonConf/030.png",
         },
         {
-          locationId: 10,
+          locationId: 7,
           locationImg:
-            "/images/Tokkpokki/04.png",
+            "/images/PythonConf/040.png",
         },
         {
-          locationId: 10,
+          locationId: 7,
           locationImg:
-            "/images/Tokkpokki/02.png",
-        },
-        {
-          locationId: 10,
-          locationImg:
-            "/images/Tokkpokki/01.png",
+            "/images/PythonConf/050.png",
         },
         {
           locationId: 8,
@@ -241,34 +251,70 @@ module.exports = {
         },
         {
           locationId: 9,
+       
           locationImg:
             "/images/ArtPlay/105.png",
         },
         {
-          locationId: 7,
+          locationId: 10,
           locationImg:
-            "/images/PythonConf/010.png",
+            "/images/Tokkpokki/06.png",
         },
         {
-          locationId: 7,
+          locationId: 10,
           locationImg:
-            "/images/PythonConf/020.png",
+            "/images/Tokkpokki/05.png",
         },
         {
-          locationId: 7,
+          locationId: 10,
           locationImg:
-            "/images/PythonConf/030.png",
+            "/images/Tokkpokki/04.png",
         },
         {
-          locationId: 7,
+          locationId: 10,
           locationImg:
-            "/images/PythonConf/040.png",
+            "/images/Tokkpokki/02.png",
         },
         {
-          locationId: 7,
+          locationId: 10,
           locationImg:
-            "/images/PythonConf/050.png",
+            "/images/Tokkpokki/01.png",
         },
+        {
+          locationId: 11,
+          locationImg:
+            "/images/ComicCon/1.png",
+        },
+        {
+          locationId: 11,
+          locationImg:
+            "/images/ComicCon/2.png",
+        },
+        {
+          locationId: 11,
+          locationImg:
+            "/images/ComicCon/3.png",
+        },
+        {
+          locationId: 11,
+          locationImg:
+            "/images/ComicCon/4.png",
+        },
+        {
+          locationId: 11,
+          locationImg:
+            "/images/ComicCon/5.png",
+        },
+        {
+          locationId: 11,
+          locationImg:
+            "/images/ComicCon/6.png",
+        },
+        
+        
+       
+       
+       
         {
           locationId: 12,
           locationImg:
@@ -295,46 +341,6 @@ module.exports = {
             "/images/Furry/0005.png",
         },
 
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_1.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_2.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_3.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_4.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_5.png",
-        },
-
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_6.png",
-        },
-
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_7.png",
-        },
-
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_8.png",
-        },
-
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_9.png",
-        },
 
       ],
       {}
