@@ -27,8 +27,8 @@ function Modal({ isOpen, setIsOpen }): JSX.Element  {
             <div className="modal-content">
               <FiAlertCircle className="modal-content__icon" />
 
-              <h3 className="modal-content__header">One more thing!</h3>
-              <p className="modal-content__description">А тебе есть 18? -_- А?</p>
+              <h3 className="modal-content__header">А тебе есть 18? 🤨А?</h3>
+              {/* <p className="modal-content__description"></p> */}
               <div className="modal-content__btns">
                 <button onClick={() => setIsOpen(false)} type="button" className="btn-secondary">
                   Оу, ну на*ер

@@ -42,7 +42,7 @@ export default function UserEditModal(): JSX.Element {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Edit User
+            Отредактировать профиль
           </Typography>
           <form
             onSubmit={(e) => {
@@ -54,7 +54,7 @@ export default function UserEditModal(): JSX.Element {
           >
             <TextField
               id="name"
-              label="Name"
+              label="Имя"
               variant="outlined"
               fullWidth
               margin="normal"
@@ -72,7 +72,7 @@ export default function UserEditModal(): JSX.Element {
             />
             <TextField
               id="phone"
-              label="Phone"
+              label="Номер телефона"
               variant="outlined"
               fullWidth
               margin="normal"
@@ -81,7 +81,7 @@ export default function UserEditModal(): JSX.Element {
             />
             <TextField
               id="avatar"
-              label="avatar"
+              label="Аватар"
               variant="outlined"
               fullWidth
               margin="normal"

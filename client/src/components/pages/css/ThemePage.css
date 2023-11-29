@@ -2,47 +2,49 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   height: 90vh;
-
 }
+
 .link {
   text-decoration: none;
+  width: 840px;
+  
 }
 .listItem1 {
   background-image: url('../../../../../client/public/2.jpg');
   background-size: cover;
-
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
 }
 
 .listItem2 {
   background-image: url('../../../../../client/public/3.jpg');
-  background-size: cover;
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
 }
 
 .listItem3 {
   background-image: url('../../../../../client/public/1.jpg');
   background-size: cover;
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
 }
 
-
-.listItemButton {
-  width: 100%; 
-  height: 200px; 
-  border-radius: 20px;
+.headerTheme {
+  color: white;
+  font-size:45px;
   text-align: center;
-  font-weight: bold;
+  font-weight: 800;
+  background-color: rgba(255, 255, 255, 0.162);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  padding: 0 230px;
+
+}
+.titleTheme {
+  color: white;
+  font-size: 60px;
 }
 
-.themeContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 90vh;
-}
-
-.link {
-  text-decoration: none;
-}
 
 .listItem1,
 .listItem2,
@@ -56,7 +58,7 @@
 .listItem3:hover {
   background-size: 110%; /* Увеличиваем размер фона на 10% при наведении */
   transition: background-size 0.3s ease-in-out; /* Плавное увеличение/уменьшение */
-  transition: ;
+
 }
 
 .listItemButton {
@@ -65,4 +67,8 @@
   border-radius: 20px;
   text-align: center;
   font-weight: bold;
+}
+
+.cardMedia {
+  height: 250px;
 }

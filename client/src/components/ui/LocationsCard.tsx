@@ -44,7 +44,7 @@ export default function LocationsCard({ location }: LocationsCardrops): JSX.Elem
   };
 
   return (
-    <Card sx={{ maxWidth: 345, bgcolor: 'white', color: 'black' }}>
+    <Card sx={{ maxWidth: 395, bgcolor: 'white', color: 'black', minWidth: 345, }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -58,6 +58,7 @@ export default function LocationsCard({ location }: LocationsCardrops): JSX.Elem
           <CardMedia
             component="img"
             height="194"
+            className='cardMedia'
             image={location?.Images[4].locationImg}
             alt="Описание локации"
           />

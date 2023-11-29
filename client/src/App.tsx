@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import '@fontsource/inter';
 import { Route, Routes } from 'react-router-dom';
 import { Box, Container, CssBaseline } from '@mui/material';
-import NavBar from './components/ui/NavBar';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import QuestPage from './components/pages/QuestPage';
@@ -10,8 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import ThemePage from './components/pages/ThemePage';
 import PrivateRouter from './components/HOC/PrivateRouter';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
-import LocationsPage from './components/pages/LocationsPage';
-import LocationPage from './components/pages/LocationPage';
 import MainPage from './components/pages/MainPage';
 
 import {
@@ -28,6 +25,9 @@ import { locationInstance } from './services/locationService';
 import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
 import { userInstance } from './services/userService';
+import LocationsPage from './components/pages/LocationsPage';
+import LocationPage from './components/pages/LocationPage';
+import OptionNavbar from './components/ui/navBar/OptionalNavbar';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user);
@@ -60,33 +60,34 @@ function App(): JSX.Element {
   return (
     <>
       <CssBaseline />
-      <NavBar />
-      <Box
-        sx={{
+
+      <OptionNavbar />
+
+      <main
+        style={{
           display: 'flex',
           flexDirection: 'column',
-          width: '100vw',
-          minHeight: '210vh',
-          backgroundSize: 'cover', /* растягиваем изображение на всю высоту */
-          background: 'radial-gradient(circle, #191970, #000000		)'
-          ,
+          // width: '100vw',
+          backgroundSize: 'cover' /* растягиваем изображение на всю высоту */,
+          // minHeight: '210vh',
+          alignItems: 'space-around',
+          background: 'radial-gradient(circle, #191970, #000000		)',
         }}
       >
-        <Container component="main" sx={{ flexGrow: 1 }}>
-          {' '}
-          <Routes>
-            <Route path="/locations" element={<LocationsPage />} />
+        {' '}
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/locations" element={<LocationsPage />} />
+          <Route path="/themepage" element={<ThemePage />} />
+          <Route path="/location/:id" element={<LocationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />}>
             <Route path="/quest/:questId" element={<QuestPage />} />
-            <Route path="/location/:id" element={<LocationPage />} />
-            <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
-            <Route path="/" element={<MainPage />} />
-            <Route path="/themepage" element={<ThemePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
             <Route path="/account" element={<AccPage />} />
-          </Routes>
-        </Container>
-      </Box>
+          </Route>
+        </Routes>
+      </main>
     </>
   );
 }
