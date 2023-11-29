@@ -2,14 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  margin: 20px 300px;
+
 }
 
 .achieveContainer {
   width: 270px;
   height: 270px;
   text-align: center;
-  /* border: solid grey; */
   border-radius: 20px;
   margin: 17px;
   background: rgb(100, 100, 100)
@@ -22,7 +23,6 @@
 
 .achieveImg {
   width: 260px;
-  height: 250px;
 }
 
 .disabledImg {
@@ -38,18 +38,16 @@
   width: 270px;
   height: 235px;
 }
-.achieveContainer {
+/* .achieveContainer {
   filter: grayscale(0);
-  /* width: 320px;
-    height: 320px; */
   transition: 1s;
-}
+
+} */
 .achieveContainer:hover {
   filter: grayscale(0);
-  /* width: 320px;
-    height: 320px; */
+
   transition: 1s;
 }
-.accountContainerCustom{
+.accountContainerCustom {
   margin: 25px;
 }

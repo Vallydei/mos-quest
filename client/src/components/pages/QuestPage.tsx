@@ -8,24 +8,28 @@ export default function QuestPage(): JSX.Element {
   const quests = useAppSelector((store) => store.questsSlice.quests);
   const { questId } = useParams();
   const quest = quests.find((el) => el?.id === Number(questId));
- 
-  // 
-  
-
-
-  
+console.log(quests, questId );
 
   return (
-    <div>
-      <Box component="section" sx={{ p: 4, border: '1px dashed white' }} flex={2}>
+    <div style={{  borderRadius: '20px', height: '90vh', display: 'flex', alignItems: 'start', justifyContent: 'center', marginTop: '20px' }}>
+      <div
+        
+        style={{        
+          width: '840px',
+          animation: 'fadeIn 0.5s ease-in',
+          backgroundColor: 'white',
+          borderRadius: '20px',           
+          
+        }}
+      >
         <Backdrop
           sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
           open={!(quest !== undefined)}
         >
           <CircularProgress color="inherit" />
         </Backdrop>
-        {quest !== undefined ? <ControlledAccordions quest={quest} /> : (<>Загрузка</>) }
-      </Box>
+        {quest !== undefined ? <ControlledAccordions quest={quest} /> : <>Загрузка</>}
+      </div>
     </div>
   );
 }

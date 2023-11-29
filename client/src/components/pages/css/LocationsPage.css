@@ -1,9 +1,19 @@
 .locations-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 380px)
+  ); /* Change 'auto-fill' to 'auto-fit' to allow automatic adjustment */
+  grid-auto-rows: minmax(100px, auto); /* Set a minimum row height to control item wrapping */
+  gap: 40px;
+  justify-content: center; /* Center the grid items horizontally */
   animation: fadeIn 1s ease-in-out;
+  max-width: 1300px;
+justify-items: center;
+margin: 20px auto;
 }
+
+
 
 @keyframes fadeIn {
   from {

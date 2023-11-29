@@ -8,11 +8,12 @@ import { Button, Grid, TextField, ThemeProvider, createTheme } from '@mui/materi
 import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import RecipeReviewCard from './LocationsCard';
 import type { QuestType } from '../../types/questType/questType';
-import { thunkNewProgress } from '../../redux/slices/questThunks/questAsyncThunks';
+import { thunkGetProgress, thunkNewProgress } from '../../redux/slices/questThunks/questAsyncThunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { thunkNewUserAchiv } from '../../redux/slices/achievesAsyncThunk';
+import LocationsCard from './LocationsCard';
+import '../pages/css/Accordion.css';
 
 type ControlledAccordionsProps = {
   quest: QuestType;
@@ -20,12 +21,15 @@ type ControlledAccordionsProps = {
 
 export default function ControlledAccordions({ quest }: ControlledAccordionsProps): JSX.Element {
   const prog = useAppSelector((store) => store.questsSlice.currentUserProgress);
+  const user = useAppSelector((state) => state.authSlice.user);
   const navigate = useNavigate();
 
   let openAcc: [] | number[] = [];
   let openAcc2: [] | number[] = [];
   if (prog.length) openAcc = prog.map((el) => el.questionId);
   if (quest.Questions) openAcc2 = quest.Questions.map((el) => el.id);
+
+ 
 
   const countCommonElements = (arr1: number[], arr2: number[]): number => {
     const set1 = new Set(arr1);
@@ -41,6 +45,12 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
   const authSlice = useAppSelector((store) => store.authSlice);
   const dispatch = useAppDispatch();
 
+  React.useEffect(() => {
+    if (user.status === 'authenticated') {
+      void dispatch(thunkGetProgress(user.id));
+    }
+  }, []);
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -52,18 +62,24 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
       // другие цвета, если нужно
     },
   });
+  function generateObject(length: number): { [key: string]: boolean } {
+    const obj: { [key: string]: boolean } = {};
 
-  const [isAccordionDisabled, setIsAccordionDisabled] = React.useState({
-    acc2: true,
-    acc3: true,
-    acc4: true,
-    acc5: true,
-  });
+    for (let i = 2; i <= length; i++) {
+      obj[`acc${i}`] = true;
+    }
+
+    return obj;
+  }
+
+  const [isAccordionDisabled, setIsAccordionDisabled] = React.useState(
+    generateObject(quest.Questions.length),
+  );
 
   const [currentStep, setCurrentStep] = React.useState(1);
   React.useEffect(() => {
     const updatedDisabledState = {};
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= quest.Questions.length; i++) {
       if (i <= count) {
         updatedDisabledState[`acc${i}`] = false;
       } else {
@@ -84,7 +100,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
   };
 
   const handleButtonClick = (step: number): void => {
-    const currentQuestion = quest.Questions[step - 1]; // Используем номер шага для получения текущего вопроса
+    const currentQuestion = quest.Questions[step - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
       const nextAccordion = `acc${step + 1}`;
       setIsAccordionDisabled((prevState) => ({
@@ -100,7 +116,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
           complete: true,
         }),
       );
-      setUserAnswer(''); // Очищаем поле ответа после перехода к следующему вопросу
+      setUserAnswer('');
     } else {
       toast.error('Подумайте еще раз', {
         position: 'top-center',
@@ -156,9 +172,23 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
     }
   };
 
+  function generateNumberArray(length: number): number[] {
+    const resultArray = [];
+    let currentValue = 2;
+
+    for (let i = 0; i < length; i++) {
+      resultArray.push(currentValue);
+      currentValue++;
+    }
+
+    return resultArray;
+  }
+
+  console.log(quest.Questions.length);
+
   return (
-    <div>
-      <ThemeProvider theme={theme}>
+    <div className="accordionPage">
+      <ThemeProvider theme={theme} >
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -193,11 +223,11 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
               </AccordionDetails>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <RecipeReviewCard location={quest.Questions[0].Location} />
+              <LocationsCard location={quest.Questions[0].Location} />
             </Grid>
           </Grid>
         </Accordion>
-        {[2, 3, 4, 5].map((step) => (
+        {generateNumberArray(quest.Questions.length - 1)?.map((step) => (
           <Accordion
             key={`panel${step}`}
             disabled={isAccordionDisabled[`acc${step}`]}
@@ -248,7 +278,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
                 </AccordionDetails>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <RecipeReviewCard location={quest.Questions[step - 1].Location} />
+                <LocationsCard location={quest.Questions[step - 1].Location} />
               </Grid>
             </Grid>
           </Accordion>

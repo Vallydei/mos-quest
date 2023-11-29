@@ -2,7 +2,8 @@ import React from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import AchieveCard from '../ui/AchieveCard';
 import './css/AccountPage.css';
-import Profilecard from './Profilecard';
+import Profilecard from '../ui/Profilecard';
+import UserEditModal from '../ui/UserEditModal';
 
 export default function AccPage(): JSX.Element {
   const achieves = useAppSelector((store) => store.achieves);
@@ -21,18 +22,21 @@ export default function AccPage(): JSX.Element {
   };
 
   return (
-    <div className="accountContainer accountContainerCustom">
+    <div className="accountContainer">
       <Profilecard
-        profileImgUrl={profileData.imgUrl}
+        profileImgUrl={user.avatar ? `http://localhost:3001/img/${user.avatar}` : profileData.imgUrl}
         profileName={user.status === 'authenticated' ? user.name : 'Неопозднанное нечто'}
         ProfileOccupation={profileData.occupation}
         ProfileAddress={profileData.address}
         ProfileNumber={profileData.number}
         ProfileEmail={user.status === 'authenticated' ? user.email : profileData.email}
       />{' '}
+      <div className="accountContainer accountContainerCustom">
       {achieves.ahieves.map((achieve) => (
         <AchieveCard key={achieve.id} achieve={achieve} getedAchievs={getedAchievs} />
       ))}
+      <UserEditModal/>
+      </div>
     </div>
   );
 }

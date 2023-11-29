@@ -10,7 +10,7 @@ type PrivateRouterProps = {
 export default function PrivateRouter({
   children,
   isAllowed,
-  redirectPath = '/',
+  redirectPath = '/login',
 }: PrivateRouterProps): JSX.Element {
   if (!isAllowed) return <Navigate to={redirectPath} />;
   return children || <Outlet />;

@@ -1,113 +1,135 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    min-height: 100vh;
+body {
+  // min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #9e9ea2;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.card {
+  $card-bg-clr: #fff;
+  $text-main-clr: #000;
+  $text-sec-clr: #9e9ea2;
+
+  width: max(300px, 40vw);
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background-color: $card-bg-clr;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+
+  &-top {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #9E9EA2;
-    font-family: 'Nunito Sans', sans-serif;
-}
+    gap: 24px;
 
-.card{
-    $card-bg-clr: #fff;
-    $text-main-clr: #000;
-    $text-sec-clr: #9E9EA2;
+    &__profile-img {
+      width: 40%;
 
-    width: max(300px, 40vw);
-    padding: 28px 20px;
+      & img {
+        max-width: 100%;
+      }
+    }
+
+    &__profile-content {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+      gap: 12px;
+
+      & .profile-name {
+        color: $text-main-clr;
+        font-size: clamp(1.5rem, 5vw, 6rem);
+        font-weight: bold;
+      }
+
+      & .profile-occupation {
+        color: $text-sec-clr;
+        font-size:1.5rem;
+      }
+
+      & .profile-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        font-size: clamp(0.8rem, 2vw, 1.5rem);
+        gap: 8px;
+
+        & div {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 6px;
+
+          & span {
+            color: $text-sec-clr;
+          }
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 24px;
-    background-color: $card-bg-clr;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
+    gap: 12px;
 
-    &-top{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-
-        &__profile-img{
-            width: 40%;
-
-            & img{
-                max-width: 100%;
-            }
-        }
-
-        &__profile-content{
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: space-around;
-            gap: 12px;
-
-            & .profile-name{
-                color: $text-main-clr;
-                font-size: clamp(2rem , 5vw , 6rem);
-                font-weight: bold;
-            }
-
-            & .profile-occupation{
-                color: $text-sec-clr;
-                font-size: clamp(1rem , 3vw , 2.5rem);
-            }
-
-            & .profile-info{
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: space-between;
-                font-size: clamp(.8rem , 2vw , 1.5rem);
-                gap: 8px;
-
-                & div{
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 6px;
-                    
-                    & span{
-                        color: $text-sec-clr;
-                    }
-                }
-            }
-        }
-
+    & .divider {
+      width: 80%;
+      height: 4px;
+      background-color: $text-sec-clr;
+      border: none;
+      border-radius: 2px;
     }
 
-    &-bottom{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-
-        & .divider{
-            width: 80%;
-            height: 4px;
-            background-color: $text-sec-clr;
-            border: none;
-            border-radius: 2px;
-        }
-
-        & .profile-email{
-            color: $text-sec-clr;
-            font-size: clamp(.8rem , 2vw , 1.5rem);
-        }
+    & .profile-email {
+      color: $text-sec-clr;
+      font-size: clamp(0.8rem, 2vw, 1.5rem);
     }
+  }
 }
+.card-top__profile-img {
+  position: relative;
+
+}
+
+.userImg {
+    height: 250px;
+object-fit: cover;
+}
+.iconUser {
+  width: 80px;
+  height: 50px;
+  color: rgb(109, 15, 197);
+  position: absolute;
+  bottom: -5px;
+  left: -10px;
+}
+.iconUser:hover {
+  transform: rotate(360deg);
+  transition: 5s;
+  scale: 1.3;
+  color: rgb(5, 32, 112);
+}
+
