@@ -1,4 +1,4 @@
-.card-container {
+/* .card-container {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -17,7 +17,8 @@
   max-width: 400px;
   margin: auto;
   margin-top: 100px;
-}
+
+} */
 
 .titleRegLog {
   font-size: 2em;

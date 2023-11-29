@@ -68,12 +68,12 @@ function App(): JSX.Element {
           display: 'flex',
           flexDirection: 'column',
           // width: '100vw',
-          backgroundSize: 'cover', /* растягиваем изображение на всю высоту */
+          backgroundSize: 'cover' /* растягиваем изображение на всю высоту */,
           // minHeight: '210vh',
           alignItems: 'space-around',
-          background: 'radial-gradient(circle, #191970, #000000		)'
-          ,
-          padding: '30px 150px',
+          background: 'radial-gradient(circle, #191970, #000000		)',
+
+  
         }}
       >
         {' '}

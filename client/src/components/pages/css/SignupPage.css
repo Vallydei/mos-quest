@@ -17,16 +17,21 @@
 
 .form {
   height: 40vh;
-  width: 95%;
-  padding: 20px;
+
+  /* padding: 40px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ 
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   animation: fadeIn 0.5s ease-in;
+  background-color: #b8870b;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  /* padding: 0 240px; */
+
 }
 
 .logTitle {

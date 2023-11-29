@@ -8,8 +8,7 @@
   height: 90vh;
   font-family: 'Roboto', sans-serif;
   transition: 0.25s;
-
-
+  margin: 20px 0;
 }
 
 .mainContainer .options {
@@ -18,16 +17,20 @@
   align-items: stretch;
   overflow: hidden;
   min-width: 600px;
-  max-width: 900px;
+  max-width: 1100px;
   width: calc(100% - 100px);
+  /* width: calc(100% - 100px); */
   height: 400px;
 }
-
+.options,
+.option {
+  margin: 0 5px;
+}
 .mainContainer .options .option {
   position: relative;
   overflow: hidden;
-  min-width: 60px;
-  margin: 10px;
+  min-width: 89px;
+
   background: var(--optionBackground, var(--defaultBackground, #e6e9ed));
   background-size: auto 120%;
   background-position: center;
@@ -79,22 +82,16 @@
   --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_06.jpg');
 }
 
-.option.active {
-  flex-grow: 10000;
-  transform: scale(1);
-  max-width: 600px;
-  margin: 0px;
-  border-radius: 40px;
-  background-size: auto 100%;
-}
 
 .option.active .label {
   bottom: 20px;
   left: 20px;
+  animation: fadeInLabel 0.7s ease-in-out;
 }
 .option.active .label .info > div {
   left: 0px;
   opacity: 1;
+  animation: fadeInInfo 0.7s ease-in-out;
 }
 .option:not(.active) {
   flex-grow: 1;
@@ -108,6 +105,7 @@
 .option:not(.active) .label .info > div {
   left: 20px;
   opacity: 0;
+  animation: fadeInInfo 0.7s ease-in-out;
 }
 
 .label {
@@ -161,36 +159,27 @@
   margin: 30px;
   display: flex;
   justify-content: space-evenly;
+  padding-left: 200px;
+  padding-right: 200px;
 }
-.btmMain {
-  max-width: 300px;
-  max-height: 200px;
-  padding: 30px;
-  background-color: #0b9549d5;
-  border-radius: 30px;
-  border: none;
-  font-size: 3em;
-  cursor: pointer;
-}
-/* ... Your existing styles ... */
 
-/* New styles for animations */
 .option {
-  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+  transition: 0.7s cubic-bezier(0.05, 0.61, 0.41, 0.95);
   opacity: 0;
   transform: scale(0.9);
 }
-
 .option.active {
   flex-grow: 10000;
   transform: scale(1);
-  max-width: 600px;
-  margin: 0px;
+  margin: 5px;
   border-radius: 40px;
   background-size: auto 100%;
   opacity: 1;
   animation: fadeInOption 0.5s ease-in-out;
+
 }
+
+
 
 .option:not(.active) {
   flex-grow: 1;
@@ -211,20 +200,8 @@
   }
 }
 
-.option.active .label {
-  animation: fadeInLabel 0.5s ease-in-out;
-}
-
 .option:not(.active) .label {
-  animation: fadeInLabel 0.5s ease-in-out;
-}
-
-.option.active .label .info > div {
-  animation: fadeInInfo 0.5s ease-in-out;
-}
-
-.option:not(.active) .label .info > div {
-  animation: fadeInInfo 0.5s ease-in-out;
+  animation: fadeInLabel 0.7s ease-in-out;
 }
 
 /* Additional keyframes for label and info animations */
@@ -247,4 +224,3 @@
     opacity: 1;
   }
 }
-

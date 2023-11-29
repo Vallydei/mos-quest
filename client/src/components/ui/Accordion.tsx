@@ -172,8 +172,8 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
   console.log(quest.Questions.length);
 
   return (
-    <div className='accordionPage'>
-      <ThemeProvider theme={theme}>
+    <div className="accordionPage">
+      <ThemeProvider theme={theme} >
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}

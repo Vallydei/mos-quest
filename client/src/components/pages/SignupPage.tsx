@@ -5,33 +5,6 @@ import { thunkSignup } from '../../redux/slices/auth/createAsyncThunks';
 import type { SignupFormData } from '../../types/auth';
 import '../pages/css/SignupPage.css';
 
-const styles = {
-  formContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh', // Center vertically on the screen
-  },
-  form: {
-    width: '500px', // Increased width
-    padding: '20px',
-    display: 'flex', // Center inputs horizontally
-    flexDirection: 'column', // Align inputs vertically
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    animation: 'fadeIn 0.5s ease-in', // Add fade-in animation
-  },
-  textField: {
-    width: '100%', // Make inputs of equal length
-    marginBottom: '20px',
-  },
-  button: {
-    marginTop: '10px',
-  },
-};
-
 export default function SignupPage(): JSX.Element {
   const dispatch = useAppDispatch();
 
@@ -47,7 +20,7 @@ export default function SignupPage(): JSX.Element {
           void dispatch(thunkSignup(formData));
         }}
       >
-        <h1 className='titleRegLog'>Регистрация</h1>
+        <h1 className="titleRegLog">Регистрация</h1>
         <TextField
           required
           label="Name"
