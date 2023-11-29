@@ -3,10 +3,12 @@ import { Button, TextField } from '@mui/material';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkSignup } from '../../redux/slices/auth/createAsyncThunks';
 import type { SignupFormData } from '../../types/auth';
-import '../pages/css/SignupPage.css';
+import '../pages/css/SignupLoginPage.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignupPage(): JSX.Element {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   return (
     <div className="formContainer">
@@ -16,15 +18,15 @@ export default function SignupPage(): JSX.Element {
           e.preventDefault();
 
           const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
-          // console.log('смотри сюда', formData);
-          void dispatch(thunkSignup(formData));
+
+          void dispatch(thunkSignup(formData)).then(void navigate('/'));
         }}
       >
         <h1 className="titleRegLog">Регистрация</h1>
         <TextField
           required
-          label="Name"
-          placeholder="Name"
+          label="Имя"
+          placeholder="Имя"
           error={false && 'Invalid email address or password'}
           name="name"
           className="textField"
@@ -39,8 +41,17 @@ export default function SignupPage(): JSX.Element {
         />
         <TextField
           required
-          label="Password"
-          placeholder="Password"
+          label="Пароль"
+          placeholder="Пароль"
+          error={false && 'Invalid email address or password'}
+          name="password"
+          type="password"
+          className="textField"
+        />
+        <TextField
+          required
+          label="Повторите пароль"
+          placeholder="Пароль"
           error={false && 'Invalid email address or password'}
           name="password"
           type="password"

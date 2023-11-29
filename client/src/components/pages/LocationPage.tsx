@@ -31,7 +31,7 @@ export default function LocationPage(): JSX.Element {
   const commentsLocations = comments.filter((el) => el.locationId === Number(id));
 
   return (
-    <Box>
+
       <div className="locationContainer">
         <div className="cardContent">
           <CarouselElement images={location?.Images} />
@@ -88,6 +88,6 @@ export default function LocationPage(): JSX.Element {
           </form>
         </div>
       </div>
-    </Box>
+   
   );
 }

@@ -10,7 +10,8 @@ export const thunkCheckAuth = createAsyncThunk<AuthState>('authSlice/thunkCheckA
 
 export const thunkLogin = createAsyncThunk(
   'authSlice/thunkLogin',
-  async (formData: LoginFormData) => AuthService.login(formData),
+  async (formData: LoginFormData) =>
+    AuthService.login(formData),
 );
 
 export const thunkSignup = createAsyncThunk(
@@ -30,5 +31,6 @@ export const thunkRefreshToken = createAsyncThunk<AuthState['accessToken']>(
 
 export const thunkUpdateUser = createAsyncThunk(
   'authSlice/thunkUpdateUaser',
-  async ({id, data}:{id: UserType['id'], data: SignupFormData}) => UserService.updateUser(id, data),
+  async ({ id, data }: { id: UserType['id']; data: SignupFormData }) =>
+    UserService.updateUser(id, data),
 );

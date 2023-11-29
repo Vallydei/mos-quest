@@ -72,21 +72,20 @@ function App(): JSX.Element {
           // minHeight: '210vh',
           alignItems: 'space-around',
           background: 'radial-gradient(circle, #191970, #000000		)',
-
-  
         }}
       >
         {' '}
         <Routes>
-          <Route path="/locations" element={<LocationsPage />} />
-          <Route path="/quest/:questId" element={<QuestPage />} />
-          <Route path="/location/:id" element={<LocationPage />} />
-          <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />} />
           <Route path="/" element={<MainPage />} />
+          <Route path="/locations" element={<LocationsPage />} />
           <Route path="/themepage" element={<ThemePage />} />
+          <Route path="/location/:id" element={<LocationPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/account" element={<AccPage />} />
+          <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />}>
+            <Route path="/quest/:questId" element={<QuestPage />} />
+            <Route path="/account" element={<AccPage />} />
+          </Route>
         </Routes>
       </main>
     </>

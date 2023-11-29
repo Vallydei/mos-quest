@@ -53,7 +53,7 @@ function NavbarDefault(): JSX.Element {
                 <Person /> Личный кабинет
               </li>
             </Link>
-            <Link to="/logout">
+            <Link to="/">
               <button
                 className="logoutLoginButton font-jakarta text-sm px-4 py-2 rounded-full text-white font-medium bg-white bg-opacity-[.08] border border-white border-opacity-[.08] hover:border-opacity-25"
                 role="menuitem"

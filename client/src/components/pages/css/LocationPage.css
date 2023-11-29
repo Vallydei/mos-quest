@@ -7,13 +7,15 @@
 .locationContainer {
   display: flex;
   flex-wrap: wrap;
-  border-radius: 5px;
+  border-radius: 20px;
   border: solid grey 1px;
   padding: 30px;
-  margin: 50px 0;
   justify-content: space-around;
   gap: 30px;
   min-width: 890px;
+  max-width: 1000px;
+  margin: 20px 0;
+align-self: center;
 }
 
 .mapContainer {
@@ -23,6 +25,7 @@
 
 .cardContent {
   width: 45%;
+
 }
 
 .description {

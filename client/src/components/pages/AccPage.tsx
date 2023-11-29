@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppSelector } from '../../redux/hooks';
 import AchieveCard from '../ui/AchieveCard';
 import './css/AccountPage.css';
-import Profilecard from './Profilecard';
+import Profilecard from '../ui/Profilecard';
 import UserEditModal from '../ui/UserEditModal';
 
 export default function AccPage(): JSX.Element {

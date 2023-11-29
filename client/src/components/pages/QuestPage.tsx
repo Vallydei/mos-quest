@@ -8,9 +8,10 @@ export default function QuestPage(): JSX.Element {
   const quests = useAppSelector((store) => store.questsSlice.quests);
   const { questId } = useParams();
   const quest = quests.find((el) => el?.id === Number(questId));
+console.log(quests, questId );
 
   return (
-    <div style={{  borderRadius: '20px', height: '90vh', display: 'flex', alignItems: 'start', justifyContent: 'center' }}>
+    <div style={{  borderRadius: '20px', height: '90vh', display: 'flex', alignItems: 'start', justifyContent: 'center', marginTop: '20px' }}>
       <div
         
         style={{        

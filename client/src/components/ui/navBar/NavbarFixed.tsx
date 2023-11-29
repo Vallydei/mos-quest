@@ -71,7 +71,7 @@ function NavbarFixed(): JSX.Element {
               </li>
             </Link>
 
-            <Link to="/logout">
+            <Link to="/">
               {' '}
               <button
                 className="logoutLoginButton font-jakarta text-sm px-4 py-2 rounded-3xl text-white font-medium bg-[#171719] border border-white border-opacity-[.08] hover:border-opacity-25"

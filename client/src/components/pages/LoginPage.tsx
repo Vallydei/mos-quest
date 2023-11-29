@@ -3,14 +3,15 @@ import { Button, TextField, Grow } from '@mui/material';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkLogin } from '../../redux/slices/auth/createAsyncThunks';
 import type { LoginFormData } from '../../types/auth';
-import './css/LoginPage.css';
+import './css/SignupLoginPage.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const [cardVisible, setCardVisible] = React.useState(false);
-
+  const navigate = useNavigate();
   React.useEffect(() => {
-        setCardVisible(true);
+    setCardVisible(true);
   }, []);
 
   return (
@@ -22,8 +23,7 @@ export default function LoginPage(): JSX.Element {
             e.preventDefault();
 
             const formData = Object.fromEntries(new FormData(e.currentTarget)) as LoginFormData;
-            console.log('смотри сюда', formData);
-            void dispatch(thunkLogin(formData));
+            void dispatch(thunkLogin(formData)).then(void navigate('/'));
           }}
         >
           <h1 className="titleRegLog">Вход</h1>
@@ -38,7 +38,16 @@ export default function LoginPage(): JSX.Element {
           <TextField
             required
             className="textField"
-            label="Password"
+            label="Пароль"
+            placeholder="Password"
+            error={false && 'Invalid email address or password'}
+            name="password"
+            type="password"
+          />
+          <TextField
+            required
+            className="textField"
+            label="Повторите пароль"
             placeholder="Password"
             error={false && 'Invalid email address or password'}
             name="password"
