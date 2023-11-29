@@ -26,6 +26,7 @@ export default function SignupPage(): JSX.Element {
         <TextField
           required
           label="Имя"
+          color="secondary"
           placeholder="Имя"
           error={false && 'Invalid email address or password'}
           name="name"
@@ -35,6 +36,7 @@ export default function SignupPage(): JSX.Element {
           required
           label="E-mail"
           placeholder="E-mail"
+          color="secondary"
           error={false && 'Invalid email address or password'}
           name="email"
           className="textField"
@@ -43,6 +45,7 @@ export default function SignupPage(): JSX.Element {
           required
           label="Пароль"
           placeholder="Пароль"
+          color="secondary"
           error={false && 'Invalid email address or password'}
           name="password"
           type="password"
@@ -52,6 +55,7 @@ export default function SignupPage(): JSX.Element {
           required
           label="Повторите пароль"
           placeholder="Пароль"
+          color="secondary"
           error={false && 'Invalid email address or password'}
           name="password"
           type="password"
@@ -60,9 +64,10 @@ export default function SignupPage(): JSX.Element {
 
         <Button
           type="submit"
-          color="success"
+        
           variant="contained"
           size="large"
+          color="secondary"
           className="buttonReg"
         >
           Submit
