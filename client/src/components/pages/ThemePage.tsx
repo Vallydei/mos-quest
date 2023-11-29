@@ -10,7 +10,7 @@ import Modal from '../ui/AnimateModal';
 const AnimatedListItemButton = styled(ListItemButton)(({ theme }) => ({
   width: '100%',
   height: 200,
-  borderRadius: 20,
+  borderRadius: 10,
   fontWeight: 'bold',
 }));
 
@@ -19,7 +19,7 @@ export default function ThemePage(): JSX.Element {
 
   return (
     <div>
-      <h1 style={{ color: 'white', fontSize: '30px', textAlign: 'center' }}>Тематический гид</h1>
+      {/* <h1 style={{ color: 'white', fontSize: '30px', textAlign: 'center' }}>Тематический гид</h1> */}
       <List className="themeContainer" component="nav" aria-label="mailbox folders">
         <Grow in timeout={1000}>
           <Link to="/quest/1" className="link">

@@ -20,6 +20,9 @@ export default function QuestPage(): JSX.Element {
           gap: '10px',
           boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
           animation: 'fadeIn 0.5s ease-in',
+          backgroundColor: 'white', // Set the background color to white
+          padding: '1px',
+          borderRadius: '5px',
         }}
         flex={2}
       >
