@@ -1,17 +1,18 @@
 import React from 'react';
-import { FaGears, FaPhone } from 'react-icons/fa6';
+import { FaGears, FaLocationDot, FaPhone } from 'react-icons/fa6';
+import { motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
 import '../pages/css/Profilecard.scss';
 import { useAppDispatch } from '../../redux/hooks';
 import { toggleModal } from '../../redux/slices/auth';
 
 type ProfilecardProps = {
-  profileImgUrl: string;
-  profileName: string;
-  ProfileOccupation: string;
-  ProfileNumber: string;
-  ProfileEmail: string;
-};
+  profileImgUrl: string,
+  profileName: string,
+  ProfileOccupation: string,
+  ProfileNumber: string,
+  ProfileEmail: string,
+}
 
 function Profilecard({
   profileImgUrl,
@@ -25,10 +26,10 @@ function Profilecard({
     <Tilt className="card">
       <div className="card-top">
         <div className="card-top__profile-img">
-          <img className="userImg" src={profileImgUrl} alt="" />
-          <div className="iconUser">
+          <img className='userImg' src={profileImgUrl} alt="" />
+          <div className='iconUser'>
             {' '}
-            <FaGears className="iconUser" onClick={() => dispatch(toggleModal())} />
+            <FaGears className='iconUser' onClick={() => dispatch(toggleModal())} />
           </div>
         </div>
 

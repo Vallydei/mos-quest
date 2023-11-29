@@ -3,7 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FiAlertCircle } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
-function Modal({ isOpen, setIsOpen }): JSX.Element  {
+type ModalProps = {
+  isOpen: boolean,
+  setIsOpen: (isOpen: boolean)=> void,
+}
+function Modal({ isOpen, setIsOpen }: ModalProps): JSX.Element  {
   const navigate = useNavigate();
   return (
     <AnimatePresence>

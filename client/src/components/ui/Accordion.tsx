@@ -9,11 +9,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import type { QuestType } from '../../types/questType/questType';
-import { thunkGetProgress, thunkNewProgress } from '../../redux/slices/questThunks/questAsyncThunks';
+import {
+  thunkGetProgress,
+  thunkNewProgress,
+} from '../../redux/slices/questThunks/questAsyncThunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { thunkNewUserAchiv } from '../../redux/slices/achievesAsyncThunk';
 import LocationsCard from './LocationsCard';
-import '../pages/css/Accordion.css';
+
 
 type ControlledAccordionsProps = {
   quest: QuestType;
@@ -28,8 +31,6 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
   let openAcc2: [] | number[] = [];
   if (prog.length) openAcc = prog.map((el) => el.questionId);
   if (quest.Questions) openAcc2 = quest.Questions.map((el) => el.id);
-
- 
 
   const countCommonElements = (arr1: number[], arr2: number[]): number => {
     const set1 = new Set(arr1);
@@ -99,11 +100,10 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
     setExpanded(isExpanded ? panel : false);
   };
 
-> Ваня M:
-const handleButtonClick = (step: number): void => {
+  const handleButtonClick = (step: number): void => {
     const currentQuestion = quest.Questions[step - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-      const nextAccordion = acc${step + 1};
+      const nextAccordion = `acc${step + 1}`;
       setIsAccordionDisabled((prevState) => ({
         ...prevState,
         [nextAccordion]: false,
@@ -135,7 +135,7 @@ const handleButtonClick = (step: number): void => {
   const finishButtonClick = (step: number): void => {
     const currentQuestion = quest.Questions[step - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-      const nextAccordion = acc${step + 1};
+      const nextAccordion = `acc${step + 1}`;
       setIsAccordionDisabled((prevState) => ({
         ...prevState,
         [nextAccordion]: false,
@@ -189,7 +189,7 @@ const handleButtonClick = (step: number): void => {
 
   return (
     <div className="accordionPage">
-      <ThemeProvider theme={theme} >
+      <ThemeProvider theme={theme}>
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -204,6 +204,7 @@ const handleButtonClick = (step: number): void => {
             <Grid item xs={12} sm={6}>
               <AccordionDetails>
                 <Typography>{quest.Questions[0].question}</Typography>
+
                 <TextField
                   id="outlined-basic"
                   size="small"
@@ -238,6 +239,7 @@ const handleButtonClick = (step: number): void => {
               expandIcon={<ExpandMoreIcon />}
               aria-controls={`panel${step}bh-content`}
               id={`panel${step}bh-header`}
+              className="accordion"
             >
               <Typography sx={{ width: '33%', flexShrink: 0 }}>{`Шаг ${step}`}</Typography>
               <Typography sx={{ color: 'text.secondary' }}>

@@ -8,35 +8,66 @@
   display: flex;
   flex-wrap: wrap;
   border-radius: 20px;
-  border: solid grey 1px;
   padding: 30px;
   justify-content: space-around;
   gap: 30px;
   min-width: 890px;
   max-width: 1000px;
   margin: 20px 0;
-align-self: center;
+  align-self: center;
+  background: linear-gradient(320deg, #5b58584d 0%, #d7d7d742 94%);
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
+  transform: translateY(2px);
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  position: relative;
+  padding-bottom: 50px;
 }
 
 .locationTitle {
   color: #fff;
-  font-size: 2em;
+  font-size: 2.3em;
+  margin-top: -20px;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.mapCont {
+  border: 3px solid #fff;
+  height: 400px;
 }
 .mapContainer {
   width: 100%;
   min-height: 400px;
+  align-self: flex-start;
 }
 
 .cardContent {
   width: 45%;
+}
 
+.descriptionSheet {
+  padding: 10px;
+  hyphens: auto;
+  margin-bottom: 10px;
+}
+.descriptionSheet::before {
+  content: '';
+  width: 45%;
+  height: 93%;
+  border-radius: 20px;
+  background-color: #ffffff80;
+  position: absolute;
+  top: 6%;
+  right: 35px;
+  z-index: -1;
 }
 
 .description {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
 }
 .SecondExample {
   min-width: 300px;
@@ -48,7 +79,7 @@ align-self: center;
   position: relative;
   height: 35vh;
   overflow: hidden;
-  color: #fff;
+
   font-size: 25px;
   border: 3px solid #fff;
   text-transform: capitalize;
@@ -70,15 +101,24 @@ align-self: center;
   min-height: 400px;
 }
 
+.commentsTitle {
+  font-size: 30px;
+  text-transform: uppercase;
+  color: black;
+}
 .commentContainer {
-  border-top: solid lightgrey 2px;
+  border-top: solid black 2px;
   padding: 10px 0 20px;
   display: flex;
 }
 
 .avatar {
   width: 60px;
+  height: 60px;
   margin-right: 20px;
+  object-fit: cover;
+  border-radius: 50px;
+  border: black solid 1px;
 }
 
 .inputComments {
@@ -87,7 +127,7 @@ align-self: center;
 }
 
 .commentTextArea {
-  width: 75%;
+  width: 71%;
 }
 
 .OnePlaceChallengeBtn {
@@ -97,4 +137,16 @@ align-self: center;
   box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
   background-image: linear-gradient(320deg, #5b5858 0%, #d7d7d7 94%);
   transform: translateY(2px);
+}
+
+.userNameTitle {
+  font-size: 20px;
+  width: 300px;
+margin-bottom: 10px;
+  padding-left: 10px;
+  line-height: 1.2;
+  color: rebeccapurple ;
+  font-weight: 800;
+  border-radius: 20px;
+  background-image: linear-gradient(320deg, #5b5858 0%, #d7d7d7 94%);
 }

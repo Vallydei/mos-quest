@@ -5,7 +5,7 @@ import '../pages/css/LocationPage.css';
 import type { ImageType } from '../../types/locationType/locationType';
 
 type CarouselElementProp = {
-  images: ImageType[];
+  images: ImageType[] | undefined;
 };
 
 export default function CarouselElement({ images }: CarouselElementProp): JSX.Element {

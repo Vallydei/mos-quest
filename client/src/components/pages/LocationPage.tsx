@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@mui/joy/Button';
 import Typography from '@mui/joy/Typography';
-import Sheet from '@mui/joy/Sheet';
+
 import { TextField } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import CarouselElement from '../ui/CarouselElement';
@@ -39,7 +39,7 @@ export default function LocationPage(): JSX.Element {
       <div className="cardContent description">
         <h1 className="locationTitle">{location?.title}</h1>
 
-        <Sheet
+        {/* <Sheet
           sx={{
             bgcolor: 'white',
             borderRadius: 'sm',
@@ -49,21 +49,20 @@ export default function LocationPage(): JSX.Element {
             gap: 2,
             '& > div': { flex: 1 },
           }}
-          // className="CardContent" // Add the class for CardContent animation
-        >
-          <div>
+        > */}
+          <div className='descriptionSheet'>
             <Typography fontWeight="lg">{location?.description}</Typography>
           </div>
-        </Sheet>
+        {/* </Sheet> */}
         <button className="OnePlaceChallengeBtn">OnePlaceChallenge</button>
       </div>
 
-      <div className="cardContent">
+      <div className="cardContent mapCont">
         <GoogleMaps map={location?.map} />
       </div>
       <div className="cardContent commentsField" style={{ color: 'white' }}>
-        <h3>Комментарии</h3>
-        <br />
+        <h3 className='commentsTitle'>Комментарии</h3>
+       
         {commentsLocations.map((comment) => (
           <CommentCard key={comment.id} comment={comment} />
         ))}
