@@ -23,7 +23,6 @@ export default function useAxiosInterceptors(authInstance: AxiosInstance): void 
       (res) => res,
       async (err: AxiosError & { config: { sent?: boolean } }) => {
         const prevRequest = err.config;
-        console.log(err);
 
         if (err.response?.status === 403 && !prevRequest.sent) {
           prevRequest.sent = true;
