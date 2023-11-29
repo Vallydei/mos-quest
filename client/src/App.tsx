@@ -27,6 +27,7 @@ import { authInstance } from './services/authService';
 import { locationInstance } from './services/locationService';
 import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
+import { userInstance } from './services/userService';
 
 function App(): JSX.Element {
   const user = useAppSelector((state) => state.authSlice.user);
@@ -40,7 +41,6 @@ function App(): JSX.Element {
     void dispatch(thunkCheckAuth());
     void dispatch(thunkGetLocations());
     void dispatch(thunkGetCommentsOfLocation());
-   
   }, []);
 
   useEffect(() => {
@@ -56,6 +56,7 @@ function App(): JSX.Element {
   useAxiosInterceptors(locationInstance);
   useAxiosInterceptors(achieveInstance);
   useAxiosInterceptors(questInstance);
+  useAxiosInterceptors(userInstance);
   return (
     <>
       <CssBaseline />
