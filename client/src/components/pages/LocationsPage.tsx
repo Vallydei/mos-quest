@@ -13,7 +13,7 @@ export default function LocationsPage(): JSX.Element {
         gap: '10px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         animation: 'fadeIn 0.5s ease-in',
-        marginTop: '20px',
+        marginTop: '30px',
       }}
     >
       {locations?.map((location) => <RecipeReviewCard key={location?.id} location={location} />)}

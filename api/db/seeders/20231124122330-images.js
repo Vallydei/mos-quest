@@ -29,26 +29,7 @@ module.exports = {
           locationImg:
             "https://mos-holidays.ru/wp-content/uploads/2015/10/Honey-Ill-call-back2.jpg",
         },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_1.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_2.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_3.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_4.png",
-        },
-        {
-          locationId: 6,
-          locationImg: "/public/images/CulturaQ/musey-surrealizm_5.png",
-        },
+       
 
         {
           locationId: 2,
@@ -58,14 +39,7 @@ module.exports = {
           locationId: 2,
           locationImg: "/images/ShrodingersCat/shrodinger3.jpg",
         },
-        {
-          locationId: 3,
-          locationImg: "/images/CulturaQ/Галерея Люди-легенды_1.png",
-        },
-        {
-          locationId: 3,
-          locationImg: "/images/CulturaQ/Вход в музей Дом Бурганова_2.png",
-        },
+       
         {
           locationId: 2,
           locationImg: "/images/NeonMonkey/neon-monkey_slide_3.png",
@@ -166,6 +140,48 @@ module.exports = {
           locationImg:
             "/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_3.png",
         },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_1.png",
+        },
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_2.png",
+        },
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_3.png",
+        },
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_4.png",
+        },
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_5.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_6.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_7.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_8.png",
+        },
+
+        {
+          locationId: 6,
+          locationImg: "/public/images/CulturaQ/musey-surrealizm_9.png",
+        },
+
       ],
       {}
     );
