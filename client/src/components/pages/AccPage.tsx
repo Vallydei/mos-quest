@@ -24,7 +24,7 @@ export default function AccPage(): JSX.Element {
   return (
     <div className="accountContainer">
       <Profilecard
-        profileImgUrl={profileData.imgUrl}
+        profileImgUrl={user.avatar ? `http://localhost:3001/img/${user.avatar}` : profileData.imgUrl}
         profileName={user.status === 'authenticated' ? user.name : 'Неопозднанное нечто'}
         ProfileOccupation={profileData.occupation}
         ProfileAddress={profileData.address}

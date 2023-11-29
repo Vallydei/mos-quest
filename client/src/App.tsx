@@ -47,12 +47,11 @@ function App(): JSX.Element {
     void dispatch(thunkGetQuests());
     void dispatch(thunkGetAchieves());
     if (user.status === 'authenticated') {
-      void dispatch(thunkGetProgress(user.id)); /// /ПАМАГИТИ
       void dispatch(thunkGetUserAchiv(user.id));
     }
   }, [user.status]);
 
-  useAxiosInterceptors(authInstance);
+  
   useAxiosInterceptors(locationInstance);
   useAxiosInterceptors(achieveInstance);
   useAxiosInterceptors(questInstance);
