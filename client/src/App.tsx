@@ -15,12 +15,11 @@ import {
   thunkGetCommentsOfLocation,
   thunkGetLocations,
 } from './redux/slices/locations/locationAsyncThunks';
-import { thunkGetQuests, thunkGetProgress } from './redux/slices/questThunks/questAsyncThunks';
+import { thunkGetQuests } from './redux/slices/questThunks/questAsyncThunks';
 import { thunkCheckAuth } from './redux/slices/auth/createAsyncThunks';
 import AccPage from './components/pages/AccPage';
 import { thunkGetUserAchiv, thunkGetAchieves } from './redux/slices/achievesAsyncThunk';
 import useAxiosInterceptors from './components/customHook/useAxiosInterceptors';
-import { authInstance } from './services/authService';
 import { locationInstance } from './services/locationService';
 import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
@@ -51,7 +50,6 @@ function App(): JSX.Element {
     }
   }, [user.status]);
 
-  
   useAxiosInterceptors(locationInstance);
   useAxiosInterceptors(achieveInstance);
   useAxiosInterceptors(questInstance);
@@ -66,7 +64,7 @@ function App(): JSX.Element {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          width: '100%',
+          // width: '100vw',
           backgroundSize: 'cover' /* растягиваем изображение на всю высоту */,
           // minHeight: '210vh',
           alignItems: 'space-around',
@@ -79,9 +77,13 @@ function App(): JSX.Element {
           <Route path="/locations" element={<LocationsPage />} />
           <Route path="/themepage" element={<ThemePage />} />
           <Route path="/location/:id" element={<LocationPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route element={<PrivateRouter isAllowed={user.status === 'authenticated'} />}>
+          <Route
+            element={<PrivateRouter isAllowed={user.status !== 'authenticated'} redirectPath="/" />}
+          >
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+          </Route>
+          <Route element={<PrivateRouter isAllowed={user.status !== 'guest'} />}>
             <Route path="/quest/:questId" element={<QuestPage />} />
             <Route path="/account" element={<AccPage />} />
           </Route>

@@ -35,6 +35,10 @@ class AuthService {
     const response = await authInstance.get<BackendAuth>('/auth/check');
     return response.data;
   }
+
+  static async confirm(formData:SignupFormData): Promise<void>{
+    const response = await authInstance.post('/auth/confirm', formData);
+  }
 }
 
 export default AuthService;
