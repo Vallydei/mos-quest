@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { AchieveType } from '../../types/locationType/achievesType';
 
 import '../pages/css/test.css';

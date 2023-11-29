@@ -99,10 +99,11 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
     setExpanded(isExpanded ? panel : false);
   };
 
-  const handleButtonClick = (step: number): void => {
+> Ваня M:
+const handleButtonClick = (step: number): void => {
     const currentQuestion = quest.Questions[step - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-      const nextAccordion = `acc${step + 1}`;
+      const nextAccordion = acc${step + 1};
       setIsAccordionDisabled((prevState) => ({
         ...prevState,
         [nextAccordion]: false,
@@ -134,7 +135,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
   const finishButtonClick = (step: number): void => {
     const currentQuestion = quest.Questions[step - 1];
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-      const nextAccordion = `acc${step + 1}`;
+      const nextAccordion = acc${step + 1};
       setIsAccordionDisabled((prevState) => ({
         ...prevState,
         [nextAccordion]: false,
@@ -203,7 +204,6 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
             <Grid item xs={12} sm={6}>
               <AccordionDetails>
                 <Typography>{quest.Questions[0].question}</Typography>
-
                 <TextField
                   id="outlined-basic"
                   size="small"

@@ -18,6 +18,10 @@
 align-self: center;
 }
 
+.locationTitle {
+  color: #fff;
+  font-size: 2em;
+}
 .mapContainer {
   width: 100%;
   min-height: 400px;
@@ -84,4 +88,13 @@ align-self: center;
 
 .commentTextArea {
   width: 75%;
+}
+
+.OnePlaceChallengeBtn {
+  font-weight: bold;
+  border-radius: 20px;
+  height: 50px;
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
+  background-image: linear-gradient(320deg, #5b5858 0%, #d7d7d7 94%);
+  transform: translateY(2px);
 }
