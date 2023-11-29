@@ -16,6 +16,7 @@
   max-width: 1000px;
   margin: 20px 0;
 align-self: center;
+align-items: start;
 }
 
 .mapContainer {

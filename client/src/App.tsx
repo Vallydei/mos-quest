@@ -67,7 +67,7 @@ function App(): JSX.Element {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          // width: '100vw',
+          width: '100%',
           backgroundSize: 'cover' /* растягиваем изображение на всю высоту */,
           // minHeight: '210vh',
           alignItems: 'space-around',
