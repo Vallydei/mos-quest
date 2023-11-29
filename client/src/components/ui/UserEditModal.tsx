@@ -47,8 +47,16 @@ export default function UserEditModal(): JSX.Element {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              const formData = Object.fromEntries(new FormData(e.currentTarget)) as SignupFormData;
-              dispatch(thunkUpdateUser({ id: user.id, data: formData }));
+              const formData = new FormData();
+              formData.append('id', user.id);
+              formData.append('name', e.currentTarget.name.value);
+              formData.append('email', e.currentTarget.email.value);
+              formData.append('avatar', e.currentTarget.avatar.files[0]);
+              console.log(e.currentTarget.name.value);
+              
+
+              // dispatch(thunkUpdateUser({ id: user.id, data: formData }));
+              dispatch(thunkUpdateUser(formData));
               dispatch(toggleModal());
             }}
           >
@@ -86,7 +94,8 @@ export default function UserEditModal(): JSX.Element {
               fullWidth
               margin="normal"
               name="avatar"
-              defaultValue={user.avatar ? user.avatar : 'Нету'}
+              type="file"
+              // defaultValue={user.avatar ? user.avatar : 'Нету'}
             />
             <Button type="submit" variant="contained" color="primary" fullWidth>
               Submit

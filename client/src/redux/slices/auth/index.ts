@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { AuthState } from '../../../types/auth';
-import { thunkCheckAuth, thunkLogin, thunkLogout, thunkRefreshToken, thunkSignup, thunkUpdateUser } from './createAsyncThunks';
+import {
+  thunkCheckAuth,
+  thunkLogin,
+  thunkLogout,
+  thunkRefreshToken,
+  thunkSignup,
+  thunkUpdateUser,
+} from './createAsyncThunks';
 
 const initialState: AuthState = {
   accessToken: '',
@@ -44,6 +51,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { toggleModal } = authSlice.actions
+export const { toggleModal } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -10,8 +10,14 @@ export const userInstance = axios.create({
 });
 
 class UserService {
-  static async updateUser(id: UserType['id'], data: SignupFormData): Promise<UserType> {
-    const response = await userInstance.post<UserType>(`/api/users/${id}`, data);
+  static async updateUser(data: SignupFormData): Promise<UserType> {
+    console.log('----------->', data.get('avatar'));
+    
+    const response = await userInstance.post<UserType>(`/api/users/1`, data, {
+      headers: {
+        "Content-Type": 'multipart/form-data'
+      }
+    });
     return response.data;
   }
 }

@@ -4,7 +4,6 @@ import List from '@mui/joy/List';
 import ListDivider from '@mui/joy/ListDivider';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
-import Home from '@mui/icons-material/Home';
 import Person from '@mui/icons-material/Person';
 import { Link } from 'react-router-dom';
 import { thunkLogout } from '../../redux/slices/auth/createAsyncThunks';
