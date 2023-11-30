@@ -12,6 +12,9 @@
   justify-items: center;
   margin: 20px auto;
   margin-top: -30px;
+  padding-bottom: 270px;
+  height: 100%;
+
 }
 .drop-down {
   display: grid;
@@ -37,5 +40,35 @@
     opacity: 1;
   }
 }
+.locationsCard {
+  max-width: 345px;
+  background-color: white;
+  color: black;
+  margin: 15px 0;
+  transition: 'transform 0.3s';
+}
 
+.locationsCard:hover {
+  transform: 'scale(1.1)';
+}
+.css-185gdzj-MuiCardHeader-root {
+  padding: 10px !important;
+}
+.css-1ubwf9v-MuiAvatar-root {
+  background-color: #a07000;
+  width: 60px !important;
+  height: 60px !important;
+  margin-right: 0 !important;
+}
+.css-et1ao3-MuiTypography-root {
+  font-size: 1.2em !important;
+  font-weight: 800 !important;
+}
+
+.css-1rwjz6-MuiCardActions-root {
+  padding: 0 !important;
+}
+.css-18hmmoi-MuiTypography-root {
+  margin: 0 !important;
+}
 /* Add additional styling as needed */

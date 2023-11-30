@@ -41,16 +41,20 @@ function NavbarFixed(): JSX.Element {
         role="menubar"
         className="navbarList flex items-center gap-2 text-sm font-medium font-jakarta text-white"
       >
-        <li color="inherit" role="none" className="p-4-title-fixed">
-        Hello, {auth.user.status === 'authenticated' ? `${auth.user.name} !` : 'Guest!'}
-        </li>
+        {/* <li color="inherit" role="none" className="p-4-title-fixed">
+        Привет, {auth.user.status === 'authenticated' ? `${auth.user.name} !` : 'Guest!'}
+        </li> */}
 
+        <Link to="/">
+          <li color="inherit" className="p-4 hover:opacity-50" role="menuitem">
+            Главная
+          </li>
+        </Link>
         <Link to="/locations">
           <li color="inherit" className="p-4 hover:opacity-50" role="menuitem">
             Локации
           </li>
         </Link>
-
         <Link to="/themepage">
           {' '}
           <li color="inherit" className="p-4 hover:opacity-50" role="menuitem">

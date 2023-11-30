@@ -2,6 +2,7 @@ export type UserType = {
   id: number;
   name: string;
   email: string;
+  avatar: string;
 };
 
 export type BackendAuth = { user: UserType; accessToken: string };

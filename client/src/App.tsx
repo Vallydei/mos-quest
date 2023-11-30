@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '@fontsource/inter';
 import { Route, Routes } from 'react-router-dom';
-import { Box, Container, CssBaseline } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import LoginPage from './components/pages/LoginPage';
 import SignupPage from './components/pages/SignupPage';
 import QuestPage from './components/pages/QuestPage';

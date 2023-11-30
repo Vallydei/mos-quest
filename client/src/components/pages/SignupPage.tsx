@@ -44,6 +44,7 @@ export default function SignupPage(): JSX.Element {
           name="name"
           value={inputValue.name}
           className="textField"
+          color='secondary'
         />
         <TextField
           onChange={changeHandler}
@@ -55,6 +56,7 @@ export default function SignupPage(): JSX.Element {
           name="email"
           value={inputValue.email}
           className="textField"
+          color='secondary'
         />
         <TextField
           onChange={changeHandler}
@@ -67,6 +69,7 @@ export default function SignupPage(): JSX.Element {
           type="password"
           value={inputValue.password}
           className="textField"
+          color='secondary'
         />
         <TextField
           onChange={changeHandler}
@@ -78,6 +81,7 @@ export default function SignupPage(): JSX.Element {
           name="password"
           type="password"
           className="textField"
+          color='secondary'
         />
 
         <Button

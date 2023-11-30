@@ -35,6 +35,7 @@ export default function LoginPage(): JSX.Element {
             placeholder="E-mail"
             error={false && 'Invalid email address or password'}
             name="email"
+            color='secondary'
           />
           <TextField
             required
@@ -45,6 +46,7 @@ export default function LoginPage(): JSX.Element {
             error={false && 'Invalid email address or password'}
             name="password"
             type="password"
+            color='secondary'
           />
           <TextField
             required
@@ -55,6 +57,7 @@ export default function LoginPage(): JSX.Element {
             error={false && 'Invalid email address or password'}
             name="password"
             type="password"
+            color='secondary'
           />
           <Button className="buttonReg" type="submit" variant="contained" size="large">
             Login
