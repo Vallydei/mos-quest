@@ -38,11 +38,7 @@
   width: 270px;
   height: 235px;
 }
-/* .achieveContainer {
-  filter: grayscale(0);
-  transition: 1s;
 
-} */
 .achieveContainer:hover {
   filter: grayscale(0);
 
