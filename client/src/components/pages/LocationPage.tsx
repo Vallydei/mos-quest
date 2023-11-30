@@ -50,35 +50,33 @@ export default function LocationPage(): JSX.Element {
             '& > div': { flex: 1 },
           }}
         > */}
-          <div className='descriptionSheet'>
-            <Typography fontWeight="lg">{location?.description}</Typography>
-          </div>
+        <div className="descriptionSheet">
+          <Typography fontWeight="lg">{location?.description}</Typography>
+        </div>
         {/* </Sheet> */}
-        <button className="OnePlaceChallengeBtn">OnePlaceChallenge</button>
+        {/* <button className="OnePlaceChallengeBtn">OnePlaceChallenge</button> */}
       </div>
 
       <div className="cardContent mapCont">
         <GoogleMaps map={location?.map} />
       </div>
       <div className="cardContent commentsField" style={{ color: 'white' }}>
-        <h3 className='commentsTitle'>Комментарии</h3>
-       
+        <h3 className="commentsTitle">Комментарии</h3>
+
         {commentsLocations.map((comment) => (
           <CommentCard key={comment.id} comment={comment} />
         ))}
 
         <form onSubmit={(e) => submitHandler(e)} noValidate className="inputComments">
-          <TextField
-            size="medium"
-            rows="5"
+          <textarea
             id="outlined-required"
-            label="Оставьте комментарий"
+            placeholder="Оставьте комментарий"
             className="commentTextArea"
             name="text"
           />
-          <Button type="submit" variant="outlined" color="neutral">
+          <button className="buttonReg locationBtn" type="submit" >
             Отправить
-          </Button>
+          </button>
         </form>
       </div>
     </div>

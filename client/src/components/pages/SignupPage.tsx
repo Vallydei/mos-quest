@@ -30,6 +30,7 @@ export default function SignupPage(): JSX.Element {
           error={false && 'Invalid email address or password'}
           name="name"
           className="textField"
+          color='secondary'
         />
         <TextField
           required
@@ -38,6 +39,7 @@ export default function SignupPage(): JSX.Element {
           error={false && 'Invalid email address or password'}
           name="email"
           className="textField"
+          color='secondary'
         />
         <TextField
           required
@@ -47,6 +49,7 @@ export default function SignupPage(): JSX.Element {
           name="password"
           type="password"
           className="textField"
+          color='secondary'
         />
         <TextField
           required
@@ -56,6 +59,7 @@ export default function SignupPage(): JSX.Element {
           name="password"
           type="password"
           className="textField"
+          color='secondary'
         />
 
         <Button

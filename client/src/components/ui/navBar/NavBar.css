@@ -15,11 +15,13 @@
 }
 .p-3 {
   border-radius: 40px;
+  
 }
 
 .p-3:hover, .p-3:active {
   background-color: rebeccapurple;
   color: white;
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
 }
 
 .p-4 {
@@ -28,6 +30,12 @@
 
 .logoutLoginButton {
   font-size: 1.3rem !important;
+  
+}
+
+.logoutLoginButton:hover {
+
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
 }
 
 .fixedNavbar {

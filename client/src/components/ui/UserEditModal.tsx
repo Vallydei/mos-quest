@@ -53,7 +53,6 @@ export default function UserEditModal(): JSX.Element {
               formData.append('email', e.currentTarget.email.value);
               formData.append('avatar', e.currentTarget.avatar.files[0]);
               console.log(e.currentTarget.name.value);
-              
 
               // dispatch(thunkUpdateUser({ id: user.id, data: formData }));
               dispatch(thunkUpdateUser(formData));
@@ -89,7 +88,6 @@ export default function UserEditModal(): JSX.Element {
             />
             <TextField
               id="avatar"
-              label="Аватар"
               variant="outlined"
               fullWidth
               margin="normal"
@@ -97,7 +95,7 @@ export default function UserEditModal(): JSX.Element {
               type="file"
               // defaultValue={user.avatar ? user.avatar : 'Нету'}
             />
-            <Button type="submit" variant="contained" color="primary" fullWidth>
+            <Button type="submit" className='buttonReg editProfileBtn' style={{backgroundColor: 'rebeccapurple !important' }}variant="contained" color="primary" fullWidth>
               Submit
             </Button>
           </form>
