@@ -34,6 +34,14 @@ export const thunkUpdateUser = createAsyncThunk(
   // async ({id, data}:{id: UserType['id'], data: SignupFormData}) => UserService.updateUser(id, data),
 );
 
-export const thunkConfirm = createAsyncThunk('authSlice/thunkConfirm', async (formData) =>
-  AuthService.confirm(formData),
+export const thunkConfirm = createAsyncThunk('authSlice/thunkConfirm', async (formData, thunkAPI) =>
+  {
+    try {
+      const response = await AuthService.confirm(formData);
+      return response.data; // Предположим, что данные успешно получены
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+      // Передаем сообщение об ошибке в случае ошибочного ответа от сервера
+    }
+  }
 );

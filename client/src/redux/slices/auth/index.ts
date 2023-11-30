@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { AuthState } from '../../../types/auth';
 import {
   thunkCheckAuth,
+  thunkConfirm,
   thunkLogin,
   thunkLogout,
   thunkRefreshToken,
@@ -15,7 +16,7 @@ const initialState: AuthState = {
     status: 'pending',
   },
   addUserModalIsOpen: false,
- 
+  errorMessage: null
 };
 
 export const authSlice = createSlice({
@@ -24,6 +25,9 @@ export const authSlice = createSlice({
   reducers: {
     toggleModal: (state) => {
       state.addUserModalIsOpen = !state.addUserModalIsOpen;
+    },
+    toggleError: (state) => {
+      state.errorMessage = null;
     },
   },
   extraReducers(builder) {
@@ -47,6 +51,10 @@ export const authSlice = createSlice({
       state.accessToken = action.payload.accessToken;
       state.user = { ...action.payload.user, status: 'authenticated' };
     });
+    builder.addCase(thunkConfirm.rejected, (state, action) => {
+      console.log('бульдер', action.payload);
+      state.errorMessage = action.payload
+    });
     builder.addCase(thunkLogout.fulfilled, (state) => {
       state.user.status = 'guest';
     });
@@ -56,6 +64,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { toggleModal } = authSlice.actions;
+export const { toggleModal, toggleError } = authSlice.actions;
 
 export default authSlice.reducer;
