@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, TextField, Grow } from '@mui/material';
 import { useAppDispatch } from '../../redux/hooks';
 import { thunkLogin } from '../../redux/slices/auth/createAsyncThunks';
@@ -13,6 +13,21 @@ export default function LoginPage(): JSX.Element {
   React.useEffect(() => {
     setCardVisible(true);
   }, []);
+
+  const [inputValue, setInputValue] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    confirmCode: '',
+  });
+
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setInputValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const isInvalid = inputValue.password === inputValue.confirmPassword ? false : true;
+
+  const isInvalidEmail = !/^\S+@\S+\.\S+$/.test(inputValue.email);
 
   return (
     <div className="formContainer">
@@ -31,32 +46,38 @@ export default function LoginPage(): JSX.Element {
             className="textField"
             required
             label="E-mail"
-            color='secondary'
+            color="secondary"
             placeholder="E-mail"
-            error={false && 'Invalid email address or password'}
+            error={isInvalidEmail && 'Invalid email address'}
             name="email"
+            onChange={changeHandler}
+            value={inputValue.email}
           />
           <TextField
             required
             className="textField"
             label="Пароль"
-            color='secondary'
+            color="secondary"
             placeholder="Password"
-            error={false && 'Invalid email address or password'}
+            error={isInvalid && 'Invalid email address or password'}
             name="password"
             type="password"
+            onChange={changeHandler}
+            value={inputValue.password}
           />
           <TextField
             required
-            color='secondary'
+            color="secondary"
             className="textField"
             label="Повторите пароль"
             placeholder="Password"
-            error={false && 'Invalid email address or password'}
-            name="password"
+            error={isInvalid && 'Invalid email address or password'}
+            name="confirmPassword"
             type="password"
+            onChange={changeHandler}
+            value={inputValue.confirmPassword}
           />
-          <Button className="buttonReg" type="submit" variant="contained" size="large">
+          <Button className="buttonReg" type="submit" variant="contained" size="large" disabled={isInvalid || isInvalidEmail}>
             Login
           </Button>
         </form>

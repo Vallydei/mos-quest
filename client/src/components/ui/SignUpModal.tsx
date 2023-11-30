@@ -21,7 +21,7 @@ const style = {
   p: 4,
 };
 
-export default function SingupModal({changeHandler, inputValue, show }) {
+export default function SingupModal({changeHandler, inputValue, show, setShow }) {
  
 
   const dispatch = useAppDispatch();
@@ -32,6 +32,7 @@ export default function SingupModal({changeHandler, inputValue, show }) {
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={show}
+        onClose={() => setShow(false)}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{

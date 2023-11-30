@@ -16,6 +16,7 @@ export type AuthState = {
   user: UserState;
   accessToken: string;
   addUserModalIsOpen: boolean;
+  errorMessage: null | string;
 };
 
 export type LoginFormData = {
