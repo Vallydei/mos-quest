@@ -8,8 +8,9 @@
   overflow: hidden;
   border-radius: 20px;
   margin: 17px;
+
   padding-top: 10px;
-  background:  rgb(5, 32, 112); ;  /* темно-синий цвет */
+  background: rgb(5, 32, 112); /* темно-синий цвет */
   box-shadow:
     inset rgba(0, 0, 0, 0.5) -3px -3px 8px,
     inset rgba(255, 255, 255, 0.9) 3px 3px 8px,
@@ -20,9 +21,8 @@
   content: '';
   position: absolute;
   inset: 8px;
-  background-color:   rgb(5, 32, 112); ;
+  background-color: rgb(5, 32, 112);
   border-radius: inherit;
- 
 }
 
 .getedAchiev h2 {
@@ -32,7 +32,6 @@
   text-transform: uppercase;
   text-align: center;
   z-index: 2;
-
 }
 
 .getedAchiev img {
@@ -49,7 +48,12 @@
   animation: rotate 3s linear infinite;
 }
 
+.text {
+  color: rgb(254, 254, 254);
+  font-weight: 800;
+  font-size: 20px;
 
+}
 
 @keyframes rotate {
   to {

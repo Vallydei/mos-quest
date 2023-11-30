@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tooltip from '@mui/material/Tooltip';
 
 import { styled } from '@mui/material/styles';
@@ -24,15 +24,17 @@ export default function AchieveCard({ achieve, getedAchievs }: AchieveCardProps)
   `;/////////// */
 
   return (
-    <div className={`${getedAchievs.includes(achieve.id) ? 'getedAchiev' : 'achieveContainer'}`}>
-      <CustomWidthTooltip title={achieve.longText}>
-        <p>{achieve.description}</p>
-      </CustomWidthTooltip>
-      <img
-        className={`achieveImg ${getedAchievs.includes(achieve.id) ? 'achieveImg' : 'disabledImg'}`}
-        src={achieve.img}
-        alt="достижение"
-      />
-    </div>
+    <CustomWidthTooltip className='windowAchieve' title={achieve.longText}>
+      <div className={`${getedAchievs.includes(achieve.id) ? 'getedAchiev' : 'achieveContainer'}`}>
+        <img
+          className={`achieveImg ${
+            getedAchievs.includes(achieve.id) ? 'achieveImg' : 'disabledImg'
+          }`}
+          src={achieve.img}
+          alt="достижение"
+        />
+        <p className='text'>{achieve.description}</p>
+      </div>
+    </CustomWidthTooltip>
   );
 }

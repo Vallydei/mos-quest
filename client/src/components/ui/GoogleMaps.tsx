@@ -1,7 +1,7 @@
 import React from 'react';
 
 type GoogleMapsProps = {
-  map: string;
+  map: string | undefined,
 };
 
 function GoogleMaps({ map }: GoogleMapsProps): JSX.Element {

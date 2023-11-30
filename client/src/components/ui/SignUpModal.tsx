@@ -42,9 +42,10 @@ export default function SingupModal({changeHandler, inputValue, show, setShow })
         }}
       >
         <Fade in={show}>
-          <Box sx={style}>
+          <Box style={{borderRadius: '20px'}} sx={style}>
+            <div className='modalBox'>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              Text in a modal
+              Вам на почту был отправден код
             </Typography>
             <form onSubmit={(e)=>{
           e.preventDefault();
@@ -53,14 +54,14 @@ export default function SingupModal({changeHandler, inputValue, show, setShow })
           <TextField
             onChange={changeHandler}
             required
-            label="Повторите пароль"
-            placeholder="Пароль"
+            // label="Повторите пароль"
+            placeholder="Введите код из почты"
             color="secondary"
             error={false && 'Invalid confirmCode'}
             name="confirmCode"
             type="number"
             value={inputValue.confirmCode}
-            className="textField"
+            className="modalTextField"
           />
 
           <Button
@@ -68,11 +69,12 @@ export default function SingupModal({changeHandler, inputValue, show, setShow })
             variant="contained"
             size="large"
             color="secondary"
-            className="buttonReg"
+            className="buttonReg submitBtn"
           >
-            Submit
+            Отправить
           </Button>
         </form>
+        </div>
           </Box>
         </Fade>
       </Modal>

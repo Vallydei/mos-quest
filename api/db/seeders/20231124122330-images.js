@@ -33,23 +33,43 @@ module.exports = {
 
         {
           locationId: 2,
+          locationImg: "/images/ShrodingersCat/shrodinger1.avif",
+        },
+        {
+          locationId: 2,
           locationImg: "/images/ShrodingersCat/shrodinger2.jpg",
         },
         {
           locationId: 2,
           locationImg: "/images/ShrodingersCat/shrodinger3.jpg",
         },
-       
         {
           locationId: 2,
+          locationImg: "/images/ShrodingersCat/shrodinger4.jpg",
+        },
+        {
+          locationId: 2,
+          locationImg: "/images/ShrodingersCat/shrodinger5.jpg",
+        },
+       
+        {
+          locationId: 3,
           locationImg: "/images/NeonMonkey/neon-monkey_slide_3.png",
         },
         {
-          locationId: 2,
+          locationId: 3,
           locationImg: "/images/NeonMonkey/neon-monkey_slide_4.png",
         },
         {
-          locationId: 2,
+          locationId: 3,
+          locationImg: "/images/NeonMonkey/neon-monkey_slide_1.png",
+        },
+        {
+          locationId: 3,
+          locationImg: "/images/NeonMonkey/neon-monkey_slide_2.png",
+        },
+        {
+          locationId: 3,
           locationImg: "/images/NeonMonkey/neon-monkey_slide_5.png",
         },
         {

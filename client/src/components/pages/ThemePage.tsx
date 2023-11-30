@@ -7,7 +7,7 @@ import './css/AnimatedModal.scss';
 import { Link } from 'react-router-dom';
 import Modal from '../ui/AnimateModal';
 
-const AnimatedListItemButton = styled(ListItemButton)(({ theme }) => ({
+const AnimatedListItemButton = styled(ListItemButton)(() => ({
   width: '100%',
   height: 200,
   borderRadius: 10,
