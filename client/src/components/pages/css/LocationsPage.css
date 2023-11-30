@@ -12,6 +12,9 @@
   justify-items: center;
   margin: 20px auto;
   margin-top: -30px;
+  padding-bottom: 270px;
+  height: 100%;
+
 }
 .drop-down {
   display: grid;

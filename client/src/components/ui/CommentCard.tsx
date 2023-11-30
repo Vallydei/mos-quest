@@ -156,18 +156,17 @@ export default function CommentCard({ comment }: CommentCardProps): JSX.Element 
               noValidate
               className="inputComments"
             >
-              <TextField
-                size="medium"
-                rows="5"
+              <textarea            
+               
                 id="outlined-required"
-                label="Редактировать комментарий"
-                className="commentTextArea"
+                placeholder="Редактировать комментарий"
+                className="commentTextArea editTextArea"
                 name="text"
                 defaultValue={comment.text}
               />
-              <Button type="submit" variant="outlined">
-                сoхранить
-              </Button>
+              <button type="submit" className='buttonReg locationBtn editBtn'>
+                Сoхранить
+              </button>
             </form>
           </div>
         </div>

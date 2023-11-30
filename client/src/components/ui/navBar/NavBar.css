@@ -21,11 +21,15 @@
 .p-3:hover, .p-3:active {
   background-color: rebeccapurple;
   color: white;
-  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778);
+  box-shadow: 0 0 20px rgba(171, 167, 171, 0.778),
+  
 }
 
 .p-4 {
-  font-size: 1.1rem;
+  font-size: 1.23rem;
+  color: black;
+  font-weight: 600;
+  text-shadow: 0 0 20px white, 5px 5px 20px white, 10px 0px 20px white;
 }
 
 .logoutLoginButton {
@@ -40,16 +44,21 @@
 
 .fixedNavbar {
   width: 60%;
+    color: black;
   
 }
 .navLinks {
   width: 100%;
   justify-content: space-evenly;
+
 }
 .navbarList {
   justify-content: space-around;
+
 }
 
 .p-4-title-fixed {
   font-size: 1.5rem;
+  color: black;
+  text-shadow: 0 0 20px white, 5px 5px 20px white, 10px 0px 20px white;
 }

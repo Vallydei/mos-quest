@@ -30,7 +30,7 @@ function NavbarDefault(): JSX.Element {
         role="menubar"
       >
         <li color="inherit" role="none" className="p-4title">
-          Hello, {auth.user.status === 'authenticated' ? `${auth.user.name} !` : 'Guest!'}
+          Привет, {auth.user.status === 'authenticated' ? `${auth.user.name} !` : 'Guest!'}
         </li>
 
         <Link to="/locations">
