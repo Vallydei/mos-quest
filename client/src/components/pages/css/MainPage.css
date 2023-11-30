@@ -32,7 +32,7 @@
   min-width: 89px;
 
   background: var(--optionBackground, var(--defaultBackground, #e6e9ed));
-  background-size: auto 180%;
+  background-size: auto 120%;
   background-position: center;
   cursor: pointer;
   transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
@@ -42,7 +42,7 @@
   background-color: #ed5565;
 }
 .img1 {
-  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_01.jpg');
+  --optionBackground: url('/images/ShrodingersCat/shrodinger3.jpg');
 }
 .option:nth-child(2),
 .img2 {
@@ -50,7 +50,7 @@
 }
 
 .img2 {
-  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_02.jpg');
+  --optionBackground: url('/images/ArtPlay/105.png');
 }
 
 .option:nth-child(3) {
@@ -58,30 +58,29 @@
 }
 
 .img3 {
-  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_03.jpg');
+  --optionBackground: url('https://static.dailymoscow.ru/storage/uploads/ufa/2016/03/BikxHKIqNv4-1.jpg');
 }
 
 .option:nth-child(4) {
   --defaultBackground: #2ecc71;
 }
 .img4 {
-  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_04.jpg');
+  --optionBackground: url('/images/MyGranMa/moya-pyanaya-babushka-letit-v-singapur_slide_1.png');
 }
 .option:nth-child(5) {
   --defaultBackground: #5d9cec;
 }
 
 .img5 {
-  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_05.jpg');
+  --optionBackground: url('/images/ComicCon/2.png');
 }
-.option:nth-child(6) {
+/* .option:nth-child(6) {
   --defaultBackground: #ac92ec;
-}
+} */
 
-.img6 {
-  --optionBackground: url('https://raw.githubusercontent.com/Programith/Images/main/background_06.jpg');
-}
-
+/* .img6 {
+  --optionBackground: url("/public/images/CulturaQ/musey-surrealizm_8.png");
+} */
 
 .option.active .label {
   bottom: 20px;
@@ -176,10 +175,7 @@
   background-size: auto 100%;
   opacity: 1;
   animation: fadeInOption 0.5s ease-in-out;
-
 }
-
-
 
 .option:not(.active) {
   flex-grow: 1;
