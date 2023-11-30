@@ -18,7 +18,7 @@ export default function ThemePage(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className='themeCont'>
       <List className="themeContainer" component="nav" aria-label="mailbox folders">
         <h1 className="headerTheme">Тематический гид</h1>
         <Grow in timeout={1000}>

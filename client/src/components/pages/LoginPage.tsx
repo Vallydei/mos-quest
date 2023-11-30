@@ -31,6 +31,7 @@ export default function LoginPage(): JSX.Element {
             className="textField"
             required
             label="E-mail"
+            color='secondary'
             placeholder="E-mail"
             error={false && 'Invalid email address or password'}
             name="email"
@@ -40,6 +41,7 @@ export default function LoginPage(): JSX.Element {
             required
             className="textField"
             label="Пароль"
+            color='secondary'
             placeholder="Password"
             error={false && 'Invalid email address or password'}
             name="password"
@@ -48,6 +50,7 @@ export default function LoginPage(): JSX.Element {
           />
           <TextField
             required
+            color='secondary'
             className="textField"
             label="Повторите пароль"
             placeholder="Password"

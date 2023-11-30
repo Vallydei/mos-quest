@@ -22,9 +22,11 @@ module.exports = (sequelize, DataTypes) => {
   Location.init(
     {
       title: DataTypes.STRING,
+      shortDescription: DataTypes.TEXT,
       description: DataTypes.TEXT,
       adress: DataTypes.STRING,
-      map: DataTypes.STRING,
+      map: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
     {
       sequelize,

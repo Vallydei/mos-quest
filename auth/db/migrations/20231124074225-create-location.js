@@ -11,6 +11,9 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
+      shortDescription: {
+        type: Sequelize.TEXT,
+      },
       description: {
         type: Sequelize.TEXT,
       },
@@ -18,7 +21,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       map: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
+      },
+      type: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

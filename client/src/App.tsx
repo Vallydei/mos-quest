@@ -20,7 +20,6 @@ import { thunkCheckAuth } from './redux/slices/auth/createAsyncThunks';
 import AccPage from './components/pages/AccPage';
 import { thunkGetUserAchiv, thunkGetAchieves } from './redux/slices/achievesAsyncThunk';
 import useAxiosInterceptors from './components/customHook/useAxiosInterceptors';
-
 import { locationInstance } from './services/locationService';
 import { achieveInstance } from './services/achieveService';
 import { questInstance } from './services/questService';
@@ -78,8 +77,12 @@ function App(): JSX.Element {
           <Route path="/locations" element={<LocationsPage />} />
           <Route path="/themepage" element={<ThemePage />} />
           <Route path="/location/:id" element={<LocationPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route
+            element={<PrivateRouter isAllowed={user.status !== 'authenticated'} redirectPath="/" />}
+          >
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+          </Route>
           <Route element={<PrivateRouter isAllowed={user.status !== 'guest'} />}>
             <Route path="/quest/:questId" element={<QuestPage />} />
             <Route path="/account" element={<AccPage />} />

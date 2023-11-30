@@ -9,6 +9,7 @@ export type LocationType = {
   map: string;
   Images: ImageType[];
   Comment: CommentType[];
+  type: number;
 } | null;
 
 export type ImageType = {

@@ -1,11 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import type {
-  
-
-  CommentType,
-  LocationType,
-} from '../../../types/locationType/locationType';
+import type { CommentType, LocationType } from '../../../types/locationType/locationType';
 import {
   thunkDeleteCommentOfLocation,
   thunkEditCommentOfLocation,
@@ -15,6 +10,7 @@ import {
 } from './locationAsyncThunks';
 
 const initialState: {
+  selectedLocations: LocationType[];
   locations: LocationType[];
   location: LocationType | null;
   comments: CommentType[];
@@ -22,6 +18,7 @@ const initialState: {
   locations: [],
   location: null,
   comments: [],
+  selectedLocations: [],
 };
 
 export const locationsSlice = createSlice({
@@ -32,6 +29,15 @@ export const locationsSlice = createSlice({
       const location = state.locations.find((el) => el!.id === action.payload);
       if (location) {
         state.location = location;
+      }
+    },
+    setSelectedLocations: (state, action: PayloadAction<number>) => {
+      const targetLocations = state.locations.filter((el) => el!.type === action.payload);
+
+      if (action.payload === 4) {
+        state.selectedLocations = state.locations;
+      } else {
+        state.selectedLocations = targetLocations;
       }
     },
   },
@@ -52,14 +58,14 @@ export const locationsSlice = createSlice({
     });
     builder.addCase(thunkDeleteCommentOfLocation.fulfilled, (state, action) => {
       if (state.comments)
-      state.comments = state.comments.filter((comment) => comment.id !== action.payload);
+        state.comments = state.comments.filter((comment) => comment.id !== action.payload);
       else return state;
     });
   },
 });
 
 export default locationsSlice.reducer;
-export const { getSelectedLocation } = locationsSlice.actions;
+export const { getSelectedLocation, setSelectedLocations } = locationsSlice.actions;
 
 // builder.addCase(deletePostThunk.fulfilled, (state, action) =>
 //   state.filter((el) => el.id !== action.payload),
