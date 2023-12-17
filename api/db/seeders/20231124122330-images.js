@@ -448,23 +448,23 @@ module.exports = {
         },
         {
           locationId: 18,
-          locationImg: "client/public/images/uebar/IMG-133.jpg",
+          locationImg: "/images/uebar/IMG-133.jpg",
         },
         {
           locationId: 18,
-          locationImg: "client/public/images/uebar/IMG-117.jpg",
+          locationImg: "/images/uebar/IMG-117.jpg",
         },
         {
           locationId: 18,
-          locationImg: "client/public/images/uebar/IMG-109.jpg.jpg",
+          locationImg: "/images/uebar/IMG-109.jpg.jpg",
         },
         {
           locationId: 18,
-          locationImg: "client/public/images/uebar/IMG-190.jpg",
+          locationImg: "/images/uebar/IMG-190.jpg",
         },
         {
           locationId: 18,
-          locationImg: "client/public/images/uebar/IMG-150.jpg",
+          locationImg: "/images/uebar/IMG-150.jpg",
         },
       ],
       {}

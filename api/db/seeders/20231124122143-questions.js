@@ -1,6 +1,6 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface, ) {
     await queryInterface.bulkInsert(
       "Questions",
       [
@@ -19,28 +19,20 @@ module.exports = {
           locationId: 2,
         },
         {
-          title: "Еще один типа вопрос?",
-          question: "Ответ 3",
-          answer: "3",
+          title: "Девочка с сюрпризом",
+          question: "Как называется фирменный шот бара Neon Monkey, это же является изюменкой Таиланда? ",
+          answer: "леди бой",
           questId: 1,
-          locationId: 1,
+          locationId: 3,
         },
         {
-          title: "Еще один О_О?",
-          question: "Ответ 1",
-          answer: "4",
+          title: "Будущее здесь",
+          question: "Какой цвет KOSMOХОМЯКА? ",
+          answer: "фиолетовый",
           questId: 1,
-          locationId: 1,
+          locationId: 4,
         },
-        {
-          title: "ПАМАГИТИ!",
-          question: "Ответ 1",
-          answer: "5",
-          questId: 1,
-          locationId: 1,
-        },
-
-      
+           
         {
           title: "Гик Ивенты?",
           question:
@@ -142,7 +134,7 @@ module.exports = {
             "Доброжелательное место",
           question: "Если Вас послали в УЕ!баре, то вам подсказали дорогу туда. КУДА?",
           answer: "уборная",
-          questId: 3,
+          questId: 1,
           locationId: 18,
         },
       ],
@@ -150,7 +142,7 @@ module.exports = {
     );
   },
 
-  async down(queryInterface, Sequelize) {
+  async down() {
     /**
      * Add commands to revert seed here.
      *
