@@ -1,55 +1,61 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface, ) {
     await queryInterface.bulkInsert(
       "Achieves",
       [
         {
-          description: "who you gonna call",
+          description: '"Бронзовая медаль".',
           img: "/images/fichi/achieve1-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут Dfcz?",
+          longText:
+            "Бронзовая медаль за выполнение некоторого количества заданий.",
         },
         {
-          description: "who you gonna call",
+          description: '"Серебряная медаль".',
           img: "/images/fichi/achieve2-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут dfb?",
+          longText:
+            "Серебряная медаль за выполнение большого количества заданий.",
         },
         {
-          description: "who you gonna call",
+          description: '"Золотая медаль".',
           img: "/images/fichi/achieve3-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут ghnghn?",
+          longText: "Золотая медаль за успешное выполнение всех заданий.",
         },
         {
-          description: "Peace, door, boll",
+          description: '"Peace, Door, Ball".',
           img: "/images/fichi/achieve4-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут 4?",
+          longText:
+            "За Мир, Дверь, Мяч!",
         },
         {
-          description: "Стииииилъ",
+          description: '"Командный игрок".',
           img: "/images/fichi/achieve5-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут 5?",
+          longText:
+            "Знак отличия 'Командный игрок' за успешное прохождение заданий в команде.",
         },
         {
-          description: "Стииииилъ",
+          description: '"Эксперт".',
           img: "/images/fichi/achieve6-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут 6?",
+          longText: "Знак отличия 'Эксперт' за прохождение сложных заданий.",
         },
         {
-          description: "Стииииилъ",
+          description: '"Творческий размышляющий".',
           img: "/images/fichi/achieve7-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут 7?",
+          longText:
+            "Знак отличия 'Творческий размышляющий' за оригинальные решения заданий.",
         },
         {
-          description: "Стииииилъ",
+          description: '"Стремительный".',
           img: "/images/fichi/achieve8-PhotoRoom.png-PhotoRoom.png",
-          longText: "Как вас зовут 8?",
+          longText:
+            "Знак отличия 'Стремительный' за быстрое и эйффективное прохождение заданий.",
         },
       ],
       {}
     );
   },
 
-  async down(queryInterface, Sequelize) {
+  async down() {
     /**
      * Add commands to revert seed here.
      *
