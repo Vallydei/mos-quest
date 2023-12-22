@@ -1,3 +1,5 @@
+import { LocationType } from "../locationType/locationType";
+
 export type QuestType = {
   id: number;
   title: string;
@@ -12,4 +14,5 @@ export type QuestionType = {
   answer: string;
   questId: number;
   locationId: number;
-};
+  Location: LocationType
+  };

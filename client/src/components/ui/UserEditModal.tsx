@@ -4,12 +4,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch } from 'react-redux';
-import { ThemeProvider } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { useAppSelector } from '../../redux/hooks';
 import { toggleModal } from '../../redux/slices/auth';
 import { thunkUpdateUser } from '../../redux/slices/auth/createAsyncThunks';
-import type { SignupFormData } from '../../types/auth';
 
 const style = {
   position: 'absolute' as const,
@@ -95,7 +93,14 @@ export default function UserEditModal(): JSX.Element {
               type="file"
               // defaultValue={user.avatar ? user.avatar : 'Нету'}
             />
-            <Button type="submit" className='buttonReg editProfileBtn' style={{backgroundColor: 'rebeccapurple !important' }}variant="contained" color="primary" fullWidth>
+            <Button
+              type="submit"
+              className="buttonReg editProfileBtn"
+              style={{ backgroundColor: 'rebeccapurple !important' }}
+              variant="contained"
+              color="primary"
+              fullWidth
+            >
               Submit
             </Button>
           </form>
