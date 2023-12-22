@@ -36,7 +36,7 @@ type LocationsCardrops = {
   location: LocationType;
 };
 
-export default function LocationsCard({ location }: LocationsCardrops): JSX.Element {
+export default function LocationsCard({ location }: LocationsCardrops ): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = (): void => {

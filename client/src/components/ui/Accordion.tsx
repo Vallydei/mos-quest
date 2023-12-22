@@ -22,6 +22,12 @@ type ControlledAccordionsProps = {
   quest: QuestType;
 };
 
+type UpdatedDisabledStateType = {
+  [key: string]: boolean;
+};
+
+
+
 export default function ControlledAccordions({ quest }: ControlledAccordionsProps): JSX.Element {
   const prog = useAppSelector((store) => store.questsSlice.currentUserProgress);
   const user = useAppSelector((state) => state.authSlice.user);
@@ -79,7 +85,7 @@ export default function ControlledAccordions({ quest }: ControlledAccordionsProp
 
   const [currentStep, setCurrentStep] = React.useState(1);
   React.useEffect(() => {
-    const updatedDisabledState = {};
+    const updatedDisabledState : UpdatedDisabledStateType = {};
     for (let i = 1; i <= quest.Questions.length; i++) {
       if (i <= count) {
         updatedDisabledState[`acc${i}`] = false;

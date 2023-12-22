@@ -1,6 +1,5 @@
 import React from 'react';
 import Tooltip from '@mui/material/Tooltip';
-
 import { styled } from '@mui/material/styles';
 import type { AchieveType } from '../../types/locationType/achievesType';
 import '../pages/css/test.css';
